@@ -184,7 +184,7 @@ abstract class BaseActivity : AppCompatActivity() {
         return adapter
     }
 
-
+    //Fragment替换(隐藏当前的,显示现在的,用过的将不会重新destory与create)
     protected fun smartReplaceFragment(@IdRes flId: Int, toFragment: Fragment, @Nullable tag: String = toFragment.javaClass.simpleName) {
         val manager = supportFragmentManager
         val transaction = manager.beginTransaction()

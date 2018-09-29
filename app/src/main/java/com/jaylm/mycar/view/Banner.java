@@ -240,10 +240,10 @@ public class Banner extends Gallery implements
     public boolean onTouch(View v, MotionEvent event) {
         if (MotionEvent.ACTION_UP == event.getAction()
                 || MotionEvent.ACTION_CANCEL == event.getAction()) {
-            /** 开始自动滚动任务*/
+            /* 开始自动滚动任务*/
             startTimer();
         } else {
-            /** 停止自动滚动任务*/
+            /* 停止自动滚动任务*/
             stopTimer();
         }
         return false;
@@ -257,7 +257,7 @@ public class Banner extends Gallery implements
                                long arg3) {
         curIndex = position % listImgs.size();
         if (llt_dot != null && listImgs.size() > 1) {
-            /** 切换圆点*/
+            /* 切换圆点*/
             llt_dot.getChildAt(oldIndex).setBackgroundResource(mNormalId);
             llt_dot.getChildAt(curIndex).setBackgroundResource(mFocusedId);
             oldIndex = curIndex;

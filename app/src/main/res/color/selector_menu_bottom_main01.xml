@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--主界面 底部导航栏 字体颜色-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@android:color/holo_red_light" android:state_selected="true"/>
+    <item android:color="@android:color/black"/>
+</selector>

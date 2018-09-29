@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F8F8FF"
+        android:orientation="horizontal">
+        <!-- 首页 -->
+        <RelativeLayout
+            android:id="@+id/layout_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_home"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_action_home"/>
+
+            <TextView
+                android:id="@+id/tv_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_home"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="4dp"
+                android:text="主页"
+                android:textColor="@color/selector_menu_bottom_main01"
+                android:textSize="14sp"/>
+        </RelativeLayout>
+
+        <!-- 发布 -->
+        <RelativeLayout
+            android:id="@+id/layout_two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_two"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_action_home"/>
+
+            <TextView
+                android:id="@+id/tv_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_two"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="4dp"
+                android:text="后退"
+                android:textColor="@color/selector_menu_bottom_main01"
+                android:textSize="14sp"/>
+        </RelativeLayout>
+
+        <!-- 圈子 -->
+        <RelativeLayout
+            android:id="@+id/layout_three"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_three"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_action_home"/>
+
+            <TextView
+                android:id="@+id/tv_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_three"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="4dp"
+                android:text="客服"
+                android:textColor="@color/selector_menu_bottom_main01"
+                android:textSize="14sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_three04"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_three04"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_action_home"/>
+
+            <TextView
+                android:id="@+id/tv_three04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_three04"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="4dp"
+                android:text="反馈"
+                android:textColor="@color/selector_menu_bottom_main01"
+                android:textSize="14sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_three05"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_three05"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_action_home"/>
+
+            <TextView
+                android:id="@+id/tv_three05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_three05"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="4dp"
+                android:text="刷新"
+                android:textColor="@color/selector_menu_bottom_main01"
+                android:textSize="14sp"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

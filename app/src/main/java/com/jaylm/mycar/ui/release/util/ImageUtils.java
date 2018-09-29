@@ -1,6 +1,7 @@
 package com.jaylm.mycar.ui.release.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -11,7 +12,7 @@ import com.bumptech.glide.Glide;
  */
 
 public class ImageUtils {
-    public static void showImage(Activity activity, String url, ImageView ivHome) {
+    public static void showImage(Context activity, String url, ImageView ivHome) {
         try {
              Glide.with(activity)
                     .load(url)

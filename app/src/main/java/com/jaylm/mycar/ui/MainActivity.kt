@@ -1,7 +1,8 @@
-package com.jaylm.mycar
+package com.jaylm.mycar.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.jaylm.mycar.R
 
 class MainActivity : AppCompatActivity() {
 

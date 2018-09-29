@@ -3,4 +3,53 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="c1">#fc5144</color>
+
+    <color name="c2">#fc5144</color>
+
+    <color name="c3">#cccccc</color>
+
+    <color name="c4">#99a1a8</color>
+
+    <color name="c5">#666666</color>
+
+    <color name="c6">#444444</color>
+
+    <color name="c7">#fc5144</color>
+
+    <color name="c8">#56c660</color>
+
+    <color name="c9">#ffc107</color>
+
+    <color name="c10">#ebefee</color>
+
+    <color name="c11">#fff1d5</color>
+
+    <color name="c12">#eefaff</color>
+
+    <color name="c13">#e5ffffff</color>
+
+    <color name="c14">#ffffff</color>
+
+    <color name="c15">#e8e8e8</color>
+
+    <color name="c16">#91abc2</color>
+
+    <color name="c17">#ff8800</color>
+
+    <color name="c18">#fef4f3</color>
+
+    <color name="c19">#f8f8f8</color>
+
+    <color name="c20">#222222</color>
+
+    <color name="c21">#eeeeee</color>
+
+    <color name="c22">#00000000</color>
+
+    <color name="tab_selected">#e0e0e0</color>
+    <color name="tab_unselected">#f0f0f0</color>
+    <color name="snackbar_bg">#e0aaaaaa</color>
+    <color name="full_transparent">#00ffffff</color>
 </resources>

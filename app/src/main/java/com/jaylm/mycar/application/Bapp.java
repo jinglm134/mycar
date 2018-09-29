@@ -1,6 +1,7 @@
 package com.jaylm.mycar.application;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
@@ -19,11 +20,14 @@ import okhttp3.OkHttpClient;
  * Created by jaylm
  * on 2017/12/30.
  */
-public class Bapp extends Application{
+public class Bapp extends Application {
+
+    public static Context INSTANCE;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        INSTANCE = this;
         JPushInterface.init(this);
         initOKGo();
     }
@@ -31,9 +35,9 @@ public class Bapp extends Application{
     private void initOKGo() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("OkGo");
-            //log打印级别，决定了log显示的详细程度
+        //log打印级别，决定了log显示的详细程度
         loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.HEADERS);
-            //log颜色级别，决定了log在控制台显示的颜色
+        //log颜色级别，决定了log在控制台显示的颜色
         loggingInterceptor.setColorLevel(Level.INFO);
         builder.addInterceptor(loggingInterceptor);
         //全局的读取超时时间
@@ -55,4 +59,9 @@ public class Bapp extends Application{
                 .setCacheMode(CacheMode.NO_CACHE)               //全局统一缓存模式，默认不使用缓存，可以不传
                 .setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE).setRetryCount(1);
     }
+
+
+//    public static Context getInstance(){
+//
+//    }
 }

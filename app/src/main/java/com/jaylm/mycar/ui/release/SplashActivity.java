@@ -13,7 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.google.gson.Gson;
-import com.jaylm.mycar.MainActivity;
+import com.jaylm.mycar.ui.MainActivity;
 import com.jaylm.mycar.R;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;

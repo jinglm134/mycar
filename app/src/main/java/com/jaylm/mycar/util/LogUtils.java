@@ -310,4 +310,32 @@ public class LogUtils {
         }).start();
 
     }
+
+    // 使用Log来显示调试信息,因为log在实现上每个message有4k字符长度限制
+    // 所以这里使用自己分节的方式来输出足够长度的message
+    public static void showLargeLog(String tag, String logContent) {
+        int showLength = 3800;
+//        if (logContent.length() > showLength) {
+//            String show = logContent.substring(0, showLength);
+//            i(tag, show);
+//            /*剩余的字符串如果大于规定显示的长度，截取剩余字符串进行递归，否则打印结果*/
+//            if ((logContent.length() - showLength) > showLength) {
+//                String partLog = logContent.substring(showLength, logContent.length());
+//                showLargeLog(tag,partLog);
+//            } else {
+//                String printLog = logContent.substring(showLength, logContent.length());
+//                i(tag, printLog);
+//            }
+//
+//        } else {
+//            i(tag, logContent);
+//        }
+
+        while (logContent.length() > showLength) {
+            i(tag, logContent.substring(0, showLength));
+            logContent = logContent.substring(showLength);
+        }
+        //剩余部分
+        i(tag, logContent);
+    }
 }

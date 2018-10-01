@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
 import android.support.annotation.Nullable
@@ -20,7 +19,6 @@ import android.view.Window
 import android.view.WindowManager
 import com.jaylm.mycar.R
 import com.jaylm.mycar.global.VariableInfo
-import com.jaylm.mycar.view.ProgressDialog
 import java.util.*
 
 /**
@@ -39,14 +37,12 @@ abstract class BaseActivity : AppCompatActivity() {
     /** 用于保存所有已打开的Activity*/
     private val listActivity = Stack<Activity>()
     private var currentFragment: Fragment? = null
-    protected lateinit var mLoading: ProgressDialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivity = this
         TAG = this::class.java.simpleName
-        mLoading = ProgressDialog(mActivity)
 
         //设置是否全屏
         if (VariableInfo.isAllowFullScreen) {
@@ -211,5 +207,9 @@ abstract class BaseActivity : AppCompatActivity() {
         for(i in 0..listActivity.size){
             listActivity[i].finish()
         }
+    }
+
+    fun getTag():String{
+        return TAG
     }
 }

@@ -12,7 +12,5 @@ class MainActivity : BaseActivity() {
 
     override fun initView() {
         super.initView()
-        mLoading.show()
-
     }
 }

@@ -72,7 +72,7 @@ public class SplashActivity extends AppCompatActivity {
                 break;
             case "meizu":
             default:
-                appid = 201808201519001L;
+                appid = 20180820179001L;
 //                appid = 201809291442001L;
                 break;
         }

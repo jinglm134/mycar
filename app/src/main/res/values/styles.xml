@@ -64,4 +64,5 @@
     </declare-styleable>
 
     <style name="AppTheme" parent="AppBaseTheme" />
+
 </resources>

@@ -20,6 +20,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.jaylm.mycar.R
 import com.jaylm.mycar.global.VariableInfo
+import com.jaylm.mycar.view.ProgressDialog
 import java.util.*
 
 /**
@@ -30,19 +31,22 @@ import java.util.*
 abstract class BaseActivity : AppCompatActivity() {
 
     /*当前类名标签*/
-    private lateinit var TAG: String
+    protected lateinit var TAG: String
     /*当前Activity渲染的视图View*/
-    private var mRootView: View? = null
+    protected var mRootView: View? = null
     /**activity实例**/
-    private lateinit var mActivity: BaseActivity
+    protected lateinit var mActivity: BaseActivity
     /** 用于保存所有已打开的Activity*/
     private val listActivity = Stack<Activity>()
     private var currentFragment: Fragment? = null
+    protected lateinit var mLoading: ProgressDialog
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         mActivity = this
         TAG = this::class.java.simpleName
+        mLoading = ProgressDialog(mActivity)
 
         //设置是否全屏
         if (VariableInfo.isAllowFullScreen) {
@@ -201,5 +205,11 @@ abstract class BaseActivity : AppCompatActivity() {
         transaction.commitAllowingStateLoss()
         // toFragment更新为当前的
         currentFragment = toFragment
+    }
+
+    protected fun exit(){
+        for(i in 0..listActivity.size){
+            listActivity[i].finish()
+        }
     }
 }

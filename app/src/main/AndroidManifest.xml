@@ -25,7 +25,7 @@
 
 
     <application
-        android:name=".application.Bapp"
+        android:name=".application.BaseApp"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"

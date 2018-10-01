@@ -18,7 +18,7 @@ import java.net.SocketTimeoutException
  * Created by jaylm
  * on 2018/10/1.
  */
-abstract class BaseCallBack(private val mActivity: BaseActivity, private val mShowDialog: Boolean = false) : StringCallback() {
+abstract class BaseCallBack( val mActivity: BaseActivity, private val mShowDialog: Boolean = false) : StringCallback() {
 
     private var mDialog: ProgressDialog? = null//加载进度框
     private var mRefreshLayout: SmartRefreshLayout? = null//SwipeRefreshLayout

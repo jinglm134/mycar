@@ -6,7 +6,7 @@ package com.jaylm.mycar.global
  * on 2018/9/29.
  */
 object VariableInfo {
-    var isCJSBar = true//是否允许沉浸式状态栏
-    var isAllowFullScreen = true//是否允许全屏
+    var isCJSBar = false//是否允许沉浸式状态栏
+    var isAllowFullScreen = false//是否允许全屏
     var isPortrait = true//是否竖屏
 }

@@ -13,12 +13,11 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.Window
-import android.view.WindowManager
+import android.view.*
 import com.jaylm.mycar.R
 import com.jaylm.mycar.global.VariableInfo
+import com.lzy.okgo.OkGo
+import kotlinx.android.synthetic.main.activity_base.*
 import java.util.*
 
 /**
@@ -65,15 +64,14 @@ abstract class BaseActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//android 5.0及以上,设置状态栏颜色
             window.statusBarColor = resources.getColor(R.color.colorPrimaryDark)
         }
-
+        setContentView(R.layout.activity_base)
+        initToolbar()
         //初始化
         if (mRootView == null) {
-            mRootView = LayoutInflater.from(this).inflate(bindLayout(), null, false)
-            setContentView(mRootView)
+            mRootView = LayoutInflater.from(mActivity).inflate(bindLayout(), fl_content, true)
             if (intent.extras != null) {
                 initParams(intent.extras)//获取bundle中的数据
             }
-
             initView()//初始化view
             setListener()//设置监听
             bindData()//绑定数据
@@ -84,7 +82,9 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract fun bindLayout(): Int
 
     protected open fun initParams(bundle: Bundle) {}
-    protected open fun initView() {}
+    protected open fun initView() {
+
+    }
     protected open fun setListener() {}
     protected open fun bindData() {}
 
@@ -130,14 +130,6 @@ abstract class BaseActivity : AppCompatActivity() {
             intent.putExtras(bundle)
         }
         startActivityForResult(intent, requestCode)
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        if (listActivity.contains(this)) {
-            listActivity.remove(this)
-        }
     }
 
 
@@ -203,13 +195,56 @@ abstract class BaseActivity : AppCompatActivity() {
         currentFragment = toFragment
     }
 
-    protected fun exit(){
-        for(i in 0..listActivity.size){
+
+    //toolbar 初始化
+    private fun initToolbar() {
+        setSupportActionBar(toolbar)
+        val actionBar = this.supportActionBar
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)//显示返回图标
+            actionBar.setDisplayShowTitleEnabled(false)//不显示应用图标
+        }
+    }
+
+    //toolbar 返回键
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //点击back键finish当前activity
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return true
+    }
+
+    //设置title
+    protected fun setHeader(title: CharSequence) {
+        tv_title.text = title
+    }
+
+    //隐藏title
+    protected fun hideHeader() {
+        toolbar.visibility = View.GONE
+    }
+
+    //onDestroy
+    override fun onDestroy() {
+        super.onDestroy()
+        OkGo.getInstance().cancelTag(this)
+        if (listActivity.contains(this)) {
+            listActivity.remove(this)
+        }
+    }
+
+    //退出应用
+    protected fun exit() {
+        for (i in 0..listActivity.size) {
             listActivity[i].finish()
         }
     }
 
-    fun getTag():String{
+    //Tag
+    fun getTag(): String {
         return TAG
     }
+
+
 }

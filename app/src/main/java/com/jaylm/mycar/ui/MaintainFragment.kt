@@ -12,6 +12,7 @@ import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.ui.release.util.ImageUtils
 import com.jaylm.mycar.util.GsonUtils
+import com.jaylm.mycar.view.DecorationLinearDivider
 import com.youth.banner.loader.ImageLoader
 import kotlinx.android.synthetic.main.fragment_maintain.*
 import kotlinx.android.synthetic.main.layout_smartrecyclerview.*
@@ -35,8 +36,8 @@ class MaintainFragment : BaseFragment() {
         mRecommendData = ArrayList()
 
         recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager=LinearLayoutManager(activity)
-//        recyclerView.addItemDecoration()
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.addItemDecoration(DecorationLinearDivider())
     }
 
     override fun setListener() {
@@ -64,7 +65,7 @@ class MaintainFragment : BaseFragment() {
 
         WebList.recommendList(object : BaseCallBack(activity!!, false) {
             override fun onSuccess(jsonString: String) {
-                val data=GsonUtils.parseJsonArrayWithGson(jsonString,RecommendMaintain::class.java)
+                val data = GsonUtils.parseJsonArrayWithGson(jsonString, RecommendMaintain::class.java)
                 mRecommendData.clear()
                 mRecommendData.addAll(data)
             }

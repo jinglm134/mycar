@@ -28,7 +28,7 @@ abstract class BaseCallBack(private val mActivity: Activity, private val mShowDi
     /**
      * recyclerView的刷新调用
      */
-    constructor(mActivity: BaseActivity, refreshLayout: SmartRefreshLayout, isPullDown: Boolean) : this(mActivity) {
+    constructor(mActivity: Activity, refreshLayout: SmartRefreshLayout, isPullDown: Boolean) : this(mActivity) {
         this.mRefreshLayout = refreshLayout
         this.mPullDown = isPullDown
     }
@@ -105,7 +105,7 @@ abstract class BaseCallBack(private val mActivity: Activity, private val mShowDi
             if (mPullDown) {
                 mRefreshLayout!!.finishRefresh()
             } else {
-                mRefreshLayout!!.finishLoadmore()
+                mRefreshLayout!!.finishLoadMore()
             }
         }
 

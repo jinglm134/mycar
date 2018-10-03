@@ -1,5 +1,6 @@
 package com.jaylm.mycar.base
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
@@ -55,14 +56,14 @@ abstract class BaseFragment : Fragment() {
     }
 
     private fun onVisible() {
-        if (isVisible && rootView != null && !hasConfig) {
+        if (hasVisible && rootView != null && !hasConfig) {
             /*onViewCreated 和 setUserVisibleHint 均可能调用该方法,该方法只被执行一次.
               onViewCreated:未使用FragmentPagerAdapter加载的fragment ，或者adapter中的第一个fragment
               setUserVisibleHint：使用FragmentPagerAdapter加载的fragment,且非adapter中的第一个fragment*/
             hasConfig = true
             initView()//初始化view
             setListener()//设置监听
-            bindData()//绑定数据
+            loadData()//绑定数据
 
         }
     }
@@ -72,7 +73,38 @@ abstract class BaseFragment : Fragment() {
 
     protected open fun initView() {}
     protected open fun setListener() {}
-    protected open fun bindData() {}
+    protected open fun loadData() {}
+
+
+    /**
+     *携带数据的页面跳转
+     *
+     * @param clz class
+     * @param bundle bundle
+     */
+    protected fun startActivity(clz: Class<*>, bundle: Bundle?) {
+        val intent = Intent()
+        intent.setClass(activity, clz)
+        if (bundle != null) {
+            intent.putExtras(bundle)
+        }
+        startActivity(intent)
+    }
+
+    /**
+     *  携带数据并可以返回数据的页面跳转
+     * @param cls class
+     * @param bundle bundle
+     * @param requestCode requestCode
+     */
+    protected fun startActivityForResult(cls: Class<*>, bundle: Bundle?, requestCode: Int) {
+        val intent = Intent()
+        intent.setClass(activity, cls)
+        if (bundle != null) {
+            intent.putExtras(bundle)
+        }
+        startActivityForResult(intent, requestCode)
+    }
 
 
     /**

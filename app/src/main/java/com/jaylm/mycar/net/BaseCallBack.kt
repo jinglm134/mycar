@@ -1,5 +1,6 @@
 package com.jaylm.mycar.net
 
+import android.app.Activity
 import com.jaylm.mycar.BuildConfig
 import com.jaylm.mycar.application.BaseApp
 import com.jaylm.mycar.base.BaseActivity
@@ -18,7 +19,7 @@ import java.net.SocketTimeoutException
  * Created by jaylm
  * on 2018/10/1.
  */
-abstract class BaseCallBack(private val mActivity: BaseActivity, private val mShowDialog: Boolean = false) : StringCallback() {
+abstract class BaseCallBack(private val mActivity: Activity, private val mShowDialog: Boolean = false) : StringCallback() {
 
     private var mDialog: ProgressDialog? = null//加载进度框
     private var mRefreshLayout: SmartRefreshLayout? = null//SwipeRefreshLayout
@@ -52,12 +53,12 @@ abstract class BaseCallBack(private val mActivity: BaseActivity, private val mSh
             /*JsonObject.opt 无key值时会得到默认值,JsonObject.get无key值会出错*/
             val data = jsonObject.optString("data")
             val status = jsonObject.optInt("status")
-            val msg = jsonObject.optString("msg")
+            val error = jsonObject.optString("error")
             if (status == 1) {
                 onSuccess(data)
             } else {
                 onError(response)
-                onFailed(status, msg, data)
+                onFailed(status, error, data)
             }
         } catch (e: Exception) {
             if (BuildConfig.LOG_DEBUG) {
@@ -78,19 +79,24 @@ abstract class BaseCallBack(private val mActivity: BaseActivity, private val mSh
 
     override fun onError(response: Response<String>) {
         super.onError(response)
+        val tag = if (mActivity is BaseActivity) {
+            mActivity.getTag()
+        } else {
+            "TAG"
+        }
         when {
-            response.exception is SocketTimeoutException -> LogUtils.e(mActivity.getTag(), "请求超时")
-            response.exception is SocketException -> LogUtils.e(mActivity.getTag(), "服务器异常")
+            response.exception is SocketTimeoutException -> LogUtils.e(tag, "请求超时")
+            response.exception is SocketException -> LogUtils.e(tag, "服务器异常")
             response.exception is NetException ->
                 when ((response.exception as NetException).getErrorBean().getCode()) {
-                    404 -> LogUtils.e(mActivity.getTag(), "当前链接错误或不存在")
-                    500 -> LogUtils.e(mActivity.getTag(), "服务器内部错误")
+                    404 -> LogUtils.e(tag, "当前链接错误或不存在")
+                    500 -> LogUtils.e(tag, "服务器内部错误")
                 }
         }
     }
 
-    open fun onFailed(status: Int, msg: String, data: String) {
-        SnackbarUtils.showSnackbar(mActivity.window.decorView.rootView, msg)
+    open fun onFailed(status: Int, error: String, data: String) {
+        SnackbarUtils.showSnackbar(mActivity.window.decorView.rootView, error)
     }
 
     override fun onFinish() {

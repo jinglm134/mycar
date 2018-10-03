@@ -74,7 +74,7 @@ abstract class BaseActivity : AppCompatActivity() {
             }
             initView()//初始化view
             setListener()//设置监听
-            bindData()//绑定数据
+            loadData()//请求数据
         }
     }
 
@@ -83,10 +83,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected open fun initParams(bundle: Bundle) {}
     protected open fun initView() {
-
     }
     protected open fun setListener() {}
-    protected open fun bindData() {}
+    protected open fun loadData() {}
 
 
     /**

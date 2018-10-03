@@ -14,4 +14,17 @@ object WebList {
                 .params("type", "android")
                 .execute(callBack)
     }
+
+    fun bannerMaintain(callBack: BaseCallBack) {
+//        OkGo.post<String>(API.BANNER_MAINTAIN)
+//                .execute(callBack)
+        OkGo.get<String>(API.BANNER_MAINTAIN)
+                .execute(callBack)
+    }
+
+
+    fun recommendList(callBack: BaseCallBack) {
+        OkGo.get<String>(API.RECOMMEND_LIST)
+                .execute(callBack)
+    }
 }

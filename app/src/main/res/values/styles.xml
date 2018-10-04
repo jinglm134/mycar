@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowAnimationStyle">@style/activityAnim</item>
-        <item name="android:windowBackground">@color/c19</item>
+        <item name="android:windowBackground">@color/c14</item>
         <item name="android:textColor">@color/c20</item>
         <item name="android:textSize">14sp</item>
         <!--设置toolbar 返回键颜色-->
@@ -65,4 +65,14 @@
 
     <style name="AppTheme" parent="AppBaseTheme" />
 
+
+    <style name="starRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">17dp</item>
+        <item name="android:progressDrawable">@mipmap/icon_star</item>
+        <item name="android:maxHeight">17dp</item>
+        <item name="android:numStars">5</item>
+        <item name="android:stepSize">0.5</item>
+        <item name="android:rating">5</item>
+    </style>
 </resources>

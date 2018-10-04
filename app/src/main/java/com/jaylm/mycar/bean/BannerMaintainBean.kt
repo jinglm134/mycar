@@ -4,7 +4,7 @@ package com.jaylm.mycar.bean
  * Created by jaylm
  * on 2018/10/3.
  */
-data class BannerMaintain(var id: Int,var name: String,var img: String,var url: String): BaseBean() {
+data class BannerMaintainBean(var id: Int, var name: String, var img: String, var url: String): BaseBean() {
     /**
      * id : 9
      * name : 萌哭了，男车主眼中的女司机是这样滴.....

@@ -63,7 +63,6 @@ abstract class BaseFragment : Fragment() {
             hasConfig = true
             initView()//初始化view
             setListener()//设置监听
-            loadData()//绑定数据
 
         }
     }
@@ -73,7 +72,6 @@ abstract class BaseFragment : Fragment() {
 
     protected open fun initView() {}
     protected open fun setListener() {}
-    protected open fun loadData() {}
 
 
     /**

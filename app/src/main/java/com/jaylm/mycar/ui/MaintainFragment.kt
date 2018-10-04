@@ -7,8 +7,8 @@ import android.widget.ImageView
 import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.AdapterRecommendMaintain
 import com.jaylm.mycar.base.BaseFragment
-import com.jaylm.mycar.bean.BannerMaintain
-import com.jaylm.mycar.bean.RecommendMaintain
+import com.jaylm.mycar.bean.BannerMaintainBean
+import com.jaylm.mycar.bean.RecommendMaintainBean
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.ui.release.util.ImageUtils
@@ -24,8 +24,8 @@ import kotlinx.android.synthetic.main.layout_smartrecyclerview.*
  * on 2018/10/3.
  */
 class MaintainFragment : BaseFragment() {
-    private lateinit var mBannerData: ArrayList<BannerMaintain>
-    private lateinit var mRecommendData: ArrayList<RecommendMaintain>
+    private lateinit var mBannerData: ArrayList<BannerMaintainBean>
+    private lateinit var mRecommendData: ArrayList<RecommendMaintainBean>
     private lateinit var mAdapter: AdapterRecommendMaintain
 
     override fun bindLayout(): Int {
@@ -61,8 +61,8 @@ class MaintainFragment : BaseFragment() {
 
         //推荐新闻的点击事件
         mAdapter.setOnItemClickListener { adapter, _, position ->
-            val url = (adapter.data[position] as RecommendMaintain).url
-            val name = (adapter.data[position] as RecommendMaintain).title
+            val url = (adapter.data[position] as RecommendMaintainBean).url
+            val name = (adapter.data[position] as RecommendMaintainBean).title
             val bundle = Bundle()
             bundle.putString("url", url)
             bundle.putString("name", name)
@@ -70,11 +70,17 @@ class MaintainFragment : BaseFragment() {
         }
     }
 
-    //拉取banner数据
-    override fun loadData() {
+
+    override fun onStart() {
+        super.onStart()
+        loadData()
+    }
+
+    private fun loadData() {
+        //拉取banner数据
         WebList.bannerMaintain(object : BaseCallBack(activity!!, true) {
             override fun onSuccess(jsonString: String) {
-                val data = GsonUtils.parseJsonArrayWithGson(jsonString, BannerMaintain::class.java)
+                val data = GsonUtils.parseJsonArrayWithGson(jsonString, BannerMaintainBean::class.java)
                 mBannerData.clear()
                 mBannerData.addAll(data)
                 if (mBannerData.size > 0) {
@@ -86,7 +92,7 @@ class MaintainFragment : BaseFragment() {
         //获取推荐数据
         WebList.recommendList(object : BaseCallBack(activity!!) {
             override fun onSuccess(jsonString: String) {
-                val data = GsonUtils.parseJsonArrayWithGson(jsonString, RecommendMaintain::class.java)
+                val data = GsonUtils.parseJsonArrayWithGson(jsonString, RecommendMaintainBean::class.java)
                 mRecommendData.clear()
                 mRecommendData.addAll(data)
                 mAdapter.setNewData(mRecommendData)

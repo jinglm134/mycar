@@ -4,7 +4,7 @@ package com.jaylm.mycar.bean
  * Created by jaylm
  * on 2018/10/3.
  */
-data class RecommendMaintain(var id: Int, var title: String, var image: String, var content: String, var url: String) : BaseBean() {
+data class RecommendMaintainBean(var id: Int, var title: String, var image: String, var content: String, var url: String) : BaseBean() {
     /* "id": 20,
      "title": "保养听4S店5000公里还是厂家7500公里？",
      "image": "http:\/\/static.baichebao.com\/img\/recommend\/93\/93e4fa7af5da715939490627f6928a2c.jpg",

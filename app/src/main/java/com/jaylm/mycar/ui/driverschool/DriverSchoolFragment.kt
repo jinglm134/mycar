@@ -1,5 +1,6 @@
 package com.jaylm.mycar.ui.driverschool
 
+import android.support.design.widget.TabLayout
 import android.support.v7.widget.LinearLayoutManager
 import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.AdapterDriverSchool
@@ -23,7 +24,8 @@ class DriverSchoolFragment : BaseFragment() {
 
     private lateinit var mData: ArrayList<SchoolHotBean.ItemsBean>
     private lateinit var mAdapter: AdapterDriverSchool
-    private var pageIndex = 1
+    private var mPageIndex = 1
+    private var mFilterType = 0
     override fun bindLayout(): Int {
         return R.layout.fragment_driver_school
     }
@@ -47,18 +49,33 @@ class DriverSchoolFragment : BaseFragment() {
 
     override fun setListener() {
         super.setListener()
+        //下拉刷新箭头
         smartRefreshLayout.setOnRefreshListener {
-            pageIndex = 1
+            mPageIndex = 1
             loadData()
         }
+        //上拉加载监听
         smartRefreshLayout.setOnLoadMoreListener {
-            pageIndex++
+            mPageIndex++
             loadData(false)
         }
+
+        //tabLayout点击事件
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                //切换赛选条件
+                mPageIndex = 1
+                mFilterType = tab.position
+                smartRefreshLayout.autoRefresh()
+            }
+
+        })
     }
 
     private fun loadData(isPullDown: Boolean = true) {
-        WebList.schoolHot(pageIndex, object : BaseCallBack(activity!!, smartRefreshLayout, isPullDown) {
+        WebList.schoolHot(mFilterType, mPageIndex, object : BaseCallBack(activity!!, smartRefreshLayout, isPullDown) {
             override fun onSuccess(jsonString: String) {
             }
 

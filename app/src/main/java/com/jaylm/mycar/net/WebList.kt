@@ -28,10 +28,10 @@ object WebList {
                 .execute(callBack)
     }
 
-    fun schoolHot(pageIndex: Int, callBack: BaseCallBack) {
+    fun schoolHot(filterType: Int, pageIndex: Int, callBack: BaseCallBack) {
         OkGo.post<String>(API.SCHOOL_HOT)
                 .params("CantonCode", "")
-                .params("FilterType", 0)
+                .params("FilterType", filterType)
                 .params("GetLogo", 1)
                 .params("GetMarks", 1)
                 .params("GetSummary", 0)
@@ -42,28 +42,5 @@ object WebList {
                 .params("PageSize", 20)
                 .params("Source", 0)
                 .execute(callBack)
-//        "CantonCode": "",
-//        "FilterType": 0,
-//        "GetLogo": 1,
-//        "GetMarks": 1,
-//        "GetSummary": 0,
-//        "IsRecommand": -1,
-//        "Lat": 22.817746,
-//        "Lon": 108.36637,
-//        "PageIndex": 1,
-//        "PageSize": 20,
-//        "Source": 0
-
-//                    "CantonCode": "",
-//                    "FilterType": 0,
-//                    "GetLogo": 1,
-//                    "GetMarks": 1,
-//                    "GetSummary": 0,
-//                    "IsRecommand": -1,
-//                    "Lat": 22.817746,
-//                    "Lon": 108.36637,
-//                    "PageIndex": 2,
-//                    "PageSize": 20,
-//                    "Source": 0
     }
 }

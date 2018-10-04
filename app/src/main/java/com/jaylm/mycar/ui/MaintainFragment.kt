@@ -52,16 +52,20 @@ class MaintainFragment : BaseFragment() {
         //banner点击事件
         banner.setOnBannerListener { position ->
             val url = mBannerData[position].url
+            val name = mBannerData[position].name
             val bundle = Bundle()
             bundle.putString("url", url)
+            bundle.putString("name", name)
             startActivity(WebViewActivity::class.java, bundle)
         }
 
         //推荐新闻的点击事件
         mAdapter.setOnItemClickListener { adapter, _, position ->
             val url = (adapter.data[position] as RecommendMaintain).url
+            val name = (adapter.data[position] as RecommendMaintain).title
             val bundle = Bundle()
             bundle.putString("url", url)
+            bundle.putString("name", name)
             startActivity(WebViewActivity::class.java, bundle)
         }
     }

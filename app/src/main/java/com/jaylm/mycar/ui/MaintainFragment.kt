@@ -14,6 +14,7 @@ import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.ui.release.util.ImageUtils
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
+import com.youth.banner.BannerConfig
 import com.youth.banner.loader.ImageLoader
 import kotlinx.android.synthetic.main.fragment_maintain.*
 import kotlinx.android.synthetic.main.layout_smartrecyclerview.*
@@ -115,7 +116,8 @@ class MaintainFragment : BaseFragment() {
             }
         })
                 .setDelayTime(5000)
-//                .setBannerStyle(BannerConfig.RIGHT)
+                .setBannerStyle(BannerConfig.CIRCLE_INDICATOR)//指示器圆形
+                .setIndicatorGravity(BannerConfig.RIGHT)//指示器居右
 //                .setBannerAnimation(Transformer.DepthPage)
                 .start()
     }

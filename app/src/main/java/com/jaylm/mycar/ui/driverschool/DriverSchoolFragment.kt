@@ -1,7 +1,9 @@
 package com.jaylm.mycar.ui.driverschool
 
+import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v7.widget.LinearLayoutManager
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.AdapterDriverSchool
 import com.jaylm.mycar.base.BaseFragment
@@ -70,8 +72,15 @@ class DriverSchoolFragment : BaseFragment() {
                 mFilterType = tab.position
                 smartRefreshLayout.autoRefresh()
             }
-
         })
+
+        //recyclerView点击事件
+        mAdapter.setOnItemClickListener { adapter, _, position ->
+            val id = (adapter.data[position] as SchoolHotBean.ItemsBean).Corp_Id
+            val bundle = Bundle()
+            bundle.putString("corpId", id)
+            startActivity(DriverSchoolDetailActivity::class.java, bundle)
+        }
     }
 
     private fun loadData(isPullDown: Boolean = true) {
@@ -83,7 +92,7 @@ class DriverSchoolFragment : BaseFragment() {
 //                super.onSuccess(response)
                 val jsonObject = JSONObject(response.body())
                 /*JsonObject.opt 无key值时会得到默认值,JsonObject.get无key值会出错*/
-                val data = jsonObject.optString("Data")
+                val data = jsonObject.optString("Data")?: return
                 val schoolHotBean = GsonUtils.parseJsonWithGson(data, SchoolHotBean::class.java)
                 val itemBean = schoolHotBean.Items
                 if (isPullDown) {

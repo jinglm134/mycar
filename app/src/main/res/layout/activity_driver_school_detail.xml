@@ -9,7 +9,7 @@
     <com.youth.banner.Banner
         android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         app:indicator_drawable_selected="@color/colorPrimary"
         app:indicator_drawable_unselected="@color/c10" />
 
@@ -26,7 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="南宁惠通机动车驾驶培训有限公司（青秀）" />
+            tools:text="南宁惠通机动车驾驶培训有限公司（青秀）" />
 
         <TextView
             android:id="@+id/tv_distance"

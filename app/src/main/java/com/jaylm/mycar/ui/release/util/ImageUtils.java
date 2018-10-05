@@ -14,9 +14,8 @@ import com.bumptech.glide.Glide;
 public class ImageUtils {
     public static void showImage(Context activity, String url, ImageView ivHome) {
         try {
-             Glide.with(activity)
+            Glide.with(activity)
                     .load(url)
-                    .centerCrop()
                     .into(ivHome);
         } catch (Exception e) {
         }

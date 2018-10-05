@@ -44,9 +44,9 @@ object WebList {
                 .execute(callBack)
     }
 
-    fun getNNCorp(CorpId: String, callBack: BaseCallBack) {
+    fun getNNCorp(corpId: String, callBack: BaseCallBack) {
         OkGo.post<String>(API.GetNNCorp)
-                .params("CorpId", "")
+                .params("CorpId", corpId)
                 .params("Lat", 22.817746)
                 .params("Lon", 108.36637)
                 .execute(callBack)

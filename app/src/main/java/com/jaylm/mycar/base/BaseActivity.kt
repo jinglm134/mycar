@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.*
 import com.jaylm.mycar.R
 import com.jaylm.mycar.global.VariableInfo
+import com.jaylm.mycar.tool.UShape
 import com.lzy.okgo.OkGo
 import kotlinx.android.synthetic.main.activity_base.*
 import java.util.*
@@ -62,7 +63,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//android 5.0及以上,设置状态栏颜色
-            window.statusBarColor = resources.getColor(R.color.colorPrimaryDark)
+            window.statusBarColor = UShape.getColor(R.color.colorPrimaryDark)
         }
         setContentView(R.layout.activity_base)
         initToolbar()

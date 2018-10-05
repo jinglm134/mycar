@@ -13,6 +13,7 @@ class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
     private lateinit var peripheryFragment: PeripheryFragment
     private lateinit var askFragment: AskFragment
     private lateinit var schoolFragment: DriverSchoolFragment
+    private val mHeader: Array<String> = arrayOf("保养", "购买", "周边", "咨询", "驾校")
 
     override fun bindLayout(): Int {
         return R.layout.activity_main
@@ -20,13 +21,11 @@ class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
 
     override fun initView() {
         super.initView()
-        setHeader("保养")
+        setHeader(mHeader[0])
 
-        tabLayout.addTab(tabLayout.newTab().setText("保养"))
-        tabLayout.addTab(tabLayout.newTab().setText("购买"))
-        tabLayout.addTab(tabLayout.newTab().setText("周边"))
-        tabLayout.addTab(tabLayout.newTab().setText("咨询"))
-        tabLayout.addTab(tabLayout.newTab().setText("驾校"))
+        for (i in 0 until mHeader.size) {
+            tabLayout.addTab(tabLayout.newTab().setText(mHeader[i]))
+        }
         tabLayout.tabMode = TabLayout.MODE_FIXED
 
         maintainFragment = MaintainFragment()
@@ -57,5 +56,6 @@ class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
             3 -> smartReplaceFragment(R.id.frameLayout, askFragment)
             4 -> smartReplaceFragment(R.id.frameLayout, schoolFragment)
         }
+        setHeader(mHeader[tab.position])
     }
 }

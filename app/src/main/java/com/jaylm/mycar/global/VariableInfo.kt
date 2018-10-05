@@ -9,4 +9,6 @@ object VariableInfo {
     var isCJSBar = false//是否允许沉浸式状态栏
     var isAllowFullScreen = false//是否允许全屏
     var isPortrait = true//是否竖屏
+
+    var customerPhone = "07712365655"//客服电话
 }

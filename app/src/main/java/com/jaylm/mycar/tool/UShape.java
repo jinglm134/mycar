@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -98,22 +97,7 @@ public class UShape {
      * @param corner 圆角大小,单位dp,没有圆角传0
      * @return RoundRectShape(float[] outerRadii, RectF inset, float[] innerRadii) :指定一个外部（圆角）矩形 和 一个 可选的 内部（圆角）矩形。
      */
-    public static ShapeDrawable getCornerDrawable(@ColorRes int color, int corner) {
-        float[] corners = new float[8];
-        for (int i = 0; i < corners.length; i++) {
-            corners[i] = corner;
-        }
-        return getCornerDrawable(color, corners);
-    }
-
-    /**
-     * 圆角纯色ShapeDrawable
-     *
-     * @param color  颜色  R.color.c8
-     * @param corner 圆角大小,单位dp,没有圆角传0
-     * @return RoundRectShape(float[] outerRadii, RectF inset, float[] innerRadii) :指定一个外部（圆角）矩形 和 一个 可选的 内部（圆角）矩形。
-     */
-    public static ShapeDrawable getCornerDrawable(String color, int corner) {
+    public static ShapeDrawable getCornerDrawable(int color, int corner) {
         float[] corners = new float[8];
         for (int i = 0; i < corners.length; i++) {
             corners[i] = corner;
@@ -128,7 +112,7 @@ public class UShape {
      * @param corners 圆角大小,单位px，8个角度不一样时使用，八个角度按顺序依次是左上 右上 右下 左下
      * @return RoundRectShape(float[] outerRadii, RectF inset, float[] innerRadii) :指定一个外部（圆角）矩形 和 一个 可选的 内部（圆角）矩形。
      */
-    private static ShapeDrawable getCornerDrawable(@ColorRes int color, float[] corners) {
+    private static ShapeDrawable getCornerDrawable(int color, float[] corners) {
         if (corners.length < 8) {
             return null;
         }
@@ -139,30 +123,7 @@ public class UShape {
         }
 
         ShapeDrawable drawable = new ShapeDrawable(new RoundRectShape(martCorners, null, null));
-        drawable.getPaint().setColor(getColor(color));
-        drawable.getPaint().setStyle(Paint.Style.FILL);
-        return drawable;
-    }
-
-    /**
-     * 圆角纯色
-     *
-     * @param color   颜色
-     * @param corners 圆角大小,单位px，8个角度不一样时使用，八个角度按顺序依次是左上 右上 右下 左下
-     * @return RoundRectShape(float[] outerRadii, RectF inset, float[] innerRadii) :指定一个外部（圆角）矩形 和 一个 可选的 内部（圆角）矩形。
-     */
-    private static ShapeDrawable getCornerDrawable(String color, float[] corners) {
-        if (corners.length < 8) {
-            return null;
-        }
-        Context context = BaseApp.getInstance();
-        float[] martCorners = new float[corners.length];
-        for (int i = 0; i < corners.length; i++) {
-            martCorners[i] = SizeUtils.dp2px(context, corners[i]);
-        }
-
-        ShapeDrawable drawable = new ShapeDrawable(new RoundRectShape(martCorners, null, null));
-        drawable.getPaint().setColor(Color.parseColor(color));
+        drawable.getPaint().setColor(color);
         drawable.getPaint().setStyle(Paint.Style.FILL);
         return drawable;
     }
@@ -177,7 +138,7 @@ public class UShape {
      * @param pressColor    state_press=true按下的颜色
      * @param corner        圆角大小
      */
-    private static StateListDrawable getSelectorDrawable(@ColorRes int normalColor, @ColorRes int checkedColor, @ColorRes int selectedColor, @ColorRes int pressColor, int corner) {
+    private static StateListDrawable getSelectorDrawable(int normalColor, int checkedColor, int selectedColor, int pressColor, int corner) {
         StateListDrawable listDrawable = new StateListDrawable();
 
         if (checkedColor != 0) {
@@ -206,7 +167,7 @@ public class UShape {
      * @param checkedColor state_check=true选中的颜色
      * @param corner       圆角大小
      */
-    public static StateListDrawable getCheckedDrawable(@ColorRes int normalColor, @ColorRes int checkedColor, int corner) {
+    public static StateListDrawable getCheckedDrawable(int normalColor, int checkedColor, int corner) {
         return getSelectorDrawable(normalColor, checkedColor, 0, 0, corner);
     }
 
@@ -217,7 +178,7 @@ public class UShape {
      * @param selectedColor state_selector=true选中的颜色
      * @param corner        圆角大小
      */
-    public static StateListDrawable getSelectedDrawable(@ColorRes int normalColor, @ColorRes int selectedColor, int corner) {
+    public static StateListDrawable getSelectedDrawable(int normalColor, int selectedColor, int corner) {
         return getSelectorDrawable(normalColor, 0, selectedColor, 0, corner);
     }
 
@@ -228,7 +189,7 @@ public class UShape {
      * @param pressColor  state_press=true按下的颜色
      * @param corner      圆角大小
      */
-    public static StateListDrawable getPressedDrawable(@ColorRes int normalColor, @ColorRes int pressColor, int corner) {
+    public static StateListDrawable getPressedDrawable(int normalColor, int pressColor, int corner) {
         return getSelectorDrawable(normalColor, 0, 0, pressColor, corner);
     }
 
@@ -246,7 +207,7 @@ public class UShape {
      * @param pressColor    state_press=true按下的颜色
      * @param corners       圆角大小
      */
-    private static StateListDrawable getSelectorDrawable(@ColorRes int normalColor, @ColorRes int checkedColor, @ColorRes int selectedColor, @ColorRes int pressColor, float[] corners) {
+    private static StateListDrawable getSelectorDrawable(int normalColor, int checkedColor, int selectedColor, int pressColor, float[] corners) {
         StateListDrawable listDrawable = new StateListDrawable();
 
         if (checkedColor != 0) {
@@ -275,7 +236,7 @@ public class UShape {
      * @param checkedColor state_check=true选中的颜色
      * @param corners      圆角大小
      */
-    public static StateListDrawable getCheckedDrawable(@ColorRes int normalColor, @ColorRes int checkedColor, float[] corners) {
+    public static StateListDrawable getCheckedDrawable(int normalColor, int checkedColor, float[] corners) {
         return getSelectorDrawable(normalColor, checkedColor, 0, 0, corners);
     }
 
@@ -286,7 +247,7 @@ public class UShape {
      * @param selectedColor state_selector=true选中的颜色
      * @param corners       圆角大小
      */
-    public static StateListDrawable getSelectedDrawable(@ColorRes int normalColor, @ColorRes int selectedColor, float[] corners) {
+    public static StateListDrawable getSelectedDrawable(int normalColor, int selectedColor, float[] corners) {
         return getSelectorDrawable(normalColor, 0, selectedColor, 0, corners);
     }
 
@@ -297,7 +258,7 @@ public class UShape {
      * @param pressColor  state_press=true按下的颜色
      * @param corners     圆角大小
      */
-    public static StateListDrawable getPressedDrawable(@ColorRes int normalColor, @ColorRes int pressColor, float[] corners) {
+    public static StateListDrawable getPressedDrawable(int normalColor, int pressColor, float[] corners) {
         return getSelectorDrawable(normalColor, 0, 0, pressColor, corners);
     }
 
@@ -325,7 +286,7 @@ public class UShape {
      * @param corners 圆角大小,单位px，8个角度不一样时使用，八个角度按顺序依次是左上 右上 右下 左下
      * @return RoundRectShape(float[] outerRadii, RectF inset, float[] innerRadii) :指定一个外部（圆角）矩形 和 一个 可选的 内部（圆角）矩形。
      */
-    private static ShapeDrawable getStrokeDrawable(@ColorRes int color, float[] corners) {
+    private static ShapeDrawable getStrokeDrawable(int color, float[] corners) {
         if (corners.length < 8) {
             return null;
         }
@@ -335,7 +296,7 @@ public class UShape {
             martCorners[i] = SizeUtils.dp2px(context, corners[i]);
         }
         ShapeDrawable drawable = new ShapeDrawable(new RoundRectShape(martCorners, null, null));
-        drawable.getPaint().setColor(getColor(color));
+        drawable.getPaint().setColor(color);
         drawable.getPaint().setStrokeWidth(SizeUtils.dp2px(context, 1));
         drawable.getPaint().setAntiAlias(true);
         drawable.getPaint().setStyle(Paint.Style.STROKE);
@@ -349,7 +310,7 @@ public class UShape {
      * @param corner 圆角大小,单位px，8个角度不一样时使用，八个角度按顺序依次是左上 右上 右下 左下
      * @return RoundRectShape(float[] outerRadii, RectF inset, float[] innerRadii) :指定一个外部（圆角）矩形 和 一个 可选的 内部（圆角）矩形。
      */
-    public static ShapeDrawable getStrokeDrawable(@ColorRes int color, int corner) {
+    public static ShapeDrawable getStrokeDrawable(int color, int corner) {
         float[] corners = new float[8];
         for (int i = 0; i < corners.length; i++) {
             corners[i] = corner;
@@ -363,9 +324,9 @@ public class UShape {
      * @param color 颜色
      * @return drawable
      */
-    public static ShapeDrawable getCircleDrawable(@ColorRes int color) {
+    public static ShapeDrawable getCircleDrawable(int color) {
         ShapeDrawable drawable = new ShapeDrawable(new OvalShape());
-        drawable.getPaint().setColor(getColor(color));
+        drawable.getPaint().setColor(color);
         drawable.getPaint().setStyle(Paint.Style.FILL);
         return drawable;
     }

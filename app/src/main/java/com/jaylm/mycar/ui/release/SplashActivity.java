@@ -16,6 +16,7 @@ import android.view.WindowManager;
 
 import com.google.gson.Gson;
 import com.jaylm.mycar.R;
+import com.jaylm.mycar.tool.UShape;
 import com.jaylm.mycar.ui.MainActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
@@ -54,7 +55,7 @@ public class SplashActivity extends AppCompatActivity {
         //设置状态栏颜色
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //            window.setStatusBarColor(Color.parseColor("#ff0000"));
-            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+            window.setStatusBarColor(UShape.getColor(R.color.colorPrimaryDark));
         }
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_BEHIND);
         setContentView(R.layout.activity_splash_1);

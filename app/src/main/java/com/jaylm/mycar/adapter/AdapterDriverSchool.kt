@@ -15,7 +15,7 @@ import com.jaylm.mycar.ui.release.util.ImageUtils
 class AdapterDriverSchool : BaseQuickAdapter<SchoolHotBean.ItemsBean, BaseViewHolder>(R.layout.item_driver_school) {
     override fun convert(helper: BaseViewHolder, item: SchoolHotBean.ItemsBean) {
         ImageUtils.showImage(mContext, item.CorpLogo, helper.getView(R.id.iv_logo))
-        UShape.setBackgroundDrawable(helper.getView(R.id.tv_distance),UShape.getCornerDrawable(R.color.colorPrimaryDark,4))
+        UShape.setBackgroundDrawable(helper.getView(R.id.tv_distance),UShape.getCornerDrawable(UShape.getColor(R.color.colorPrimaryDark),4))
         helper.setText(R.id.tv_name, item.Short_CorpName)
         helper.setText(R.id.tv_location, item.Manage_Addr)
         helper.setText(R.id.tv_discuss, String.format("%s评价", item.CommentCount))

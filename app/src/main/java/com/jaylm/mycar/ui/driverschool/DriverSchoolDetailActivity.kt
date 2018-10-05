@@ -29,10 +29,10 @@ class DriverSchoolDetailActivity : BaseActivity() {
     private lateinit var mCorpId: String
     private lateinit var mData: SchoolDetailBean
 
-    private lateinit var schoolInfoFragment: SchoolInfoFragment
-    private lateinit var schoolCoachFragment: SchoolCoachFragment
-    private lateinit var schoolTariffFragment: SchoolTariffFragment
-    private lateinit var schoolAssessFragment: SchoolAssessFragment
+    private var schoolInfoFragment: SchoolInfoFragment? = null
+    private var schoolCoachFragment: SchoolCoachFragment? = null
+    private var schoolTariffFragment: SchoolTariffFragment? = null
+    private var schoolAssessFragment: SchoolAssessFragment? = null
 
     override fun bindLayout(): Int {
         return R.layout.activity_driver_school_detail
@@ -48,18 +48,12 @@ class DriverSchoolDetailActivity : BaseActivity() {
         super.initView()
         setHeader("驾校详情")
 
-        schoolInfoFragment = SchoolInfoFragment()
-        schoolTariffFragment = SchoolTariffFragment()
-        schoolCoachFragment = SchoolCoachFragment()
-        schoolAssessFragment = SchoolAssessFragment()
 
         tabLayout.addTab(tabLayout.newTab().setText("简介"))
         tabLayout.addTab(tabLayout.newTab().setText("套餐"))
         tabLayout.addTab(tabLayout.newTab().setText("教练"))
         tabLayout.addTab(tabLayout.newTab().setText("评价"))
         tabLayout.tabMode = TabLayout.MODE_FIXED
-        smartReplaceFragment(R.id.frameLayout, schoolInfoFragment)
-
         loadData()
     }
 
@@ -78,10 +72,30 @@ class DriverSchoolDetailActivity : BaseActivity() {
 
             override fun onTabSelected(tab: TabLayout.Tab) {
                 when (tab.position) {
-                    0 -> smartReplaceFragment(R.id.frameLayout, schoolInfoFragment)
-                    1 -> smartReplaceFragment(R.id.frameLayout, schoolTariffFragment)
-                    2 -> smartReplaceFragment(R.id.frameLayout, schoolCoachFragment)
-                    3 -> smartReplaceFragment(R.id.frameLayout, schoolAssessFragment)
+                    0 -> {
+                        if (schoolInfoFragment == null) {
+                            schoolInfoFragment = SchoolInfoFragment.newInstance(mData)
+                        }
+                        smartReplaceFragment(R.id.frameLayout, schoolInfoFragment!!)
+                    }
+                    1 -> {
+                        if (schoolTariffFragment == null) {
+                            schoolTariffFragment = SchoolTariffFragment()
+                        }
+                        smartReplaceFragment(R.id.frameLayout, schoolTariffFragment!!)
+                    }
+                    2 -> {
+                        if (schoolCoachFragment == null) {
+                            schoolCoachFragment = SchoolCoachFragment()
+                        }
+                        smartReplaceFragment(R.id.frameLayout, schoolCoachFragment!!)
+                    }
+                    3 -> {
+                        if (schoolAssessFragment == null) {
+                            schoolAssessFragment = SchoolAssessFragment()
+                        }
+                        smartReplaceFragment(R.id.frameLayout, schoolAssessFragment!!)
+                    }
                 }
             }
 
@@ -107,7 +121,7 @@ class DriverSchoolDetailActivity : BaseActivity() {
     }
 
     private fun bindData() {
-        UShape.setBackgroundDrawable(tv_distance, UShape.getCornerDrawable(R.color.colorPrimary, 6))
+        UShape.setBackgroundDrawable(tv_distance, UShape.getCornerDrawable(UShape.getColor(R.color.colorPrimary), 6))
         banner.setImages(mData.corpPics).setImageLoader(object : ImageLoader() {
             override fun displayImage(context: Context?, path: Any, imageView: ImageView?) {
                 ImageUtils.showImage(context, path.toString(), imageView)
@@ -124,5 +138,9 @@ class DriverSchoolDetailActivity : BaseActivity() {
         ratingBar.rating = mData.avgScore.toFloat()
         tv_discuss.text = String.format("%s评价", mData.commentCount)
 
+        if (schoolInfoFragment == null) {
+            schoolInfoFragment = SchoolInfoFragment.newInstance(mData)
+        }
+        smartReplaceFragment(R.id.frameLayout, schoolInfoFragment!!)
     }
 }

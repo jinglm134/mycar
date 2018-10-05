@@ -47,6 +47,8 @@ class DriverSchoolFragment : BaseFragment() {
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.addItemDecoration(DecorationLinearDivider())
         recyclerView.adapter = mAdapter
+
+        smartRefreshLayout.autoRefresh()
     }
 
     override fun setListener() {
@@ -92,7 +94,7 @@ class DriverSchoolFragment : BaseFragment() {
 //                super.onSuccess(response)
                 val jsonObject = JSONObject(response.body())
                 /*JsonObject.opt 无key值时会得到默认值,JsonObject.get无key值会出错*/
-                val data = jsonObject.optString("Data")?: return
+                val data = jsonObject.optString("Data") ?: return
                 val schoolHotBean = GsonUtils.parseJsonWithGson(data, SchoolHotBean::class.java)
                 val itemBean = schoolHotBean.Items
                 if (isPullDown) {
@@ -104,10 +106,5 @@ class DriverSchoolFragment : BaseFragment() {
             }
 
         })
-    }
-
-    override fun onStart() {
-        super.onStart()
-        smartRefreshLayout.autoRefresh()
     }
 }

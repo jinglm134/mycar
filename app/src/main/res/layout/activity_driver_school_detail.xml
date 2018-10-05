@@ -1,100 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <com.youth.banner.Banner
-        android:id="@+id/banner"
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        app:indicator_drawable_selected="@color/colorPrimary"
-        app:indicator_drawable_unselected="@color/c10" />
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:text="南宁惠通机动车驾驶培训有限公司（青秀）" />
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            app:indicator_drawable_selected="@color/colorPrimary"
+            app:indicator_drawable_unselected="@color/c10" />
 
-        <TextView
-            android:id="@+id/tv_distance"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:paddingBottom="4dp"
-            android:paddingLeft="6dp"
-            android:paddingRight="6dp"
-            android:paddingTop="4dp"
-            android:textColor="@color/c14"
-            android:textSize="12sp"
-            tools:text="距离:1.68km" />
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="南宁惠通机动车驾驶培训有限公司（青秀）" />
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="4dp"
+                android:textColor="@color/c14"
+                android:textSize="12sp"
+                tools:text="距离:1.68km" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/starRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--android:isIndicator：RatingBar是否是一个指示器（用户无法进行更改）-->
+            <!--android：numStars：显示的星星数量，必须是一个整型值，如“100”。-->
+            <!--android：rating：默认的评分，必须是浮点类型，像“1.2”。-->
+            <!--android：stepSize：评分的步长，必须是浮点类型，像“1.2”。-->
+
+            <TextView
+                android:id="@+id/tv_discuss"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                tools:text="12评价" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/c10" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:tabIndicatorColor="@color/colorPrimaryDark"
+            app:tabIndicatorHeight="0dp"
+            app:tabSelectedTextColor="@color/colorPrimaryDark"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabTextColor="@color/c20" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/c10" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            style="@style/starRatingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <!--android:isIndicator：RatingBar是否是一个指示器（用户无法进行更改）-->
-        <!--android：numStars：显示的星星数量，必须是一个整型值，如“100”。-->
-        <!--android：rating：默认的评分，必须是浮点类型，像“1.2”。-->
-        <!--android：stepSize：评分的步长，必须是浮点类型，像“1.2”。-->
-
-        <TextView
-            android:id="@+id/tv_discuss"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:textSize="14sp"
-            tools:text="12评价" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/c10" />
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:tabIndicatorColor="@color/colorPrimaryDark"
-        app:tabIndicatorHeight="0dp"
-        app:tabSelectedTextColor="@color/colorPrimaryDark"
-        app:tabTextAppearance="@style/TabLayoutTextStyle"
-        app:tabTextColor="@color/c20" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/c10" />
-
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

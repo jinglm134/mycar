@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.jaylm.mycar.R
+import com.jaylm.mycar.tool.UShape
 import java.lang.ref.WeakReference
 
 /**
@@ -46,13 +47,13 @@ object SnackbarUtils {
         if (snackbar != null) {
             val view = snackbar.view
             val textView = view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
-            textView.setTextColor(snackbar.context.resources.getColor(textColor))
+            textView.setTextColor(UShape.getColor(textColor))
             textView.textSize = 15f
             textView.setSingleLine()
             textView.ellipsize = TextUtils.TruncateAt.END
-            view.setBackgroundColor(snackbar.context.resources.getColor(bgColor))
+            view.setBackgroundColor(UShape.getColor(bgColor))
             if (actionText.isNotEmpty() && listener != null) {
-                snackbar.setActionTextColor(snackbar.context.resources.getColor(actionTextColor))
+                snackbar.setActionTextColor(UShape.getColor(actionTextColor))
                 snackbar.setAction(actionText, listener)
             }
             snackbar.duration = duration

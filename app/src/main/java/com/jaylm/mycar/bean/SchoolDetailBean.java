@@ -1,12 +1,15 @@
 package com.jaylm.mycar.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
  * Created by jaylm
  * on 2018/10/5.
  */
-public class SchoolDetailBean extends BaseBean{
+public class SchoolDetailBean extends BaseBean implements Parcelable {
 
     /**
      * Corp_Id : 00000038
@@ -70,6 +73,49 @@ public class SchoolDetailBean extends BaseBean{
     private List<String> TrainVehicleTypes;
     private List<String> CorpPics;
     private List<String> EfencePics;
+
+    protected SchoolDetailBean(Parcel in) {
+        Corp_Id = in.readString();
+        Corp_Name = in.readString();
+        Short_CorpName = in.readString();
+        Corp_Level = in.readString();
+        Manage_Addr = in.readString();
+        AvgScore = in.readDouble();
+        SetPrice = in.readDouble();
+        Canton_Code = in.readString();
+        IsRecommand = in.readInt();
+        CommentCount = in.readInt();
+        Lon = in.readDouble();
+        Lat = in.readDouble();
+        LonLatType = in.readInt();
+        LonLatId = in.readString();
+        LonLatAddr = in.readString();
+        LonLatName = in.readString();
+        Train_Vehicle_Type = in.readString();
+        Summary = in.readString();
+        Distance = in.readDouble();
+        OrderNum = in.readInt();
+        CorpLogo = in.readString();
+        DisplayBig = in.readInt();
+        PicUrl3D = in.readString();
+        VedioUrl = in.readString();
+        OriVedioUrl = in.readString();
+        TrainVehicleTypes = in.createStringArrayList();
+        CorpPics = in.createStringArrayList();
+        EfencePics = in.createStringArrayList();
+    }
+
+    public static final Creator<SchoolDetailBean> CREATOR = new Creator<SchoolDetailBean>() {
+        @Override
+        public SchoolDetailBean createFromParcel(Parcel in) {
+            return new SchoolDetailBean(in);
+        }
+
+        @Override
+        public SchoolDetailBean[] newArray(int size) {
+            return new SchoolDetailBean[size];
+        }
+    };
 
     public String getCorp_Id() {
         return Corp_Id;
@@ -301,6 +347,43 @@ public class SchoolDetailBean extends BaseBean{
 
     public void setEfencePics(List<String> EfencePics) {
         this.EfencePics = EfencePics;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(Corp_Id);
+        dest.writeString(Corp_Name);
+        dest.writeString(Short_CorpName);
+        dest.writeString(Corp_Level);
+        dest.writeString(Manage_Addr);
+        dest.writeDouble(AvgScore);
+        dest.writeDouble(SetPrice);
+        dest.writeString(Canton_Code);
+        dest.writeInt(IsRecommand);
+        dest.writeInt(CommentCount);
+        dest.writeDouble(Lon);
+        dest.writeDouble(Lat);
+        dest.writeInt(LonLatType);
+        dest.writeString(LonLatId);
+        dest.writeString(LonLatAddr);
+        dest.writeString(LonLatName);
+        dest.writeString(Train_Vehicle_Type);
+        dest.writeString(Summary);
+        dest.writeDouble(Distance);
+        dest.writeInt(OrderNum);
+        dest.writeString(CorpLogo);
+        dest.writeInt(DisplayBig);
+        dest.writeString(PicUrl3D);
+        dest.writeString(VedioUrl);
+        dest.writeString(OriVedioUrl);
+        dest.writeStringList(TrainVehicleTypes);
+        dest.writeStringList(CorpPics);
+        dest.writeStringList(EfencePics);
     }
 
     public static class CorpMarksBean {

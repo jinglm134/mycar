@@ -44,9 +44,9 @@ class SchoolInfoFragment : BaseFragment(), View.OnClickListener {
     override fun initView() {
         super.initView()
 
-        tv_name.text = mData.lonLatName
-        tv_address.text = mData.lonLatAddr
-        tv_summary.text = mData.summary
+        tv_name.text = mData.LonLatName
+        tv_address.text = mData.LonLatAddr
+        tv_summary.text = mData.Summary
         UShape.setBackgroundDrawable(tv_contact, UShape.getCornerDrawable(UShape.getColor(R.color.colorPrimary), 6))
         UShape.setBackgroundDrawable(tv_video, UShape.getCornerDrawable(UShape.getColor(R.color.colorPrimary), 6))
 
@@ -61,13 +61,13 @@ class SchoolInfoFragment : BaseFragment(), View.OnClickListener {
         recyclerView_tag.setHasFixedSize(true)
         recyclerView_tag.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
-        recyclerView_img.isNestedScrollingEnabled=false
+        recyclerView_img.isNestedScrollingEnabled = false
         recyclerView_img.setHasFixedSize(true)
         recyclerView_img.layoutManager = LinearLayoutManager(activity)
 //        recyclerView_img.addItemDecoration(DecorationLinearDivider(R.color.c14), 10)
 
 
-        recyclerView_type.adapter = object : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_school_info_text, mData.trainVehicleTypes) {
+        recyclerView_type.adapter = object : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_school_info_text, mData.TrainVehicleTypes) {
             override fun convert(helper: BaseViewHolder, item: String?) {
                 val view = helper.getView<TextView>(R.id.tv_item)
                 UShape.setBackgroundDrawable(view, UShape.getCornerDrawable(UShape.getColor(R.color.c9), 2))
@@ -76,16 +76,16 @@ class SchoolInfoFragment : BaseFragment(), View.OnClickListener {
             }
         }
 
-        recyclerView_tag.adapter = object : BaseQuickAdapter<SchoolDetailBean.CorpMarksBean, BaseViewHolder>(R.layout.item_school_info_text, mData.corpMarks) {
+        recyclerView_tag.adapter = object : BaseQuickAdapter<SchoolDetailBean.CorpMarksBean, BaseViewHolder>(R.layout.item_school_info_text, mData.CorpMarks) {
             override fun convert(helper: BaseViewHolder, item: SchoolDetailBean.CorpMarksBean) {
                 val view = helper.getView<TextView>(R.id.tv_item)
-                UShape.setBackgroundDrawable(view, UShape.getStrokeDrawable(Color.parseColor(item.markColor), 4))
-                view.setTextColor(Color.parseColor(item.markColor))
-                view.text = item.markName
+                UShape.setBackgroundDrawable(view, UShape.getStrokeDrawable(Color.parseColor(item.MarkColor), 4))
+                view.setTextColor(Color.parseColor(item.MarkColor))
+                view.text = item.MarkName
             }
         }
 
-        recyclerView_img.adapter = object : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_school_info_image, mData.efencePics) {
+        recyclerView_img.adapter = object : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_school_info_image, mData.EfencePics) {
             override fun convert(helper: BaseViewHolder, item: String) {
                 ImageUtils.showImage(mContext, item, helper.getView(R.id.iv_item))
             }

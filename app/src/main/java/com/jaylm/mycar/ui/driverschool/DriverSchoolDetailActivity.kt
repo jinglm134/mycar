@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 import com.jaylm.mycar.R
 import com.jaylm.mycar.base.BaseActivity
 import com.jaylm.mycar.bean.SchoolDetailBean
@@ -122,7 +121,7 @@ class DriverSchoolDetailActivity : BaseActivity() {
 
     private fun bindData() {
         UShape.setBackgroundDrawable(tv_distance, UShape.getCornerDrawable(UShape.getColor(R.color.colorPrimary), 6))
-        banner.setImages(mData.corpPics).setImageLoader(object : ImageLoader() {
+        banner.setImages(mData.CorpPics).setImageLoader(object : ImageLoader() {
             override fun displayImage(context: Context?, path: Any, imageView: ImageView?) {
                 ImageUtils.showImage(context, path.toString(), imageView)
             }
@@ -133,10 +132,10 @@ class DriverSchoolDetailActivity : BaseActivity() {
                 .setBannerAnimation(Transformer.Stack)
                 .start()
 
-        tv_name.text = mData.corp_Name
-        tv_distance.text = String.format("距离:%sKM", mData.distance)
-        ratingBar.rating = mData.avgScore.toFloat()
-        tv_discuss.text = String.format("%s评价", mData.commentCount)
+        tv_name.text = mData.Corp_Name
+        tv_distance.text = String.format("距离:%sKM", mData.Distance)
+        ratingBar.rating = mData.AvgScore.toFloat()
+        tv_discuss.text = String.format("%s评价", mData.CommentCount)
 
         if (schoolInfoFragment == null) {
             schoolInfoFragment = SchoolInfoFragment.newInstance(mData)

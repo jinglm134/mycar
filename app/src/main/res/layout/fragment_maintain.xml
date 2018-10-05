@@ -13,9 +13,8 @@
     <com.youth.banner.Banner
         android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="160dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="20dp"
         app:indicator_drawable_selected="@color/colorPrimary"
         app:indicator_drawable_unselected="@color/c10" />
 

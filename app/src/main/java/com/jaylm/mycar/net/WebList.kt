@@ -51,4 +51,11 @@ object WebList {
                 .params("Lon", 108.36637)
                 .execute(callBack)
     }
+
+    fun getCorpSet(corpId: String, callBack: BaseCallBack) {
+        OkGo.post<String>(API.GetCorpSet)
+                .params("CorpId", corpId)
+                .params("Source", 22.0)
+                .execute(callBack)
+    }
 }

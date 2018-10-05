@@ -22,7 +22,7 @@ class AdapterDriverSchool : BaseQuickAdapter<SchoolHotBean.ItemsBean, BaseViewHo
         helper.setText(R.id.tv_price, String.format("¥%s", item.SetPrice))
         helper.setText(R.id.tv_distance, String.format("距离:%sKM", item.Distance))
         val ratingBar=helper.getView<RatingBar>(R.id.ratingBar)
-        ratingBar.stepSize=item.AvgScore.toFloat()
+        ratingBar.rating=item.AvgScore.toFloat()
 
     }
 }

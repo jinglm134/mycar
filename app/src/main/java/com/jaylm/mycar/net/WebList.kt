@@ -29,7 +29,7 @@ object WebList {
     }
 
     fun schoolHot(filterType: Int, pageIndex: Int, callBack: BaseCallBack) {
-        OkGo.post<String>(API.SCHOOL_HOT)
+        OkGo.post<String>(API.SearchNNCorps)
                 .params("CantonCode", "")
                 .params("FilterType", filterType)
                 .params("GetLogo", 1)
@@ -41,6 +41,14 @@ object WebList {
                 .params("PageIndex", pageIndex)
                 .params("PageSize", 20)
                 .params("Source", 0)
+                .execute(callBack)
+    }
+
+    fun getNNCorp(CorpId: String, callBack: BaseCallBack) {
+        OkGo.post<String>(API.GetNNCorp)
+                .params("CorpId", "")
+                .params("Lat", 22.817746)
+                .params("Lon", 108.36637)
                 .execute(callBack)
     }
 }

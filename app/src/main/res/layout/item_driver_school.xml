@@ -92,6 +92,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <!--android:isIndicator：RatingBar是否是一个指示器（用户无法进行更改）-->
+            <!--android：numStars：显示的星星数量，必须是一个整型值，如“100”。-->
+            <!--android：rating：默认的评分，必须是浮点类型，像“1.2”。-->
+            <!--android：stepSize：评分的步长，必须是浮点类型，像“1.2”。-->
+
             <TextView
                 android:id="@+id/tv_discuss"
                 android:layout_width="0dp"

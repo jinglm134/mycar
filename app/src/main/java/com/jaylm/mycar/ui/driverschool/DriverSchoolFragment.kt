@@ -35,7 +35,7 @@ class DriverSchoolFragment : BaseFragment() {
 
         tabLayout.addTab(tabLayout.newTab().setText("综合排序"))
         tabLayout.addTab(tabLayout.newTab().setText("距离最近"))
-        tabLayout.addTab(tabLayout.newTab().setText("评分有先"))
+        tabLayout.addTab(tabLayout.newTab().setText("评分优先"))
         tabLayout.addTab(tabLayout.newTab().setText("区域"))
 
         mData = ArrayList()

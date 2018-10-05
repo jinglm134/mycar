@@ -79,7 +79,7 @@ class DriverSchoolDetailActivity : BaseActivity() {
                     }
                     1 -> {
                         if (schoolTariffFragment == null) {
-                            schoolTariffFragment = SchoolTariffFragment()
+                            schoolTariffFragment = SchoolTariffFragment.newInstance(mData.Corp_Id)
                         }
                         smartReplaceFragment(R.id.frameLayout, schoolTariffFragment!!)
                     }

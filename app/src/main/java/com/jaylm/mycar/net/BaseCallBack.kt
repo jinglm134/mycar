@@ -37,7 +37,7 @@ abstract class BaseCallBack(private val mActivity: Activity, private val mShowDi
     init {
         if (mShowDialog && mDialog == null) {
             //初始化加载进度框
-            mDialog = ProgressDialog(BaseApp.getInstance())
+            mDialog = ProgressDialog(mActivity)
         }
     }
 

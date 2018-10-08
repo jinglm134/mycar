@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="C1手动挡普通班" />
+
+        <TextView
+            android:id="@+id/tv_price_now"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textColor="@color/c1"
+            android:textSize="18sp"
+            tools:text="2380" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_C1_C2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:textColor="@color/c14"
+            tools:text="C1" />
+
+        <TextView
+            android:id="@+id/tv_taocan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:padding="3dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            tools:text="培训套餐" />
+
+        <TextView
+            android:id="@+id/tv_price_old"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            tools:text="原价2980" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_arrow"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@null"
+        android:src="@mipmap/arrow_down"
+        android:tint="@color/colorPrimary" />
+</LinearLayout>

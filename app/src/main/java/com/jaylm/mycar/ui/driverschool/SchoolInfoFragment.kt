@@ -14,6 +14,7 @@ import com.jaylm.mycar.tool.UShape
 import com.jaylm.mycar.tool.bindArgument
 import com.jaylm.mycar.ui.release.util.ImageUtils
 import kotlinx.android.synthetic.main.fragment_school_info.*
+import kotlinx.android.synthetic.main.layout_recyclerview.*
 
 /**
  * 驾校详情-简介

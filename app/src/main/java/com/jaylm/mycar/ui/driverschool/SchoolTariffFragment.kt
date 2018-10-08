@@ -12,10 +12,9 @@ import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.tool.bindArgument
 import com.jaylm.mycar.util.GsonUtils
-import com.jaylm.mycar.view.AutoHeightLinearLayoutManager
 import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
-import kotlinx.android.synthetic.main.fragment_school_tariff.*
+import kotlinx.android.synthetic.main.layout_recyclerview.*
 import org.json.JSONObject
 
 /**
@@ -41,7 +40,7 @@ class SchoolTariffFragment : BaseFragment() {
     }
 
     override fun bindLayout(): Int {
-        return R.layout.fragment_school_tariff
+        return R.layout.layout_recyclerview
     }
 
     override fun initView() {

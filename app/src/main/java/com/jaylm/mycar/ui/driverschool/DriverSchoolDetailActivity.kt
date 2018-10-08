@@ -85,7 +85,7 @@ class DriverSchoolDetailActivity : BaseActivity() {
                     }
                     2 -> {
                         if (schoolCoachFragment == null) {
-                            schoolCoachFragment = SchoolCoachFragment()
+                            schoolCoachFragment = SchoolCoachFragment.newInstance(mData.Corp_Id)
                         }
                         smartReplaceFragment(R.id.frameLayout, schoolCoachFragment!!)
                     }

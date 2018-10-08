@@ -58,4 +58,15 @@ object WebList {
                 .params("Source", 22.0)
                 .execute(callBack)
     }
+
+    fun CorpCoachsInfo(corpId: String, callBack: BaseCallBack) {
+        OkGo.post<String>(API.CorpCoachsInfo)
+                .params("CorpId", corpId)
+                .params("PageIndex", 1)
+                .params("PageSize", 50)
+                .params("Source", 0)
+                .execute(callBack)
+    }
+
+
 }

@@ -11,4 +11,5 @@ object API {
     val SearchNNCorps = "http://www.gxxcc.com:80/JP_NNPay/api/v1/JPApp/Corp/SearchNNCorps"//驾校列表
     val GetNNCorp = "http://www.gxxcc.com:80/JP_NNPay/api/v1/JPApp/Corp/GetNNCorp"//驾校简介
     val GetCorpSet = "http://www.gxxcc.com:80/JP_NNPay/api/v1/JPApp/CorpSet/Sets"//驾校套餐
+    val CorpCoachsInfo = "http://www.gxxcc.com:80/JP_NNPay/api/v1/JPApp/Coach/CorpCoachsInfo"//教练
 }

@@ -10,9 +10,13 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.jaylm.mycar.R
 import com.jaylm.mycar.base.BaseFragment
 import com.jaylm.mycar.bean.SchoolDetailBean
+import com.jaylm.mycar.global.VariableInfo
+import com.jaylm.mycar.tool.UCall
 import com.jaylm.mycar.tool.UShape
 import com.jaylm.mycar.tool.bindArgument
+import com.jaylm.mycar.ui.ActivityVideoPlayer
 import com.jaylm.mycar.ui.release.util.ImageUtils
+import com.jaylm.mycar.util.StringUtils
 import kotlinx.android.synthetic.main.fragment_school_info.*
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 
@@ -48,8 +52,15 @@ class SchoolInfoFragment : BaseFragment(), View.OnClickListener {
         tv_name.text = mData.LonLatName
         tv_address.text = mData.LonLatAddr
         tv_summary.text = mData.Summary
-        UShape.setBackgroundDrawable(tv_contact, UShape.getCornerDrawable(UShape.getColor(R.color.colorPrimary), 6))
-        UShape.setBackgroundDrawable(tv_video, UShape.getCornerDrawable(UShape.getColor(R.color.colorPrimary), 6))
+        UShape.setBackgroundDrawable(tv_contact, UShape.getPressedDrawable(UShape.getColor(R.color.colorPrimary), UShape.getColor(R.color.c23), 6))
+
+
+        if (StringUtils.isEmpty(mData.VedioUrl)) {
+            tv_video.visibility = View.GONE
+        } else {
+            tv_video.visibility = View.VISIBLE
+            UShape.setBackgroundDrawable(tv_video, UShape.getPressedDrawable(UShape.getColor(R.color.colorPrimary), UShape.getColor(R.color.c23), 6))
+        }
 
         initRecyclerView()
 
@@ -102,8 +113,14 @@ class SchoolInfoFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.tv_contact -> {
+                UCall.dialPhone(activity!!, VariableInfo.customerPhone)
             }
             R.id.tv_video -> {
+                val bundle = Bundle()
+                bundle.putString("url", mData.VedioUrl)
+                bundle.putString("thumb", mData.PicUrl3D)
+                bundle.putString("title", mData.Corp_Name)
+                startActivity(ActivityVideoPlayer::class.java, bundle)
             }
         }
     }

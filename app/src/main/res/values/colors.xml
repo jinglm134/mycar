@@ -47,7 +47,7 @@
     <color name="c21">#eeeeee</color>
 
     <color name="c22">#00000000</color>
-
+    <color name="c23">#8c9cf1</color>
     <color name="tab_selected">#e0e0e0</color>
     <color name="tab_unselected">#f0f0f0</color>
     <color name="snackbar_bg">#e0aaaaaa</color>

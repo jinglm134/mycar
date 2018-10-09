@@ -2,11 +2,9 @@ package com.jaylm.mycar.ui.driverschool
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.jaylm.mycar.R
-import com.jaylm.mycar.adapter.AdapterMultiSchoolTariff
+import com.jaylm.mycar.adapter.AdapterSchoolTariff
 import com.jaylm.mycar.base.BaseFragment
-import com.jaylm.mycar.bean.MultiSchoolTariffBean
 import com.jaylm.mycar.bean.SchoolTariffBean
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
@@ -25,8 +23,11 @@ import org.json.JSONObject
 class SchoolTariffFragment : BaseFragment() {
 
     private val mId: String by bindArgument("id")
-    private lateinit var mData: ArrayList<MultiItemEntity>
-    private lateinit var mAdapter: AdapterMultiSchoolTariff
+    //    private lateinit var mData: ArrayList<MultiItemEntity>
+    //    private lateinit var mAdapter: AdapterMultiSchoolTariff
+
+    private lateinit var mData2: ArrayList<SchoolTariffBean>
+    private lateinit var mAdapter2: AdapterSchoolTariff
 
 
     companion object {
@@ -46,16 +47,21 @@ class SchoolTariffFragment : BaseFragment() {
     override fun initView() {
         super.initView()
 
-//        recyclerView.isNestedScrollingEnabled = false
+        recyclerView.isNestedScrollingEnabled = false
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity!!, LinearLayoutManager.VERTICAL, false)
         recyclerView.addItemDecoration(DecorationLinearDivider(R.color.c10, 1F))
 
 
-        mData = ArrayList()
-        mAdapter = AdapterMultiSchoolTariff(mData)
-        mAdapter.bindToRecyclerView(recyclerView)
-        recyclerView.adapter = mAdapter
+//        mData = ArrayList()
+//        mAdapter = AdapterMultiSchoolTariff(mData)
+//        mAdapter.bindToRecyclerView(recyclerView)
+//        recyclerView.adapter = mAdapter
+
+        mData2 = ArrayList()
+        mAdapter2 = AdapterSchoolTariff()
+        mAdapter2.bindToRecyclerView(recyclerView)
+        recyclerView.adapter = mAdapter2
 
         loadData()
     }
@@ -78,15 +84,19 @@ class SchoolTariffFragment : BaseFragment() {
                 val data = jsonObject.optString("Data")
                 val schoolTariffBean = GsonUtils.parseJsonArrayWithGson(data, SchoolTariffBean::class.java)
 
-                mData.clear()
-                for (i in 0 until schoolTariffBean.size) {
-                    val bean = MultiSchoolTariffBean(schoolTariffBean[i].SetName, schoolTariffBean[i].InfactPay, schoolTariffBean[i].VehicleType, schoolTariffBean[i].TotalPay)
-                    bean.addSubItem(schoolTariffBean[i])
-                    mData.add(bean)
-                }
-
-                mAdapter.setNewData(mData)
+//                mData.clear()
+//                for (i in 0 until schoolTariffBean.size) {
+//                    val bean = MultiSchoolTariffBean(schoolTariffBean[i].SetName, schoolTariffBean[i].InfactPay, schoolTariffBean[i].VehicleType, schoolTariffBean[i].TotalPay)
+//                    bean.addSubItem(schoolTariffBean[i])
+//                    mData.add(bean)
+//                }
+//
+//                mAdapter.setNewData(mData)
 //                mAdapter.expandAll()
+
+                mData2.clear()
+                mData2.addAll(schoolTariffBean)
+                mAdapter2.setNewData(mData2)
             }
         })
     }

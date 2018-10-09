@@ -3,12 +3,16 @@ package com.jaylm.mycar.ui.driverschool
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.AdapterDriverSchool
 import com.jaylm.mycar.base.BaseFragment
 import com.jaylm.mycar.bean.SchoolHotBean
+import com.jaylm.mycar.global.VariableInfo
+import com.jaylm.mycar.net.API
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
+import com.jaylm.mycar.ui.WebViewActivity
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
@@ -21,7 +25,7 @@ import org.json.JSONObject
  * Created by jaylm
  * on 2018/10/4.
  */
-class DriverSchoolFragment : BaseFragment() {
+class DriverSchoolFragment : BaseFragment(), View.OnClickListener {
 
     private lateinit var mData: ArrayList<SchoolHotBean.ItemsBean>
     private lateinit var mAdapter: AdapterDriverSchool
@@ -81,6 +85,10 @@ class DriverSchoolFragment : BaseFragment() {
             bundle.putString("corpId", id)
             startActivity(DriverSchoolDetailActivity::class.java, bundle)
         }
+
+        ll_baoming.setOnClickListener(this)
+        ll_xueche.setOnClickListener(this)
+        ll_kaoshi.setOnClickListener(this)
     }
 
     private fun loadData(isPullDown: Boolean = true) {
@@ -105,4 +113,25 @@ class DriverSchoolFragment : BaseFragment() {
 
         })
     }
+
+    override fun onClick(v: View) {
+        when (v.id) {
+            R.id.ll_baoming -> {
+                val bundle = Bundle()
+                bundle.putString("url", VariableInfo.url_know)
+                startActivity(WebViewActivity::class.java, bundle)
+            }
+            R.id.ll_xueche -> {
+                val bundle = Bundle()
+                bundle.putString("url", VariableInfo.url_train)
+                startActivity(WebViewActivity::class.java, bundle)
+            }
+            R.id.ll_kaoshi -> {
+                val bundle = Bundle()
+                bundle.putString("url", VariableInfo.url_exam)
+                startActivity(WebViewActivity::class.java, bundle)
+            }
+        }
+    }
+
 }

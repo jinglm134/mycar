@@ -14,5 +14,5 @@ object VariableInfo {
 
     var url_know = "http://www.gxxcc.com/JP_NNPay/About/Know?type=1"//报名流程网址
     var url_train = "http://www.gxxcc.com/JP_NNPay/About/CustomTrain"//定制学车网址
-    var url_exam = "http://www.gxxcc.com/jp_online/Account/Index_h5"//模拟考试
+    var url_exam = "http://www.gxxcc.com/jp_online/Account/login_h5?IdNo=17628093505"//模拟考试
 }

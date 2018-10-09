@@ -68,5 +68,14 @@ object WebList {
                 .execute(callBack)
     }
 
+    fun CommentInfo(corpId: String, callBack: BaseCallBack) {
+        OkGo.post<String>(API.CommentInfo)
+                .params("CorpId", corpId)
+                .params("PageIndex", 1)
+                .params("PageSize", 50)
+                .params("Source", 0)
+                .execute(callBack)
+    }
+
 
 }

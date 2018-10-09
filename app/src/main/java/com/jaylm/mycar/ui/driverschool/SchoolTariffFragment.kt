@@ -31,11 +31,11 @@ class SchoolTariffFragment : BaseFragment() {
 
     companion object {
         fun newInstance(id: String): SchoolTariffFragment {
-            val schoolInfoFragment = SchoolTariffFragment()
+            val schoolTariffFragment = SchoolTariffFragment()
             val bundle = Bundle()
             bundle.putString("id", id)
-            schoolInfoFragment.arguments = bundle
-            return schoolInfoFragment
+            schoolTariffFragment.arguments = bundle
+            return schoolTariffFragment
         }
     }
 

@@ -3,7 +3,6 @@ package com.jaylm.mycar.ui.driverschool
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v7.widget.LinearLayoutManager
-import com.chad.library.adapter.base.BaseQuickAdapter
 import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.AdapterDriverSchool
 import com.jaylm.mycar.base.BaseFragment

@@ -2,6 +2,7 @@ package com.jaylm.mycar.ui.driverschool
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.AdapterSchoolCoach
 import com.jaylm.mycar.base.BaseFragment
@@ -29,11 +30,11 @@ class SchoolCoachFragment : BaseFragment() {
 
     companion object {
         fun newInstance(id: String): SchoolCoachFragment {
-            val schoolInfoFragment = SchoolCoachFragment()
+            val schoolCoachFragment = SchoolCoachFragment()
             val bundle = Bundle()
             bundle.putString("id", id)
-            schoolInfoFragment.arguments = bundle
-            return schoolInfoFragment
+            schoolCoachFragment.arguments = bundle
+            return schoolCoachFragment
         }
     }
 
@@ -43,6 +44,7 @@ class SchoolCoachFragment : BaseFragment() {
 
     override fun initView() {
         super.initView()
+        tv_nodota.text = "暂无教练"
         recyclerView.isNestedScrollingEnabled = false
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity!!, LinearLayoutManager.VERTICAL, false)
@@ -71,6 +73,11 @@ class SchoolCoachFragment : BaseFragment() {
 
                 mData.clear()
                 mData.addAll(schoolCoachBean)
+                if (mData.size <= 1) {
+                    tv_nodota.visibility = View.VISIBLE
+                } else {
+                    tv_nodota.visibility = View.GONE
+                }
                 mAdapter.setNewData(mData)
             }
 

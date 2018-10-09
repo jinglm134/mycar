@@ -3,15 +3,20 @@ package com.jaylm.mycar.application
 import android.app.Application
 import android.content.Context
 import cn.jpush.android.api.JPushInterface
+import com.jaylm.mycar.R
 import com.lzy.okgo.OkGo
 import com.lzy.okgo.cache.CacheEntity
 import com.lzy.okgo.cache.CacheMode
 import com.lzy.okgo.cookie.CookieJarImpl
 import com.lzy.okgo.cookie.store.DBCookieStore
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter
+import com.scwang.smartrefresh.layout.header.ClassicsHeader
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 import java.util.logging.Level
+
 
 /**
  * Created by jaylm
@@ -19,9 +24,21 @@ import java.util.logging.Level
  */
 class BaseApp : Application() {
 
+    init {
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
+            layout.setPrimaryColorsId(R.color.c19, R.color.black)//全局设置主题颜色
+            ClassicsHeader(context)
+        }
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, layout ->
+            layout.setPrimaryColorsId(R.color.c19, R.color.black)//全局设置主题颜色
+            ClassicsFooter(context).setDrawableSize(20F)
+        }
+    }
+
     companion object {
         private lateinit var mApplication: BaseApp
-        @JvmStatic fun getInstance(): Context {
+        @JvmStatic
+        fun getInstance(): Context {
             return mApplication.applicationContext
         }
     }
@@ -61,5 +78,6 @@ class BaseApp : Application() {
                 .setCacheMode(CacheMode.NO_CACHE)               //全局统一缓存模式，默认不使用缓存，可以不传
                 .setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE).retryCount = 1
     }
+
 
 }

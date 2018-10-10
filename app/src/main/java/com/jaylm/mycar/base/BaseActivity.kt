@@ -84,6 +84,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected open fun initParams(bundle: Bundle) {}
     protected open fun initView() {
     }
+
     protected open fun setListener() {}
 
 
@@ -106,7 +107,7 @@ abstract class BaseActivity : AppCompatActivity() {
      * @param clz class
      * @param bundle bundle
      */
-    private fun startActivity(clz: Class<*>, bundle: Bundle?) {
+    fun startActivity(clz: Class<*>, bundle: Bundle? = null) {
         val intent = Intent()
         intent.setClass(this, clz)
         if (bundle != null) {
@@ -121,7 +122,7 @@ abstract class BaseActivity : AppCompatActivity() {
      * @param bundle bundle
      * @param requestCode requestCode
      */
-    private fun startActivityForResult(cls: Class<*>, bundle: Bundle?, requestCode: Int) {
+    protected fun startActivityForResult(cls: Class<*>, bundle: Bundle?, requestCode: Int) {
         val intent = Intent()
         intent.setClass(this, cls)
         if (bundle != null) {

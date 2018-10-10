@@ -1,6 +1,5 @@
 package com.jaylm.mycar.net
 
-import com.jaylm.mycar.bean.exam.ExamCheatBean
 import com.lzy.okgo.OkGo
 
 /**
@@ -90,6 +89,11 @@ object WebList {
                 .params("pagesize", 50)
                 .params("pageindex", 1)
                 .params("url", String.format("/news/api/%s/comment/list", url))
+                .execute(callBack)
+    }
+
+    fun videoClass(callBack: BaseCallBack) {
+        OkGo.get<String>(API.videoClass)
                 .execute(callBack)
     }
 

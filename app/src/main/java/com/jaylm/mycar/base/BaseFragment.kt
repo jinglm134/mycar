@@ -80,7 +80,7 @@ abstract class BaseFragment : Fragment() {
      * @param clz class
      * @param bundle bundle
      */
-    protected fun startActivity(clz: Class<*>, bundle: Bundle?) {
+    protected fun startActivity(clz: Class<*>, bundle: Bundle? = null) {
         val intent = Intent()
         intent.setClass(activity, clz)
         if (bundle != null) {

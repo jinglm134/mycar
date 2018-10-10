@@ -56,6 +56,8 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity android:name=".ui.exam.ExamCheatDetailActivity" />
+        <activity android:name=".ui.exam.LearnListActivity" />
+        <activity android:name=".ui.exam.LearnDetailActivity" />
 
     </application>
 

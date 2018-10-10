@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/c16"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:visibility="gone">
 
         <LinearLayout
             android:id="@+id/ll_baoming"
@@ -28,9 +29,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:text="报名流程"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                android:text="报名流程" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -51,9 +52,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:text="定制学车"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                android:text="定制学车" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -74,9 +75,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:text="模拟考试"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                android:text="模拟考试" />
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 

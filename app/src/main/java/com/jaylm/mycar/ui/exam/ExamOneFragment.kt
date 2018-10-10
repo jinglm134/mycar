@@ -11,6 +11,7 @@ import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
+import kotlinx.android.synthetic.main.fragment_exam_one.*
 import kotlinx.android.synthetic.main.layout_smartrecyclerview.*
 import org.json.JSONObject
 
@@ -57,6 +58,10 @@ class ExamOneFragment : BaseFragment() {
             bundle.putString("url", (adapter.data[position] as ExamCheatBean).useraction.url)
             bundle.putLong("id", (adapter.data[position] as ExamCheatBean).articleId)
             startActivity(ExamCheatDetailActivity::class.java, bundle)
+        }
+
+        ll_xueche.setOnClickListener {
+            startActivity(LearnListActivity::class.java)
         }
     }
 

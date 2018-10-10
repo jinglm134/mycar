@@ -15,4 +15,6 @@ object API {
     val CommentInfo = "http://www.gxxcc.com:80/JP_NNPay/api/v1/JPApp/Comment/CorpScoreCommentInfo"//评价
     val Onearticles = "https://bbsapi.jxedt.com/listnews/204/articles"//科一秘籍
     val Onecommentlist = "https://bbsapi.jxedt.com//news/api/%s/comment/list"//科一秘籍评论
+    val videoClass = "https://api.jxedt.com/media/videoClass/?videotype=2"//科一学车课堂
+
 }

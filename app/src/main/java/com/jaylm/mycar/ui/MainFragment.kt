@@ -16,7 +16,7 @@ import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
 import com.youth.banner.BannerConfig
 import com.youth.banner.loader.ImageLoader
-import kotlinx.android.synthetic.main.fragment_maintain.*
+import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.layout_smartrecyclerview.*
 
 /**
@@ -24,13 +24,13 @@ import kotlinx.android.synthetic.main.layout_smartrecyclerview.*
  * Created by jaylm
  * on 2018/10/3.
  */
-class MaintainFragment : BaseFragment() {
+class MainFragment : BaseFragment() {
     private lateinit var mBannerData: ArrayList<BannerMaintainBean>
     private lateinit var mRecommendData: ArrayList<RecommendMaintainBean>
     private lateinit var mAdapter: AdapterRecommendMaintain
 
     override fun bindLayout(): Int {
-        return R.layout.fragment_maintain
+        return R.layout.fragment_main
     }
 
     override fun initView() {

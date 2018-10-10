@@ -1,4 +1,4 @@
-package com.jaylm.mycar.ui.driverschool
+package com.jaylm.mycar.ui.school
 
 import android.content.Context
 import android.os.Bundle
@@ -16,15 +16,15 @@ import com.lzy.okgo.model.Response
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import com.youth.banner.loader.ImageLoader
-import kotlinx.android.synthetic.main.activity_driver_school_detail.*
+import kotlinx.android.synthetic.main.activity_school_detail.*
 import org.json.JSONObject
 
 /**
- * 驾校详情界面
  * Created by jaylm
- * on 2018/10/5.
+ * on 2018/10/10.
  */
-class DriverSchoolDetailActivity : BaseActivity() {
+class SchoolDetailActivity : BaseActivity() {
+
     private lateinit var mCorpId: String
     private lateinit var mData: SchoolDetailBean
 
@@ -34,9 +34,8 @@ class DriverSchoolDetailActivity : BaseActivity() {
     private var schoolAssessFragment: SchoolAssessFragment? = null
 
     override fun bindLayout(): Int {
-        return R.layout.activity_driver_school_detail
+        return R.layout.activity_school_detail
     }
-
 
     override fun initParams(bundle: Bundle) {
         super.initParams(bundle)
@@ -58,7 +57,7 @@ class DriverSchoolDetailActivity : BaseActivity() {
 
     override fun setListener() {
         super.setListener()
-        banner.setOnBannerListener { position ->
+        banner.setOnBannerListener { _ ->
 
         }
 

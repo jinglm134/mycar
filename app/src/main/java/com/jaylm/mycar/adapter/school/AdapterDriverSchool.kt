@@ -1,4 +1,4 @@
-package com.jaylm.mycar.adapter
+package com.jaylm.mycar.adapter.school
 
 import android.widget.RatingBar
 import com.chad.library.adapter.base.BaseQuickAdapter

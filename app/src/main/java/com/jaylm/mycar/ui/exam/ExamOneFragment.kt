@@ -1,14 +1,14 @@
-package com.jaylm.mycar.ui
+package com.jaylm.mycar.ui.exam
 
 import com.jaylm.mycar.R
 import com.jaylm.mycar.base.BaseFragment
 
 /**
  * Created by jaylm
- * on 2018/10/3.
+ * on 2018/10/10.
  */
-class BuyFragment : BaseFragment() {
+class ExamOneFragment : BaseFragment() {
     override fun bindLayout(): Int {
-        return R.layout.fragment_buy
+        return R.layout.fragment_exam_one
     }
 }

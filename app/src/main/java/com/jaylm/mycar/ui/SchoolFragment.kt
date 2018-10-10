@@ -1,22 +1,21 @@
-package com.jaylm.mycar.ui.driverschool
+package com.jaylm.mycar.ui
 
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.jaylm.mycar.R
-import com.jaylm.mycar.adapter.AdapterDriverSchool
+import com.jaylm.mycar.adapter.school.AdapterDriverSchool
 import com.jaylm.mycar.base.BaseFragment
 import com.jaylm.mycar.bean.SchoolHotBean
 import com.jaylm.mycar.global.VariableInfo
-import com.jaylm.mycar.net.API
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
-import com.jaylm.mycar.ui.WebViewActivity
+import com.jaylm.mycar.ui.school.SchoolDetailActivity
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
-import kotlinx.android.synthetic.main.fragment_driver_school.*
+import kotlinx.android.synthetic.main.fragment_school.*
 import kotlinx.android.synthetic.main.layout_smartrecyclerview.*
 import org.json.JSONObject
 
@@ -25,14 +24,14 @@ import org.json.JSONObject
  * Created by jaylm
  * on 2018/10/4.
  */
-class DriverSchoolFragment : BaseFragment(), View.OnClickListener {
+class SchoolFragment : BaseFragment(), View.OnClickListener {
 
     private lateinit var mData: ArrayList<SchoolHotBean.ItemsBean>
     private lateinit var mAdapter: AdapterDriverSchool
     private var mPageIndex = 1
     private var mFilterType = 0
     override fun bindLayout(): Int {
-        return R.layout.fragment_driver_school
+        return R.layout.fragment_school
     }
 
     override fun initView() {
@@ -83,7 +82,7 @@ class DriverSchoolFragment : BaseFragment(), View.OnClickListener {
             val id = (adapter.data[position] as SchoolHotBean.ItemsBean).Corp_Id
             val bundle = Bundle()
             bundle.putString("corpId", id)
-            startActivity(DriverSchoolDetailActivity::class.java, bundle)
+            startActivity(SchoolDetailActivity::class.java, bundle)
         }
 
         ll_baoming.setOnClickListener(this)
@@ -119,16 +118,19 @@ class DriverSchoolFragment : BaseFragment(), View.OnClickListener {
             R.id.ll_baoming -> {
                 val bundle = Bundle()
                 bundle.putString("url", VariableInfo.url_know)
+                bundle.putString("name", "报名流程")
                 startActivity(WebViewActivity::class.java, bundle)
             }
             R.id.ll_xueche -> {
                 val bundle = Bundle()
                 bundle.putString("url", VariableInfo.url_train)
+                bundle.putString("name", "定制学车")
                 startActivity(WebViewActivity::class.java, bundle)
             }
             R.id.ll_kaoshi -> {
                 val bundle = Bundle()
                 bundle.putString("url", VariableInfo.url_exam)
+                bundle.putString("name", "模拟考试")
                 startActivity(WebViewActivity::class.java, bundle)
             }
         }

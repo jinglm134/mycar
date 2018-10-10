@@ -10,7 +10,7 @@ import com.jaylm.mycar.ui.release.util.ImageUtils
  * Created by jaylm
  * on 2018/10/3.
  */
-class AdapterRecommendMaintain : BaseQuickAdapter<RecommendMaintainBean, BaseViewHolder>(R.layout.item_recommend_miantain) {
+class AdapterRecommendMaintain : BaseQuickAdapter<RecommendMaintainBean, BaseViewHolder>(R.layout.item_recommend_mian) {
     override fun convert(helper: BaseViewHolder, item: RecommendMaintainBean) {
         helper.setText(R.id.tv_title, item.title)
         helper.setText(R.id.tv_content, item.content)

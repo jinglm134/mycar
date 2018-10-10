@@ -1,4 +1,4 @@
-package com.jaylm.mycar.ui.driverschool
+package com.jaylm.mycar.ui.school
 
 import android.graphics.Color
 import android.os.Bundle
@@ -18,7 +18,6 @@ import com.jaylm.mycar.ui.ActivityVideoPlayer
 import com.jaylm.mycar.ui.release.util.ImageUtils
 import com.jaylm.mycar.util.StringUtils
 import kotlinx.android.synthetic.main.fragment_school_info.*
-import kotlinx.android.synthetic.main.layout_recyclerview.*
 
 /**
  * 驾校详情-简介

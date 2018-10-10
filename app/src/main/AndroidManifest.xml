@@ -50,7 +50,7 @@
 
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.WebViewActivity" />
-        <activity android:name=".ui.driverschool.DriverSchoolDetailActivity" />
+        <activity android:name=".ui.school.SchoolDetailActivity" />
         <activity
             android:name=".ui.ActivityVideoPlayer"
             android:configChanges="orientation|screenSize|keyboardHidden"

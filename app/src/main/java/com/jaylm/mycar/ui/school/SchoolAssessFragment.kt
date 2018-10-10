@@ -1,11 +1,10 @@
-package com.jaylm.mycar.ui.driverschool
+package com.jaylm.mycar.ui.school
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.jaylm.mycar.R
-import com.jaylm.mycar.adapter.AdapterSchoolAssess
-import com.jaylm.mycar.adapter.AdapterSchoolCoach
+import com.jaylm.mycar.adapter.school.AdapterSchoolAssess
 import com.jaylm.mycar.base.BaseFragment
 import com.jaylm.mycar.bean.SchoolAssessBean
 import com.jaylm.mycar.net.BaseCallBack

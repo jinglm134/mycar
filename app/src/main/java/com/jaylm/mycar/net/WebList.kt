@@ -1,5 +1,6 @@
 package com.jaylm.mycar.net
 
+import com.jaylm.mycar.bean.exam.ExamCheatBean
 import com.lzy.okgo.OkGo
 
 /**
@@ -63,7 +64,7 @@ object WebList {
         OkGo.post<String>(API.CorpCoachsInfo)
                 .params("CorpId", corpId)
                 .params("PageIndex", 1)
-                .params("PageSize", 50)
+                .params("PageSize", 20)
                 .params("Source", 0)
                 .execute(callBack)
     }
@@ -77,5 +78,19 @@ object WebList {
                 .execute(callBack)
     }
 
+    fun Onearticles(pageindex: Int, callBack: BaseCallBack) {
+        OkGo.get<String>(API.Onearticles)
+                .params("pagesize", 20)
+                .params("pageindex", pageindex)
+                .execute(callBack)
+    }
+
+    fun Onecommentlist(url: Long, callBack: BaseCallBack) {
+        OkGo.get<String>(String.format("https://bbsapi.jxedt.com//news/api/%s/comment/list", url))
+                .params("pagesize", 50)
+                .params("pageindex", 1)
+                .params("url", String.format("/news/api/%s/comment/list", url))
+                .execute(callBack)
+    }
 
 }

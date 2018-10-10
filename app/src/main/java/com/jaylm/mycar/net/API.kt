@@ -13,4 +13,6 @@ object API {
     val GetCorpSet = "http://www.gxxcc.com:80/JP_NNPay/api/v1/JPApp/CorpSet/Sets"//驾校套餐
     val CorpCoachsInfo = "http://www.gxxcc.com:80/JP_NNPay/api/v1/JPApp/Coach/CorpCoachsInfo"//教练
     val CommentInfo = "http://www.gxxcc.com:80/JP_NNPay/api/v1/JPApp/Comment/CorpScoreCommentInfo"//评价
+    val Onearticles = "https://bbsapi.jxedt.com/listnews/204/articles"//科一秘籍
+    val Onecommentlist = "https://bbsapi.jxedt.com//news/api/%s/comment/list"//科一秘籍评论
 }

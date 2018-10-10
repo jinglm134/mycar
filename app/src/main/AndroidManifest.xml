@@ -55,6 +55,7 @@
             android:name=".ui.ActivityVideoPlayer"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.exam.ExamCheatDetailActivity" />
 
     </application>
 

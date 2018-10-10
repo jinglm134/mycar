@@ -30,7 +30,7 @@ class ExamFragment : BaseFragment() {
         super.initView()
 
 
-        for (i in 0 until mTitle.size) {
+        for (i in mTitle.indices) {
             tabLayout.addTab(tabLayout.newTab().setText(mTitle[i]))
         }
         tabLayout.tabMode = TabLayout.MODE_FIXED

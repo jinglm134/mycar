@@ -67,5 +67,6 @@ dependencies {
 
     implementation 'com.youth.banner:banner:1.4.10'  //banner
     implementation 'cn.jzvd:jiaozivideoplayer:6.3.1'//videoPlayer
+    implementation 'de.hdodenhof:circleimageview:2.2.0'//circleimageview
 
 }

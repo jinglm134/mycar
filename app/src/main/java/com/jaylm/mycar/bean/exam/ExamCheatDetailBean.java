@@ -50,7 +50,7 @@ public class ExamCheatDetailBean extends BaseBean {
     private UseractionBean useraction;
     private String userid;
     private int usertype;
-    private List<String> comments;
+//    private List<String> comments;
     private List<GroupsBean> groups;
 
     public CmtactionBean getCmtaction() {
@@ -189,13 +189,13 @@ public class ExamCheatDetailBean extends BaseBean {
         this.usertype = usertype;
     }
 
-    public List<String> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<String> comments) {
-        this.comments = comments;
-    }
+//    public List<String> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(List<String> comments) {
+//        this.comments = comments;
+//    }
 
     public List<GroupsBean> getGroups() {
         return groups;

@@ -46,6 +46,8 @@ class MainFragment : BaseFragment() {
         smartRefreshLayout.setEnableLoadMore(false)
 
         recyclerView.adapter = mAdapter
+
+        loadData()
     }
 
     override fun setListener() {
@@ -72,10 +74,6 @@ class MainFragment : BaseFragment() {
     }
 
 
-    override fun onStart() {
-        super.onStart()
-        loadData()
-    }
 
     private fun loadData() {
         //拉取banner数据

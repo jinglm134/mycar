@@ -86,9 +86,9 @@ class ExamCheatDetailActivity : BaseActivity() {
 
             override fun onSuccess(response: Response<String>) {
 //                super.onSuccess(response)
-                val result = JSONObject(response.body()).optString("result")
-                val list = JSONObject(result).optString("list")
-                val commentlist = JSONObject(list).optString("commentlist")
+                val result = JSONObject(response.body()).optString("result") ?: return
+                val list = JSONObject(result).optString("list") ?: return
+                val commentlist = JSONObject(list).optString("commentlist") ?: return
                 val data = GsonUtils.parseJsonArrayWithGson(commentlist, ExamCheatDetailBean::class.java)
                 mData.clear()
                 mData.addAll(data)

@@ -6,8 +6,11 @@ import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.exam.AdapterExamCheat
 import com.jaylm.mycar.base.BaseFragment
 import com.jaylm.mycar.bean.exam.ExamCheatBean
+import com.jaylm.mycar.net.API
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
+import com.jaylm.mycar.ui.HideWebViewActivity
+import com.jaylm.mycar.ui.WebViewActivity
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
@@ -60,8 +63,40 @@ class ExamOneFragment : BaseFragment() {
             startActivity(ExamCheatDetailActivity::class.java, bundle)
         }
 
-        ll_xueche.setOnClickListener {
+        ll_1.setOnClickListener {
             startActivity(LearnListActivity::class.java)
+        }
+
+        ll_2.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("url", API.info_5)
+            bundle.putString("name", "交通标志")
+            startActivity(HideWebViewActivity::class.java, bundle)
+        }
+        ll_3.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("url", API.list_664)
+            bundle.putString("name", "仪表指示灯")
+            startActivity(HideWebViewActivity::class.java, bundle)
+        }
+        ll_4.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("url", API.list_665)
+            bundle.putString("name", "交警手势")
+            startActivity(HideWebViewActivity::class.java, bundle)
+        }
+
+        ll_5.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("url", API.list_666)
+            bundle.putString("name", "车内中控")
+            startActivity(HideWebViewActivity::class.java, bundle)
+        }
+        ll_6.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("url", API.list_726)
+            bundle.putString("name", "色盲测试")
+            startActivity(HideWebViewActivity::class.java, bundle)
         }
     }
 

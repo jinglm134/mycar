@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/textView"
+    android:layout_width="70dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:gravity="center"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    android:text="新桑塔纳"
+    android:textSize="12sp">
+
+</TextView>

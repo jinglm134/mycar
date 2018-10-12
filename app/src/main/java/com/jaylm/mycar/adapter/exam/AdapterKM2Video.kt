@@ -17,7 +17,8 @@ class AdapterKM2Video : BaseQuickAdapter<ExamKM2Video.VideosBean, BaseViewHolder
     override fun convert(helper: BaseViewHolder, item: ExamKM2Video.VideosBean) {
         helper.setText(R.id.tv_xingui, item.label)
                 .setText(R.id.tv_time, format(item.duration.toInt()))
-                .setText(R.id.tv_name, item.title)
+                .setText(R.id.tv_title, item.title)
+                .setText(R.id.tv_passrate, item.passrate)
                 .setText(R.id.tv_content, item.summary)
                 .setText(R.id.tv_like, item.likeNum)
                 .setText(R.id.tv_seek, item.view)

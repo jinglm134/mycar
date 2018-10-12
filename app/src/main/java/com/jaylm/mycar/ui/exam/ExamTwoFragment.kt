@@ -32,6 +32,9 @@ import org.json.JSONObject
 class ExamTwoFragment : BaseFragment() {
 
     private val carbrand = 1//默认车型
+    private val type_jichu = 1//基础操作
+    private val type_kaodian = 0//考点视频
+
     private lateinit var mBannerData: ArrayList<BannerTwoBean>
     private lateinit var mData1: ArrayList<ExamKM2Video.VideosBean>
     private lateinit var mData2: ArrayList<ExamKM2Video.VideosBean>
@@ -64,7 +67,7 @@ class ExamTwoFragment : BaseFragment() {
         recyclerView2.layoutManager = LinearLayoutManager(activity)
         recyclerView2.addItemDecoration(DecorationLinearDivider())
         mAdapter2 = AdapterKM2Video()
-        recyclerView2.adapter = mAdapter1
+        recyclerView2.adapter = mAdapter2
 
         loadBannerData()
         loadVideoData()
@@ -111,8 +114,16 @@ class ExamTwoFragment : BaseFragment() {
 
         }
 
-        tv_more1.setOnClickListener {}
-        tv_more2.setOnClickListener {}
+        tv_more1.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("type", type_jichu)
+            startActivity(VideoBaseDetailActivity::class.java, bundle)
+        }
+        tv_more2.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("type", type_kaodian)
+            startActivity(VideoBaseDetailActivity::class.java, bundle)
+        }
     }
 
     private fun loadBannerData() {
@@ -135,7 +146,7 @@ class ExamTwoFragment : BaseFragment() {
     }
 
     private fun loadVideoData() {
-        WebList.km2_sp(carbrand, 0, 1, object : BaseCallBack(activity!!) {
+        WebList.km2_jc_index(carbrand, object : BaseCallBack(activity!!) {
             override fun onSuccess(jsonString: String) {
             }
 
@@ -152,7 +163,7 @@ class ExamTwoFragment : BaseFragment() {
         })
 
 
-        WebList.km2_sp(0, 0, 0, object : BaseCallBack(activity!!) {
+        WebList.km2_rd_index(object : BaseCallBack(activity!!) {
             override fun onSuccess(jsonString: String) {
             }
 

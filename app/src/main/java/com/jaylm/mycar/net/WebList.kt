@@ -103,10 +103,32 @@ object WebList {
     }
 
 
-    fun km2_sp(carbrand: Int, pageindex: Int, videotype: Int, callBack: BaseCallBack) {
-        val request = API.km2_sp + "/?carbrand=" + carbrand + "&channelid=205&pageindex=" + pageindex + "&videotype=" + videotype
-        OkGo.get<String>(request)
+    fun km2_sp(url: String, callBack: BaseCallBack) {
+        OkGo.get<String>(url)
                 .execute(callBack)
+    }
 
+    //基础首页
+    fun km2_jc_index(carbrand: Int, callBack: BaseCallBack) {
+        val url = API.km2_index + "/?carbrand=" + carbrand + "&channelid=205&videotype=1"
+        km2_sp(url, callBack)
+    }
+
+    //热点首页
+    fun km2_rd_index(callBack: BaseCallBack) {
+        val url = API.km2_index + "/?channelid=205&videotype=0"
+        km2_sp(url, callBack)
+    }
+
+    //基础列表
+    fun km2_jc_list(carbrand: Int, pageindex: Int, callBack: BaseCallBack) {
+        val url = API.km2_list + "/?carbrand=" + carbrand + "&pageindex=" + pageindex + "&channelid=205&videotype=1"
+        km2_sp(url, callBack)
+    }
+
+    //热点列表
+    fun km2_rd_list(pageindex: Int, callBack: BaseCallBack) {
+        val url = API.km2_list + "/?channelid=205&videotype=0&pageindex=" + pageindex
+        km2_sp(url, callBack)
     }
 }

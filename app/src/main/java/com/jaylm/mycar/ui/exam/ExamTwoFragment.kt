@@ -2,10 +2,13 @@ package com.jaylm.mycar.ui.exam
 
 import android.content.Context
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.widget.ImageView
 import com.jaylm.mycar.R
+import com.jaylm.mycar.adapter.exam.AdapterKM2Video
 import com.jaylm.mycar.base.BaseFragment
 import com.jaylm.mycar.bean.exam.BannerTwoBean
+import com.jaylm.mycar.bean.exam.ExamKM2Video
 import com.jaylm.mycar.net.API
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
@@ -13,6 +16,7 @@ import com.jaylm.mycar.tool.UShape
 import com.jaylm.mycar.ui.WebViewActivity
 import com.jaylm.mycar.ui.release.util.ImageUtils
 import com.jaylm.mycar.util.GsonUtils
+import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
@@ -27,8 +31,12 @@ import org.json.JSONObject
  */
 class ExamTwoFragment : BaseFragment() {
 
-
+    private val carbrand = 1//默认车型
     private lateinit var mBannerData: ArrayList<BannerTwoBean>
+    private lateinit var mData1: ArrayList<ExamKM2Video.VideosBean>
+    private lateinit var mData2: ArrayList<ExamKM2Video.VideosBean>
+    private lateinit var mAdapter1: AdapterKM2Video
+    private lateinit var mAdapter2: AdapterKM2Video
     override fun bindLayout(): Int {
         return R.layout.fragment_exam_two
     }
@@ -42,7 +50,24 @@ class ExamTwoFragment : BaseFragment() {
         UShape.setBackgroundDrawable(tv_4, UShape.getPressedDrawable(UShape.getColor(R.color.colorPrimary), UShape.getColor(R.color.c23), 6))
         UShape.setBackgroundDrawable(tv_5, UShape.getPressedDrawable(UShape.getColor(R.color.colorPrimary), UShape.getColor(R.color.c23), 6))
 
-        loadData()
+        mData1 = ArrayList()
+        recyclerView1.isNestedScrollingEnabled = false
+        recyclerView1.setHasFixedSize(true)
+        recyclerView1.layoutManager = LinearLayoutManager(activity)
+        recyclerView1.addItemDecoration(DecorationLinearDivider())
+        mAdapter1 = AdapterKM2Video()
+        recyclerView1.adapter = mAdapter1
+
+        mData2 = ArrayList()
+        recyclerView2.isNestedScrollingEnabled = false
+        recyclerView2.setHasFixedSize(true)
+        recyclerView2.layoutManager = LinearLayoutManager(activity)
+        recyclerView2.addItemDecoration(DecorationLinearDivider())
+        mAdapter2 = AdapterKM2Video()
+        recyclerView2.adapter = mAdapter1
+
+        loadBannerData()
+        loadVideoData()
     }
 
     override fun setListener() {
@@ -85,9 +110,12 @@ class ExamTwoFragment : BaseFragment() {
             startActivity(WebViewActivity::class.java, bundle)
 
         }
+
+        tv_more1.setOnClickListener {}
+        tv_more2.setOnClickListener {}
     }
 
-    private fun loadData() {
+    private fun loadBannerData() {
         WebList.appBanner(object : BaseCallBack(activity!!, true) {
             override fun onSuccess(jsonString: String) {
             }
@@ -101,6 +129,42 @@ class ExamTwoFragment : BaseFragment() {
 
                 bindBanner()
             }
+        })
+
+
+    }
+
+    private fun loadVideoData() {
+        WebList.km2_sp(carbrand, 0, 1, object : BaseCallBack(activity!!) {
+            override fun onSuccess(jsonString: String) {
+            }
+
+            override fun onSuccess(response: Response<String>) {
+//                super.onSuccess(response)
+
+                val result = JSONObject(response.body()).optString("result")
+                val data = GsonUtils.parseJsonWithGson(result, ExamKM2Video::class.java)
+                mData1.clear()
+                mData1.addAll(data.videos)
+                mAdapter1.setNewData(mData1)
+            }
+
+        })
+
+
+        WebList.km2_sp(0, 0, 0, object : BaseCallBack(activity!!) {
+            override fun onSuccess(jsonString: String) {
+            }
+
+            override fun onSuccess(response: Response<String>) {
+//                super.onSuccess(response)
+                val result = JSONObject(response.body()).optString("result")
+                val data = GsonUtils.parseJsonWithGson(result, ExamKM2Video::class.java)
+                mData2.clear()
+                mData2.addAll(data.videos)
+                mAdapter2.setNewData(mData2)
+            }
+
         })
     }
 

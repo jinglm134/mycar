@@ -101,4 +101,12 @@ object WebList {
         OkGo.get<String>(API.appbanner)
                 .execute(callBack)
     }
+
+
+    fun km2_sp(carbrand: Int, pageindex: Int, videotype: Int, callBack: BaseCallBack) {
+        val request = API.km2_sp + "/?carbrand=" + carbrand + "&channelid=205&pageindex=" + pageindex + "&videotype=" + videotype
+        OkGo.get<String>(request)
+                .execute(callBack)
+
+    }
 }

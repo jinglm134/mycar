@@ -97,4 +97,8 @@ object WebList {
                 .execute(callBack)
     }
 
+    fun appBanner(callBack: BaseCallBack) {
+        OkGo.get<String>(API.appbanner)
+                .execute(callBack)
+    }
 }

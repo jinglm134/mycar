@@ -59,7 +59,8 @@
         <activity android:name=".ui.exam.LearnListActivity" />
         <activity android:name=".ui.exam.LearnDetailActivity" />
         <activity android:name=".ui.HideWebViewActivity" />
-        <activity android:name=".ui.exam.VideoBaseDetailActivity" />
+        <activity android:name=".ui.exam.VideoDetailActivity" />
+        <activity android:name=".ui.exam.VideoPlayActivity" />
 
     </application>
 

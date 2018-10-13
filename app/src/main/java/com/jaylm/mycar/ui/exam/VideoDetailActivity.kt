@@ -22,7 +22,7 @@ import org.json.JSONObject
  * Created by jaylm
  * on 2018/10/12.
  */
-class VideoBaseDetailActivity : BaseActivity() {
+class VideoDetailActivity : BaseActivity() {
 
     private var mBrandId = 1//默认车辆id为1
     private var pageIndex = 1//默认第一页
@@ -85,7 +85,11 @@ class VideoBaseDetailActivity : BaseActivity() {
             smartRefreshLayout.autoRefresh()
         }
 
-        mAdapter.setOnItemClickListener { adapter, view, position -> }
+        mAdapter.setOnItemClickListener { adapter, _, position ->
+            val bundle = Bundle()
+            bundle.putParcelable("data", adapter.data[position] as ExamKM2Video.VideosBean)
+            startActivity(VideoPlayActivity::class.java, bundle)
+        }
     }
 
     private fun loadData(isPullDown: Boolean) {

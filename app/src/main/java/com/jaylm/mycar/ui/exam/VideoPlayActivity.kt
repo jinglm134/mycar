@@ -2,54 +2,46 @@ package com.jaylm.mycar.ui.exam
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.net.Uri
 import android.net.http.SslError
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.webkit.SslErrorHandler
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import cn.jzvd.Jzvd
 import com.jaylm.mycar.R
-import com.jaylm.mycar.adapter.exam.AdapterExamCheatDetail
 import com.jaylm.mycar.base.BaseActivity
-import com.jaylm.mycar.bean.exam.ExamCheatDetailBean
+import com.jaylm.mycar.bean.exam.ExamKM2Video
+import com.jaylm.mycar.bean.exam.KM2VideoDetailBean
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.util.GsonUtils
-import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
-import kotlinx.android.synthetic.main.activity_cheat_detail.*
+import kotlinx.android.synthetic.main.activity_video_play.*
 import org.jetbrains.anko.backgroundColor
-import org.json.JSONObject
-
 
 /**
- * 秘籍详情
  * Created by jaylm
- * on 2018/10/10.
+ * on 2018/10/13.
  */
-class ExamCheatDetailActivity : BaseActivity() {
+class VideoPlayActivity : BaseActivity() {
 
-    private lateinit var mUrl: String
-    private var mId: Long = 0L
-    private lateinit var mData: ArrayList<ExamCheatDetailBean>
-    private lateinit var mAdapter: AdapterExamCheatDetail
+    private lateinit var data: ExamKM2Video.VideosBean
+
     override fun bindLayout(): Int {
-        return R.layout.activity_cheat_detail
+        return R.layout.activity_video_play
     }
 
     override fun initParams(bundle: Bundle) {
         super.initParams(bundle)
-        mUrl = bundle.getString("url", "")
-        mId = bundle.getLong("id", 0L)
-
+        data = bundle.getParcelable("data")
     }
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun initView() {
         super.initView()
-        setHeader("秘籍详情")
 
         webView.settings.domStorageEnabled = true
         //解决图片不显示
@@ -66,35 +58,26 @@ class ExamCheatDetailActivity : BaseActivity() {
         /*设置支持缩放*/
         webView.settings.setSupportZoom(true)
         webView.webViewClient = ReWebViewClient()
-        webView.loadUrl(mUrl)
 
 
-
-        recyclerView.setHasFixedSize(true)
-        recyclerView.isNestedScrollingEnabled = false
-        recyclerView.layoutManager = LinearLayoutManager(mActivity)
-        recyclerView.addItemDecoration(DecorationLinearDivider())
-        mData = ArrayList()
-        mAdapter = AdapterExamCheatDetail()
-        recyclerView.adapter = mAdapter
+        setHeader(data.title)
+        videoPlayer.setUp(data.playurl, data.title, Jzvd.SCREEN_WINDOW_NORMAL)
+        videoPlayer.thumbImageView.setImageURI(Uri.parse(data.imageBig))
         loadData()
+
     }
 
+
     private fun loadData() {
-        WebList.Onecommentlist(mId, object : BaseCallBack(mActivity, true) {
+        WebList.km2_detail(data.topicid.toLong(), object : BaseCallBack(mActivity, true) {
             override fun onSuccess(jsonString: String) {
             }
 
             override fun onSuccess(response: Response<String>) {
 //                super.onSuccess(response)
-                val result = JSONObject(response.body()).optString("result") ?: return
-                val list = JSONObject(result).optString("list") ?: return
-                val commentlist = JSONObject(list).optString("commentlist") ?: return
-                val data = GsonUtils.parseJsonArrayWithGson(commentlist, ExamCheatDetailBean::class.java)
-                mData.clear()
-                mData.addAll(data)
+                val data = GsonUtils.parseJsonWithGson(response.body(), KM2VideoDetailBean::class.java)
+                webView.loadUrl(data.result.media.detailPage)
 
-                mAdapter.setNewData(mData.filter { it.usertype != 0 && it.groups != null && it.groups.size > 0 })//筛选出usertype!=0后的集合,usertype=0为广告
             }
         })
     }
@@ -120,5 +103,11 @@ class ExamCheatDetailActivity : BaseActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        Jzvd.releaseAllVideos()
     }
 }

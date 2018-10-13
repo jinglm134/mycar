@@ -117,12 +117,24 @@ class ExamTwoFragment : BaseFragment() {
         tv_more1.setOnClickListener {
             val bundle = Bundle()
             bundle.putInt("type", type_jichu)
-            startActivity(VideoBaseDetailActivity::class.java, bundle)
+            startActivity(VideoDetailActivity::class.java, bundle)
         }
         tv_more2.setOnClickListener {
             val bundle = Bundle()
             bundle.putInt("type", type_kaodian)
-            startActivity(VideoBaseDetailActivity::class.java, bundle)
+            startActivity(VideoDetailActivity::class.java, bundle)
+        }
+
+        mAdapter1.setOnItemClickListener { adapter, _, position ->
+            val bundle = Bundle()
+            bundle.putParcelable("data", adapter.data[position] as ExamKM2Video.VideosBean)
+            startActivity(VideoPlayActivity::class.java, bundle)
+        }
+
+        mAdapter2.setOnItemClickListener { adapter, _, position ->
+            val bundle = Bundle()
+            bundle.putParcelable("data", adapter.data[position] as ExamKM2Video.VideosBean)
+            startActivity(VideoPlayActivity::class.java, bundle)
         }
     }
 

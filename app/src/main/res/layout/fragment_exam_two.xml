@@ -34,7 +34,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="考试规则"
+                android:text="考规"
                 android:textColor="@color/c14" />
 
             <TextView
@@ -45,7 +45,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="考试流程"
+                android:text="流程"
                 android:textColor="@color/c14" />
 
             <TextView
@@ -56,7 +56,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="考试标准"
+                android:text="标准"
                 android:textColor="@color/c14" />
 
             <TextView
@@ -67,7 +67,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="考试要点"
+                android:text="要点"
                 android:textColor="@color/c14" />
 
             <TextView
@@ -78,7 +78,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="考前冲刺"
+                android:text="冲刺"
                 android:textColor="@color/c14" />
         </LinearLayout>
 

@@ -131,4 +131,12 @@ object WebList {
         val url = API.km2_list + "/?channelid=205&videotype=0&pageindex=" + pageindex
         km2_sp(url, callBack)
     }
+
+    fun km2_detail(topicid: Long, callBack: BaseCallBack) {
+        val url = API.km2_detail + "&topicid=" + topicid
+        OkGo.get<String>(url)
+                .execute(callBack)
+
+
+    }
 }

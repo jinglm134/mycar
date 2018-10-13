@@ -1,5 +1,8 @@
 package com.jaylm.mycar.bean.exam;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.jaylm.mycar.bean.BaseBean;
 
 import java.util.List;
@@ -8,7 +11,7 @@ import java.util.List;
  * Created by jaylm
  * on 2018/10/12.
  */
-public class ExamKM2Video extends BaseBean {
+public class ExamKM2Video extends BaseBean implements Parcelable {
 
 
     /**
@@ -22,6 +25,24 @@ public class ExamKM2Video extends BaseBean {
     private boolean islastpage;
     private List<CarbrandBean> carbrand;
     private List<VideosBean> videos;
+
+    protected ExamKM2Video(Parcel in) {
+        pageindex = in.readInt();
+        islastpage = in.readByte() != 0;
+        videos = in.createTypedArrayList(VideosBean.CREATOR);
+    }
+
+    public static final Creator<ExamKM2Video> CREATOR = new Creator<ExamKM2Video>() {
+        @Override
+        public ExamKM2Video createFromParcel(Parcel in) {
+            return new ExamKM2Video(in);
+        }
+
+        @Override
+        public ExamKM2Video[] newArray(int size) {
+            return new ExamKM2Video[size];
+        }
+    };
 
     public int getPageindex() {
         return pageindex;
@@ -55,6 +76,18 @@ public class ExamKM2Video extends BaseBean {
         this.videos = videos;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(pageindex);
+        dest.writeByte((byte) (islastpage ? 1 : 0));
+        dest.writeTypedList(videos);
+    }
+
     public static class CarbrandBean {
         /**
          * brandName : 捷达
@@ -81,7 +114,7 @@ public class ExamKM2Video extends BaseBean {
         }
     }
 
-    public static class VideosBean {
+    public static class VideosBean implements Parcelable {
         /**
          * duration : 65
          * imageBig : https://img.58cdn.com.cn/dist/jxedt/native/video_small_cover/j10011.webp
@@ -115,6 +148,36 @@ public class ExamKM2Video extends BaseBean {
         private String title;
         private String topicid;
         private String view;
+
+        protected VideosBean(Parcel in) {
+            duration = in.readString();
+            imageBig = in.readString();
+            imagePc = in.readString();
+            imageTiny = in.readString();
+            isliked = in.readInt();
+            label = in.readString();
+            likeNum = in.readString();
+            md5 = in.readString();
+            passrate = in.readString();
+            playurl = in.readString();
+            size = in.readString();
+            summary = in.readString();
+            title = in.readString();
+            topicid = in.readString();
+            view = in.readString();
+        }
+
+        public static final Creator<VideosBean> CREATOR = new Creator<VideosBean>() {
+            @Override
+            public VideosBean createFromParcel(Parcel in) {
+                return new VideosBean(in);
+            }
+
+            @Override
+            public VideosBean[] newArray(int size) {
+                return new VideosBean[size];
+            }
+        };
 
         public String getDuration() {
             return duration;
@@ -234,6 +297,30 @@ public class ExamKM2Video extends BaseBean {
 
         public void setView(String view) {
             this.view = view;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(duration);
+            dest.writeString(imageBig);
+            dest.writeString(imagePc);
+            dest.writeString(imageTiny);
+            dest.writeInt(isliked);
+            dest.writeString(label);
+            dest.writeString(likeNum);
+            dest.writeString(md5);
+            dest.writeString(passrate);
+            dest.writeString(playurl);
+            dest.writeString(size);
+            dest.writeString(summary);
+            dest.writeString(title);
+            dest.writeString(topicid);
+            dest.writeString(view);
         }
     }
 }

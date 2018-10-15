@@ -4,17 +4,17 @@ import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.jaylm.mycar.R
-import com.jaylm.mycar.bean.exam.ExamKM2Video
+import com.jaylm.mycar.bean.exam.ExamKM2VideoBean
 import com.jaylm.mycar.tool.UShape
 
 /**
  * Created by jaylm
  * on 2018/10/10.
  */
-class AdapterVideoTitle : BaseQuickAdapter<ExamKM2Video.CarbrandBean, BaseViewHolder>(R.layout.item_vedio_title) {
+class AdapterVideoTitle : BaseQuickAdapter<ExamKM2VideoBean.CarbrandBean, BaseViewHolder>(R.layout.item_vedio_title) {
 
     private var mBrandId = 1
-    override fun convert(helper: BaseViewHolder, item: ExamKM2Video.CarbrandBean) {
+    override fun convert(helper: BaseViewHolder, item: ExamKM2VideoBean.CarbrandBean) {
         val textView = helper.getView<TextView>(R.id.textView)
         textView.text = item.brandName
         if (mBrandId == item.brandId) {
@@ -26,7 +26,7 @@ class AdapterVideoTitle : BaseQuickAdapter<ExamKM2Video.CarbrandBean, BaseViewHo
         }
     }
 
-    fun setNewData(data: MutableList<ExamKM2Video.CarbrandBean>?, brandId: Int) {
+    fun setNewData(data: MutableList<ExamKM2VideoBean.CarbrandBean>?, brandId: Int) {
         mBrandId = brandId
         if (mBrandId < 1) {
             mBrandId = 1

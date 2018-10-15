@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.exam.AdapterKM2Video
+import com.jaylm.mycar.adapter.exam.AdapterNew
 import com.jaylm.mycar.base.BaseFragment
-import com.jaylm.mycar.bean.exam.ExamKM2Video
+import com.jaylm.mycar.bean.exam.ExamKM2VideoBean
+import com.jaylm.mycar.bean.exam.ExamNewBean
 import com.jaylm.mycar.net.API
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
@@ -24,8 +26,11 @@ import org.json.JSONObject
 class ExamThreeFragment : BaseFragment() {
 
     private val channelid = 206
-    private lateinit var mData: ArrayList<ExamKM2Video.VideosBean>
+    private val model = "km3"
+    private lateinit var mData: ArrayList<ExamKM2VideoBean.VideosBean>
     private lateinit var mAdapter: AdapterKM2Video
+    private lateinit var mData2: ArrayList<ExamNewBean.DataBean>
+    private lateinit var mAdapter2: AdapterNew
 
     override fun bindLayout(): Int {
         return R.layout.fragment_exam_three
@@ -48,6 +53,15 @@ class ExamThreeFragment : BaseFragment() {
         mAdapter = AdapterKM2Video()
         recyclerView.adapter = mAdapter
 
+        mData2 = ArrayList()
+        recyclerView2.isNestedScrollingEnabled = false
+        recyclerView2.setHasFixedSize(false)
+        recyclerView2.layoutManager = LinearLayoutManager(activity)
+        recyclerView2.addItemDecoration(DecorationLinearDivider(R.color.c10, 1F, true))
+        mAdapter2 = AdapterNew()
+        recyclerView2.adapter = mAdapter2
+
+        smartRefreshLayout.setEnableLoadMore(false)
         loadData()
     }
 
@@ -83,7 +97,6 @@ class ExamThreeFragment : BaseFragment() {
             bundle.putString("name", "考前冲刺")
             bundle.putString("url", API.jinnang_3)
             startActivity(WebViewActivity::class.java, bundle)
-
         }
 
         ll_jclk.setOnClickListener {
@@ -115,14 +128,31 @@ class ExamThreeFragment : BaseFragment() {
 
         mAdapter.setOnItemClickListener { adapter, _, position ->
             val bundle = Bundle()
-            bundle.putParcelable("data", adapter.data[position] as ExamKM2Video.VideosBean)
+            bundle.putParcelable("data", adapter.data[position] as ExamKM2VideoBean.VideosBean)
             startActivity(VideoPlayActivity::class.java, bundle)
         }
 
+        smartRefreshLayout.setOnRefreshListener {
+            loadData()
+            loadNewData()
+        }
+
+        mAdapter2.setOnItemClickListener { adapter, _, pos ->
+            val bundle = Bundle()
+            bundle.putString("name", (adapter.data[pos] as ExamNewBean.DataBean).title)
+            bundle.putString("url", (adapter.data[pos] as ExamNewBean.DataBean).url)
+            startActivity(WebViewActivity::class.java, bundle)
+        }
+
+        tv_more2.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("model", model)
+            startActivity(NewListActivity::class.java, bundle)
+        }
     }
 
     private fun loadData() {
-        WebList.km2_rd_index(channelid, object : BaseCallBack(activity!!,true) {
+        WebList.km2_rd_index(channelid, object : BaseCallBack(activity!!, smartRefreshLayout) {
             override fun onSuccess(jsonString: String) {
             }
 
@@ -130,10 +160,27 @@ class ExamThreeFragment : BaseFragment() {
 //                super.onSuccess(response)
 
                 val result = JSONObject(response.body()).optString("result")
-                val data = GsonUtils.parseJsonWithGson(result, ExamKM2Video::class.java)
+                val data = GsonUtils.parseJsonWithGson(result, ExamKM2VideoBean::class.java)
                 mData.clear()
                 mData.addAll(data.videos)
                 mAdapter.setNewData(mData)
+            }
+
+        })
+    }
+
+    private fun loadNewData() {
+        WebList.toutiao_info(model, 1, 10, object : BaseCallBack(activity!!, smartRefreshLayout) {
+            override fun onSuccess(jsonString: String) {
+            }
+
+            override fun onSuccess(response: Response<String>) {
+//                super.onSuccess(response)
+
+                val data = GsonUtils.parseJsonWithGson(response.body(), ExamNewBean::class.java)
+                mData2.clear()
+                mData2.addAll(data.data)
+                mAdapter2.setNewData(mData2)
             }
 
         })

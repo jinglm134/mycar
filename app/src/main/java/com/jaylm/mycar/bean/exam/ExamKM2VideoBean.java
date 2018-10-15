@@ -11,7 +11,7 @@ import java.util.List;
  * Created by jaylm
  * on 2018/10/12.
  */
-public class ExamKM2Video extends BaseBean implements Parcelable {
+public class ExamKM2VideoBean extends BaseBean implements Parcelable {
 
 
     /**
@@ -26,21 +26,21 @@ public class ExamKM2Video extends BaseBean implements Parcelable {
     private List<CarbrandBean> carbrand;
     private List<VideosBean> videos;
 
-    protected ExamKM2Video(Parcel in) {
+    protected ExamKM2VideoBean(Parcel in) {
         pageindex = in.readInt();
         islastpage = in.readByte() != 0;
         videos = in.createTypedArrayList(VideosBean.CREATOR);
     }
 
-    public static final Creator<ExamKM2Video> CREATOR = new Creator<ExamKM2Video>() {
+    public static final Creator<ExamKM2VideoBean> CREATOR = new Creator<ExamKM2VideoBean>() {
         @Override
-        public ExamKM2Video createFromParcel(Parcel in) {
-            return new ExamKM2Video(in);
+        public ExamKM2VideoBean createFromParcel(Parcel in) {
+            return new ExamKM2VideoBean(in);
         }
 
         @Override
-        public ExamKM2Video[] newArray(int size) {
-            return new ExamKM2Video[size];
+        public ExamKM2VideoBean[] newArray(int size) {
+            return new ExamKM2VideoBean[size];
         }
     };
 

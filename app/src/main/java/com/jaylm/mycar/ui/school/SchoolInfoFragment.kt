@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.jaylm.mycar.R
+import com.jaylm.mycar.application.BaseApp
 import com.jaylm.mycar.base.BaseFragment
 import com.jaylm.mycar.bean.SchoolDetailBean
 import com.jaylm.mycar.global.VariableInfo

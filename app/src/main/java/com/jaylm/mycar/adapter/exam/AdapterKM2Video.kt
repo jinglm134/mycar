@@ -3,18 +3,16 @@ package com.jaylm.mycar.adapter.exam
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.jaylm.mycar.R
-import com.jaylm.mycar.bean.exam.ExamKM2Video
-import com.jaylm.mycar.tool.UShape
+import com.jaylm.mycar.bean.exam.ExamKM2VideoBean
 import com.jaylm.mycar.ui.release.util.ImageUtils
-import com.jaylm.mycar.util.StringUtils
 
 /**
  * Created by jaylm
  * on 2018/10/10.
  */
-class AdapterKM2Video : BaseQuickAdapter<ExamKM2Video.VideosBean, BaseViewHolder>(R.layout.item_km2_video) {
+class AdapterKM2Video : BaseQuickAdapter<ExamKM2VideoBean.VideosBean, BaseViewHolder>(R.layout.item_km2_video) {
 
-    override fun convert(helper: BaseViewHolder, item: ExamKM2Video.VideosBean) {
+    override fun convert(helper: BaseViewHolder, item: ExamKM2VideoBean.VideosBean) {
         helper.setText(R.id.tv_xingui, item.label)
                 .setText(R.id.tv_time, format(item.duration.toInt()))
                 .setText(R.id.tv_title, item.title)

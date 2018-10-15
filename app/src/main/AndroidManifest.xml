@@ -66,6 +66,7 @@
         <activity android:name=".ui.exam.ActivityJCLK" />
         <activity android:name=".ui.exam.ActivityDTJQ" />
         <activity android:name=".ui.exam.ActivityYK" />
+        <activity android:name=".ui.exam.NewListActivity" />
 
     </application>
 

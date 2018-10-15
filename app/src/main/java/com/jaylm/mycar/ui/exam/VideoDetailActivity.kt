@@ -8,7 +8,7 @@ import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.exam.AdapterKM2Video
 import com.jaylm.mycar.adapter.exam.AdapterVideoTitle
 import com.jaylm.mycar.base.BaseActivity
-import com.jaylm.mycar.bean.exam.ExamKM2Video
+import com.jaylm.mycar.bean.exam.ExamKM2VideoBean
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.util.GsonUtils
@@ -29,8 +29,8 @@ class VideoDetailActivity : BaseActivity() {
     private var type = 0//0:考点视频  1：基础操作
     private var channelid = 205//205:科二  206：科三
 
-    private lateinit var mTitleData: ArrayList<ExamKM2Video.CarbrandBean>
-    private lateinit var mData: ArrayList<ExamKM2Video.VideosBean>
+    private lateinit var mTitleData: ArrayList<ExamKM2VideoBean.CarbrandBean>
+    private lateinit var mData: ArrayList<ExamKM2VideoBean.VideosBean>
 
     private lateinit var mTitleAdapter: AdapterVideoTitle
     private lateinit var mAdapter: AdapterKM2Video
@@ -89,7 +89,7 @@ class VideoDetailActivity : BaseActivity() {
 
         mAdapter.setOnItemClickListener { adapter, _, position ->
             val bundle = Bundle()
-            bundle.putParcelable("data", adapter.data[position] as ExamKM2Video.VideosBean)
+            bundle.putParcelable("data", adapter.data[position] as ExamKM2VideoBean.VideosBean)
             startActivity(VideoPlayActivity::class.java, bundle)
         }
     }
@@ -102,7 +102,7 @@ class VideoDetailActivity : BaseActivity() {
             override fun onSuccess(response: Response<String>) {
 //                super.onSuccess(response)
                 val result = JSONObject(response.body()).optString("result")
-                val data = GsonUtils.parseJsonWithGson(result, ExamKM2Video::class.java)
+                val data = GsonUtils.parseJsonWithGson(result, ExamKM2VideoBean::class.java)
 
                 if (data.carbrand != null) {
                     mTitleData.clear()

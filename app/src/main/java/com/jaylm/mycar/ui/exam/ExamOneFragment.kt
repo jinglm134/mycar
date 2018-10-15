@@ -10,12 +10,10 @@ import com.jaylm.mycar.net.API
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.ui.HideWebViewActivity
-import com.jaylm.mycar.ui.WebViewActivity
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
 import kotlinx.android.synthetic.main.fragment_exam_one.*
-import kotlinx.android.synthetic.main.layout_smartrecyclerview.*
 import org.json.JSONObject
 
 /**
@@ -37,6 +35,7 @@ class ExamOneFragment : BaseFragment() {
 
         mData = ArrayList()
         recyclerView.setHasFixedSize(true)
+        recyclerView.isNestedScrollingEnabled = false
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.addItemDecoration(DecorationLinearDivider())
         mAdapter = AdapterExamCheat()

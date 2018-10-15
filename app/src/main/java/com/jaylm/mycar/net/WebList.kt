@@ -138,5 +138,12 @@ object WebList {
                 .execute(callBack)
     }
 
+    fun toutiao_info(model: String, pageNum: Int, pageSize: Int, callBack: BaseCallBack) {
+        OkGo.post<String>(API.toutiao_info)
+                .params("model", model)
+                .params("pageNum", pageNum)
+                .params("pageSize", pageSize)
+                .execute(callBack)
+    }
 
 }

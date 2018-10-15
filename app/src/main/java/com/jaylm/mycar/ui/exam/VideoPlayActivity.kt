@@ -13,7 +13,7 @@ import android.webkit.WebViewClient
 import cn.jzvd.Jzvd
 import com.jaylm.mycar.R
 import com.jaylm.mycar.base.BaseActivity
-import com.jaylm.mycar.bean.exam.ExamKM2Video
+import com.jaylm.mycar.bean.exam.ExamKM2VideoBean
 import com.jaylm.mycar.bean.exam.KM2VideoDetailBean
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
@@ -28,7 +28,7 @@ import org.jetbrains.anko.backgroundColor
  */
 class VideoPlayActivity : BaseActivity() {
 
-    private lateinit var data: ExamKM2Video.VideosBean
+    private lateinit var data: ExamKM2VideoBean.VideosBean
 
     override fun bindLayout(): Int {
         return R.layout.activity_video_play

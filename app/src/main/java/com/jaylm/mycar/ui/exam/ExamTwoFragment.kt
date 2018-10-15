@@ -34,6 +34,7 @@ class ExamTwoFragment : BaseFragment() {
     private val carbrand = 1//默认车型
     private val type_jichu = 1//基础操作
     private val type_kaodian = 0//考点视频
+    private val channelid = 205
 
     private lateinit var mBannerData: ArrayList<BannerTwoBean>
     private lateinit var mData1: ArrayList<ExamKM2Video.VideosBean>
@@ -117,11 +118,13 @@ class ExamTwoFragment : BaseFragment() {
         tv_more1.setOnClickListener {
             val bundle = Bundle()
             bundle.putInt("type", type_jichu)
+            bundle.putInt("channelid", channelid)
             startActivity(VideoDetailActivity::class.java, bundle)
         }
         tv_more2.setOnClickListener {
             val bundle = Bundle()
             bundle.putInt("type", type_kaodian)
+            bundle.putInt("channelid", channelid)
             startActivity(VideoDetailActivity::class.java, bundle)
         }
 
@@ -158,7 +161,7 @@ class ExamTwoFragment : BaseFragment() {
     }
 
     private fun loadVideoData() {
-        WebList.km2_jc_index(carbrand, object : BaseCallBack(activity!!) {
+        WebList.km2_jc_index(channelid, carbrand, object : BaseCallBack(activity!!,true) {
             override fun onSuccess(jsonString: String) {
             }
 
@@ -175,7 +178,7 @@ class ExamTwoFragment : BaseFragment() {
         })
 
 
-        WebList.km2_rd_index(object : BaseCallBack(activity!!) {
+        WebList.km2_rd_index(channelid, object : BaseCallBack(activity!!) {
             override fun onSuccess(jsonString: String) {
             }
 

@@ -40,4 +40,5 @@ object API {
     val km3_hgbz = "https://j1.58cdn.com.cn/dist/jxedt/h5/activity/article/_html/km3_hgbz.html"//科三考试标准
     val km3_kslc = "https://j1.58cdn.com.cn/dist/jxedt/h5/activity/article/_html/km3_kslc.html"//科三考试流程
     val km3_ksgz = "https://j1.58cdn.com.cn/dist/jxedt/h5/activity/article/_html/km3_ksgz.html"//科三考试规则
+
 }

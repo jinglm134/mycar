@@ -109,26 +109,26 @@ object WebList {
     }
 
     //基础首页
-    fun km2_jc_index(carbrand: Int, callBack: BaseCallBack) {
-        val url = API.km2_index + "/?carbrand=" + carbrand + "&channelid=205&videotype=1"
+    fun km2_jc_index(channelid: Int, carbrand: Int, callBack: BaseCallBack) {
+        val url = API.km2_index + "/?carbrand=" + carbrand + "&channelid=" + channelid + "&videotype=1"
         km2_sp(url, callBack)
     }
 
     //热点首页
-    fun km2_rd_index(callBack: BaseCallBack) {
-        val url = API.km2_index + "/?channelid=205&videotype=0"
+    fun km2_rd_index(channelid: Int, callBack: BaseCallBack) {
+        val url = API.km2_index + "/?channelid=" + channelid + "&videotype=0"
         km2_sp(url, callBack)
     }
 
     //基础列表
-    fun km2_jc_list(carbrand: Int, pageindex: Int, callBack: BaseCallBack) {
-        val url = API.km2_list + "/?carbrand=" + carbrand + "&pageindex=" + pageindex + "&channelid=205&videotype=1"
+    fun km2_jc_list(channelid: Int, carbrand: Int, pageindex: Int, callBack: BaseCallBack) {
+        val url = API.km2_list + "/?carbrand=" + carbrand + "&pageindex=" + pageindex + "&channelid=" + channelid + "&videotype=1"
         km2_sp(url, callBack)
     }
 
     //热点列表
-    fun km2_rd_list(pageindex: Int, callBack: BaseCallBack) {
-        val url = API.km2_list + "/?channelid=205&videotype=0&pageindex=" + pageindex
+    fun km2_rd_list(channelid: Int, pageindex: Int, callBack: BaseCallBack) {
+        val url = API.km2_list + "/?channelid=" + channelid + "&videotype=0&pageindex=" + pageindex
         km2_sp(url, callBack)
     }
 
@@ -136,7 +136,7 @@ object WebList {
         val url = API.km2_detail + "&topicid=" + topicid
         OkGo.get<String>(url)
                 .execute(callBack)
-
-
     }
+
+
 }

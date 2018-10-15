@@ -27,6 +27,7 @@ class VideoDetailActivity : BaseActivity() {
     private var mBrandId = 1//默认车辆id为1
     private var pageIndex = 1//默认第一页
     private var type = 0//0:考点视频  1：基础操作
+    private var channelid = 205//205:科二  206：科三
 
     private lateinit var mTitleData: ArrayList<ExamKM2Video.CarbrandBean>
     private lateinit var mData: ArrayList<ExamKM2Video.VideosBean>
@@ -41,6 +42,7 @@ class VideoDetailActivity : BaseActivity() {
     override fun initParams(bundle: Bundle) {
         super.initParams(bundle)
         type = bundle.getInt("type", 0)
+        channelid = bundle.getInt("channelid", 0)
     }
 
     override fun initView() {
@@ -117,9 +119,9 @@ class VideoDetailActivity : BaseActivity() {
 
         }
         if (type == 0) {
-            WebList.km2_rd_list(pageIndex, callback)
+            WebList.km2_rd_list(channelid, pageIndex, callback)
         } else {
-            WebList.km2_jc_list(mBrandId, pageIndex, callback)
+            WebList.km2_jc_list(channelid, mBrandId, pageIndex, callback)
         }
     }
 

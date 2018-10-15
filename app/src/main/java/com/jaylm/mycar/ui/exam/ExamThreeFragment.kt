@@ -1,18 +1,32 @@
 package com.jaylm.mycar.ui.exam
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import com.jaylm.mycar.R
+import com.jaylm.mycar.adapter.exam.AdapterKM2Video
 import com.jaylm.mycar.base.BaseFragment
+import com.jaylm.mycar.bean.exam.ExamKM2Video
 import com.jaylm.mycar.net.API
+import com.jaylm.mycar.net.BaseCallBack
+import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.tool.UShape
 import com.jaylm.mycar.ui.WebViewActivity
+import com.jaylm.mycar.util.GsonUtils
+import com.jaylm.mycar.view.DecorationLinearDivider
+import com.lzy.okgo.model.Response
 import kotlinx.android.synthetic.main.fragment_exam_three.*
+import org.json.JSONObject
 
 /**
  * Created by jaylm
  * on 2018/10/10.
  */
 class ExamThreeFragment : BaseFragment() {
+
+    private val channelid = 206
+    private lateinit var mData: ArrayList<ExamKM2Video.VideosBean>
+    private lateinit var mAdapter: AdapterKM2Video
+
     override fun bindLayout(): Int {
         return R.layout.fragment_exam_three
     }
@@ -24,6 +38,17 @@ class ExamThreeFragment : BaseFragment() {
         UShape.setBackgroundDrawable(tv_3, UShape.getPressedDrawable(UShape.getColor(R.color.colorPrimary), UShape.getColor(R.color.c23), 6))
         UShape.setBackgroundDrawable(tv_4, UShape.getPressedDrawable(UShape.getColor(R.color.colorPrimary), UShape.getColor(R.color.c23), 6))
         UShape.setBackgroundDrawable(tv_5, UShape.getPressedDrawable(UShape.getColor(R.color.colorPrimary), UShape.getColor(R.color.c23), 6))
+
+
+        mData = ArrayList()
+        recyclerView.isNestedScrollingEnabled = false
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.addItemDecoration(DecorationLinearDivider())
+        mAdapter = AdapterKM2Video()
+        recyclerView.adapter = mAdapter
+
+        loadData()
     }
 
     override fun setListener() {
@@ -81,5 +106,36 @@ class ExamThreeFragment : BaseFragment() {
             startActivity(ActivityYK::class.java)
         }
 
+        tv_more.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("type", 0)
+            bundle.putInt("channelid", channelid)
+            startActivity(VideoDetailActivity::class.java, bundle)
+        }
+
+        mAdapter.setOnItemClickListener { adapter, _, position ->
+            val bundle = Bundle()
+            bundle.putParcelable("data", adapter.data[position] as ExamKM2Video.VideosBean)
+            startActivity(VideoPlayActivity::class.java, bundle)
+        }
+
+    }
+
+    private fun loadData() {
+        WebList.km2_rd_index(channelid, object : BaseCallBack(activity!!,true) {
+            override fun onSuccess(jsonString: String) {
+            }
+
+            override fun onSuccess(response: Response<String>) {
+//                super.onSuccess(response)
+
+                val result = JSONObject(response.body()).optString("result")
+                val data = GsonUtils.parseJsonWithGson(result, ExamKM2Video::class.java)
+                mData.clear()
+                mData.addAll(data.videos)
+                mAdapter.setNewData(mData)
+            }
+
+        })
     }
 }

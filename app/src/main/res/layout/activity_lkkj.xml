@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="路考口诀一"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="5dp"
+            android:text="拉门出左脚，面带梨涡笑。关门深呼吸，坐姿要摆好。\n查看空挡位，点火要轻柔。方向别忘了，挂挡要干脆。\n手刹要放掉，起步问考官，多看后视镜，喇叭来欢叫。\n离合器放松，做好半连动，出发要稳当，别让考官晃。\n换挡要及时，加挡要迅速，遇人要刹车，可别过了头。\n转弯要减速，立即减下挡，多看多停顿，安全放心中。\n肩膀要放松，双手放到位，神态要自然，莫因考官慌。\n自己有信心，艰辛都不怕，胆大又心细，礼貌别忘了。\n只要牢记着，考试准能过。"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="路考口诀二"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="5dp"
+            android:text="逆行绕车车门前，左手拉门往后看。\n起步就把二档挂，路边停车听令下。\n松开油门看右侧，方向盘右转半圈。\n上车验证问考官好，然后把座位调舒坦。\n稳住方向盘向边靠，先左再右正方向盘。\n系带看镜踩离合起，油门指令看仪表盘。\n离合踩到底查一圈，脚刹停车手不打颤。\n一切正常再报告，起步指令听考官。\n拉手刹挂空挡再来，放离合再放下脚刹。\n踩住离合一档挂起，打左转向灯按喇叭。\n轻车门下车把门关， 慢抬离合把油加。"
+            android:textSize="16sp" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

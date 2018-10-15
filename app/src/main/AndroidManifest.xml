@@ -61,6 +61,11 @@
         <activity android:name=".ui.HideWebViewActivity" />
         <activity android:name=".ui.exam.VideoDetailActivity" />
         <activity android:name=".ui.exam.VideoPlayActivity" />
+        <activity android:name=".ui.exam.ActivityLKKJ" />
+        <activity android:name=".ui.exam.ActivityZHQB" />
+        <activity android:name=".ui.exam.ActivityJCLK" />
+        <activity android:name=".ui.exam.ActivityDTJQ" />
+        <activity android:name=".ui.exam.ActivityYK" />
 
     </application>
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:lineSpacingExtra="5dp"
+            android:padding="10dp"
+            android:text="通过交叉路口是科目三考试的一个环节，不少考生在这一环节会丢分，其原因主要有两点：一是没有停车让行；二是没有看交通信号灯。\n\n1．通过有信号灯的路口\n进入交叉路口左转时，要靠路口中心点左侧转弯，开启转向灯，夜间使用近光灯。遇到停止信号时，通过交叉路口的车要依次停在停止线以外，没有停止线的，停在路口以外。\n\n2．没有信号灯的路口\n在没有交通信号灯的路口，转弯机动车让直行的车辆，行人先行；相对方向行驶的右转弯机动车让左转弯车辆先行，需要特则注意的是，行人也在被让行之列。\n\n在现实行车的过程中，有些交叉路口没有交通信号灯，但有交通标志、标线，对此，交通法有明确的规定：机动车应让优先通行的一方先行，所谓优先通行就是应该优先让行的一方，在通过路口时应确保不与应该被让行的一方发生交通事故。\n\n没有交通标志、标线的路口，不管任何一方，在接近路口需要通过时，都要停车让行，如自己的右侧有车要通过路口，要优先让行。优先通过路口的一方，同样有优先让自己右方来车先通过的法定义务，总之，不管通过路口的哪一方，都要优先让自己右方的来车先行。\n\n那么，在考试中，该如何顺利通过路口的考核呢，需要注意的事项有六点：\n①不得将车停在路口内。\n②通过路口前约100米，车载语音将自动提示车辆行驶方向，考生应按车道导向箭头提示选择合适的车道行驶，并按照交通信号灯行驶。\n③直行通过路口时应观察左、右方交通情况。\n④在路口转弯时，应提前3秒开启转向灯。\n⑤左转通过路口时，应靠路口中心点左侧转弯。\n⑥通过路口停车线前20米，应有减速动作或将车速控制在35公里/小时以下。\n\n考官叮嘱\n①不按规定减速或停车缭望扣100分。\n②不观察左、右方交通情况，转弯通过路口时，未观察侧前方交通情况扣100分。\n③遇有路口交通阻塞时进入路口，将车辆停在路口内等候扣100分。\n④左转通过路口时，未靠路口中心点左侧转弯扣10分。"
+            android:textSize="16sp" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:lineSpacingExtra="5dp"
+            android:text="良好的心态是基础。考试之前不要总是去想自己为什么这么倒霉抽中夜考，应该调整心态，积极面对考试。如果考前紧张，可以找一个安静的地方深呼吸，顺便梳理一下考试流程和注意事项。如果深呼吸不能缓解紧张情绪，可以尝试着在考场旁边走走，或者踢踢腿放松一下。\n\n车辆的检查是保证。很多学员上车后就坐在驾驶位等着考试开始，其实不妨在考试正式开始之前检查一下车辆，比如看看各功能的灯光是否能正常使用、调整座椅和反光镜。\n\n准确判断路况是前提。夜间考试的能见度不如白天，驾驶员更要掌握一些“小技巧”帮助自己判断路况。比如:\n1、根据车辆判断：当发动机声音变沉闷或者车速自动减慢时说明汽车阻力增大，车辆正在上坡或者行驶至松软路面，反之是在下坡。\n2、根据路面颜色判断：夜间行车“走灰不走黑”，正常路面多为灰色，洼坑是黑色，路面水洼为白色。\n3、根据灯光判断：在直行道路上行驶，车前大灯为平行向前的灯束照向地面；若灯光离开路面，学员应当注意前方可能出现大坑或者转弯。\n\n用准灯光是关键。夜间考试的重点就是考察学员对灯光的使用，这项考察贯穿整个夜考：\n起步：学员上车做完一系列检查和调整后，开起大灯，关上双闪，打左转向灯，上1挡。\n考试中：挂挡起步后，拨左方向灯、开大灯，关闭顶棚灯，松手刹，观察左边后视镜，起步进入行车道。车身摆正后，挂2挡，打开远光灯，慢慢加速加挡。要注意会车时，对方车辆到达前方150米处，切换为近光灯。\n\n靠边停车：摘空挡，拉手刹；打开双闪关闭大灯。夜间正确使用灯光，不仅为自己开阔视野，更重要的是为其他车辆传递信息。比如当前车尾灯由暗变明，表明你跟它的距离在缩短；若前车开启雾灯和双闪，说明打算停车或出现故障，要注意避让。"
+            android:padding="10dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

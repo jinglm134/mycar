@@ -21,6 +21,6 @@
         app:tabIndicatorColor="@color/colorPrimaryDark"
         app:tabIndicatorHeight="0dp"
         app:tabSelectedTextColor="@color/colorPrimaryDark"
-        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        app:tabTextAppearance="@style/TabLayoutTextStyleBold"
         app:tabTextColor="@color/c20" />
 </LinearLayout>

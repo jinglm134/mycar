@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:lineSpacingExtra="5dp"
+            android:padding="10dp"
+            android:text="调头根本需求留意以下几点:\n\n1、有调头灯的路口行至路口，如果有专门的调头指示灯或地上标线，应依照指示灯和地上标线的指示行进。有时候标志下面还有限制，比方“红灯掉头”字样，表明只需红灯时才能够掉头。\n2、无调头灯有左转灯的路口一般来说，只需没有制止调头标识或独自调头指示灯的状况下，机动车均能够在不影响正常行进车辆及确保安全的状况下随时调头。一般路途中的中心阻隔带也会在挨近路口时由实线变为虚线，车辆可在此区域进行调头。一般来说，只需没有制止调头标识或独自调头指示灯的状况下，机动车均能够在不影响正常行进车辆及确保安全的状况下随时调头。一般路途中的中心阻隔带也会在挨近路口时由实线变为虚线，车辆可在此区域进行调头。\n3、黄色网格区域黄色网格线区域代表制止泊车，如果前方红灯时，后方车辆应该避让开此块区域。但在这一区域调头是被答应的，只需中心没有阻隔护栏，机动车能够在此区域进行调头。一般来说，只需没有制止调头标识或独自调头指示灯的状况下，机动车均能够在不影响正常行进车辆及确保安全的状况下随时调头。 一般路途中的中心阻隔带也会在挨近路口时由实线变为虚线，车辆可在此区域进行调头。黄色网格线区域代表制止泊车，如果前方红灯时，后方车辆应该避让开此块区域。但在这一区域调头是被答应的，只需中心没有阻隔护栏，机动车能够在此区域进行调头。\n4、制止左转路口设有制止左转标志的路口不能左转，可是禁左的路口能否调头？从调头的动作来看，也要先阅历左转的道路，从车辆对交通的影响上看，左转和掉头非常附近需求要占有对面车道，因而禁左路口相同制止调头。\n5、斑马线区域有些路途中施画有人行横道线，尽管这一区域一般并没有制止调头标识，可是这种区域等同于人行道，是不答应调头的。"
+            android:textSize="16sp" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

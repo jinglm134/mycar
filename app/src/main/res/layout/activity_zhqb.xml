@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:lineSpacingExtra="5dp"
+            android:padding="10dp"
+            android:text="1:上车前，无论你在车辆的什么位置，请务必从车的右侧绕过车头走到驾驶室门前，先观察车前道路上是否有障碍，再观察车后方是否有来车，确保安全后，打开车门，上车。\n\n2:轻轻关闭车门，将事先准备好的身份证件，用双手递给考官，面带微笑做自我介绍：“考官您好，我是XX驾校学员，我叫XXX，这是我的证件。”\n\n3:尽可能地比较熟练的快速调整好座椅、左右中3个观后镜，系好安全带，观察仪表，如果仪表正常，微笑着向考官征询意见：“报告考官，仪表正常，请问是否可以起步？”\n\n4:得到允许后，踩离合，挂1挡，打左转向灯，按喇叭、观察后视镜，确认安全后，松离合到半连动，右手同时放掉手刹（可有效防止上坡起步后溜），平稳起步。\n\n5:顺利起步后，不要急于立即向左变更车道，继续直行，同时关闭左转向灯，踩离合，换到2挡（陡坡起步可以一直用1挡爬到坡顶再换挡），慢一点松离合，右脚同时给一点油门防止冲车或者熄火。加油保持2挡前进，观察速度表到达30公里以上或者发动机转速超过2000，换到3挡行驶，保持30的速度行驶，如果考官不要求加速，请不要在他面前炫耀你的技术而开到60公里以上，那样只会让他感觉你喜欢开快车，不安全。行进过程中，千万别忘记隔个10多秒就看一下后视镜哦。\n\n6:当听到“靠边停车”的口令后，你距离成功很近了，不要慌，第一反应是打右转向灯，然后脑袋做个明显的偏转动作去看右边的后视镜，如果右边后方没有车辆，请向右打方向，同时踩刹车，左脚离合也跟着踩下去，用平时你定点停车的感觉使车距离右边路沿30CM的时候，回正方向，将车停稳在路边。\n\n7:车辆停稳后，拉手刹，拨回空挡，双脚松开离合刹车，关掉右转向灯，松开安全带，面向考官说：“谢谢考官！”然后观察左镜子，确认后方没来车后，开车门下车。下车后，用双手轻轻关上车门，再次说声：“谢谢考官！”\n\n综述：路考是人考，人为的因素很重要，谦逊的态度和礼貌能弥补你的技术不足，甚至能挽救你的结局，对考官礼貌点，甚至巴结点，相信我有好处的；路考是考动作，不是考速度，所以一定按程序想好，做完该做的动作而不是追求挂上5挡冲到100码。\n\n"
+            android:textSize="16sp" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

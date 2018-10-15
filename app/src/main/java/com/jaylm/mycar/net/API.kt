@@ -33,6 +33,11 @@ object API {
     val km2_ksgz = "https://j1.58cdn.com.cn/dist/jxedt/h5/activity/article/_html/km2_ksgz.html"//科二考试规则
     val km2_index = "https://api.jxedt.com/media/index"//科二视频首页列表
     val km2_list = "https://api.jxedt.com/media/list"//科二视频更多页列表
-
     val km2_detail = "https://api.jxedt.com/media/detail/?carbrand=1&pageindex=1&lastid=0&videotype=1"//科二视频详情
+
+    val jinnang_3 = "https://j1.58cdn.com.cn/dist/jxedt/h5/activity/jinnang/_html/jinnang_3.html"//科三考前冲刺
+    val km3_ksyd = "https://j1.58cdn.com.cn/dist/jxedt/h5/activity/article/_html/km3_ksyd.html"//科三考试要点
+    val km3_hgbz = "https://j1.58cdn.com.cn/dist/jxedt/h5/activity/article/_html/km3_hgbz.html"//科三考试标准
+    val km3_kslc = "https://j1.58cdn.com.cn/dist/jxedt/h5/activity/article/_html/km3_kslc.html"//科三考试流程
+    val km3_ksgz = "https://j1.58cdn.com.cn/dist/jxedt/h5/activity/article/_html/km3_ksgz.html"//科三考试规则
 }

@@ -37,6 +37,10 @@
     <style name="TabLayoutTextStyle">
         <item name="android:textSize">14sp</item>
     </style>
+
+    <style name="TabLayoutTextStyleBold" parent="TabLayoutTextStyle">
+        <item name="android:textStyle">bold</item>
+    </style>
     <!-- popup进出动画  从下边界进出的动画-->
     <style name="mypopwindow_anim_style">
         <item name="android:windowEnterAnimation">@anim/popup_up_in</item>

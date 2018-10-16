@@ -8,6 +8,7 @@ import com.jaylm.mycar.base.BaseActivity
 import com.jaylm.mycar.bean.exam.ExamNewBean
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
+import com.jaylm.mycar.ui.WebViewActivity
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
@@ -53,6 +54,14 @@ class NewListActivity : BaseActivity() {
             pageNum++
             loadData(false)
         }
+
+        mAdapter.setOnItemClickListener { adapter, _, pos ->
+            val bundle = Bundle()
+            bundle.putString("name", (adapter.data[pos] as ExamNewBean.DataBean).title)
+            bundle.putString("url", (adapter.data[pos] as ExamNewBean.DataBean).url)
+            startActivity(WebViewActivity::class.java, bundle)
+        }
+
         smartRefreshLayout.autoRefresh()
     }
 

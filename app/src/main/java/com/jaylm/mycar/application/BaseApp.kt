@@ -61,11 +61,11 @@ class BaseApp : Application() {
         loggingInterceptor.setColorLevel(Level.INFO)
         builder.addInterceptor(loggingInterceptor)
         //全局的读取超时时间
-        builder.readTimeout(6000, TimeUnit.MILLISECONDS)
+        builder.readTimeout(12000, TimeUnit.MILLISECONDS)
         //全局的写入超时时间
-        builder.writeTimeout(6000, TimeUnit.MILLISECONDS)
+        builder.writeTimeout(12000, TimeUnit.MILLISECONDS)
         //全局的连接超时时间
-        builder.connectTimeout(6000, TimeUnit.MILLISECONDS)
+        builder.connectTimeout(12000, TimeUnit.MILLISECONDS)
 
         //使用sp保持cookie，如果cookie不过期,则一直有效
         //builder.cookieJar(new CookieJarImpl(new SPCookieStore(this)));

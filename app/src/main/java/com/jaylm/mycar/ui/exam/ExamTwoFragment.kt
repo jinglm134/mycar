@@ -124,12 +124,12 @@ class ExamTwoFragment : BaseFragment() {
             startActivity(WebViewActivity::class.java, bundle)
         }
 
-        banner.setOnBannerListener { position ->
-            val bundle = Bundle()
-            bundle.putString("name", mBannerData[position].title)
-            bundle.putString("url", mBannerData[position].url)
-            startActivity(WebViewActivity::class.java, bundle)
-        }
+//        banner.setOnBannerListener { position ->
+//            val bundle = Bundle()
+//            bundle.putString("name", mBannerData[position].title)
+//            bundle.putString("url", mBannerData[position].url)
+//            startActivity(WebViewActivity::class.java, bundle)
+//        }
 
         tv_more1.setOnClickListener {
             val bundle = Bundle()

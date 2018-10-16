@@ -2,9 +2,12 @@ package com.jaylm.mycar.ui
 
 import android.graphics.Color
 import android.os.Bundle
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.widget.LinearLayout
 import com.jaylm.mycar.R
 import com.jaylm.mycar.base.BaseActivity
+import com.jaylm.mycar.view.ProgressDialog
 import com.just.library.AgentWeb
 import kotlinx.android.synthetic.main.activity_webview.*
 
@@ -17,6 +20,7 @@ class WebViewActivity : BaseActivity() {
     private lateinit var mUrl: String
     private lateinit var mName: String
     private var mAgentWeb: AgentWeb? = null
+    private lateinit var mProgress: ProgressDialog
     override fun bindLayout(): Int {
         return R.layout.activity_webview
     }
@@ -30,6 +34,8 @@ class WebViewActivity : BaseActivity() {
     override fun initView() {
         super.initView()
         setHeader(mName)
+        mProgress = ProgressDialog(mActivity)
+        mProgress.show()
 
         if (mAgentWeb == null) {
             mAgentWeb = AgentWeb.with(this)//传入Activity or Fragment
@@ -38,6 +44,14 @@ class WebViewActivity : BaseActivity() {
                     .setIndicatorColor(Color.TRANSPARENT)
                     .setReceivedTitleCallback { _, _ -> } //设置 Web 页面的 title 回调
                     .setSecutityType(AgentWeb.SecurityType.strict)
+                    .setWebChromeClient(object : WebChromeClient() {
+                        override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                            super.onProgressChanged(view, newProgress)
+                            if (newProgress == 100 && mProgress.isShowing) {
+                                mProgress.dismiss()
+                            }
+                        }
+                    })
                     .createAgentWeb()
                     .ready()
                     .go(mUrl)

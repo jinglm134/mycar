@@ -3,7 +3,6 @@ package com.jaylm.mycar.ui
 import android.support.design.widget.TabLayout
 import com.jaylm.mycar.R
 import com.jaylm.mycar.base.BaseFragment
-import com.jaylm.mycar.ui.exam.ExamFourFragment
 import com.jaylm.mycar.ui.exam.ExamOneFragment
 import com.jaylm.mycar.ui.exam.ExamThreeFragment
 import com.jaylm.mycar.ui.exam.ExamTwoFragment
@@ -16,11 +15,10 @@ import kotlinx.android.synthetic.main.fragment_exam.*
  */
 class ExamFragment : BaseFragment() {
 
-    private val mTitle: Array<String> = arrayOf("科目一", "科目二", "科目三", "科目四")
+    private val mTitle: Array<String> = arrayOf("科目一", "科目二", "科目三")
     private lateinit var examOneFragment: ExamOneFragment
     private lateinit var examTwoFragment: ExamTwoFragment
     private lateinit var examThreeFragment: ExamThreeFragment
-    private lateinit var examFourFragment: ExamFourFragment
 
     override fun bindLayout(): Int {
         return R.layout.fragment_exam
@@ -38,7 +36,6 @@ class ExamFragment : BaseFragment() {
         examOneFragment = ExamOneFragment()
         examTwoFragment = ExamTwoFragment()
         examThreeFragment = ExamThreeFragment()
-        examFourFragment = ExamFourFragment()
 
         smartReplaceFragment(R.id.frameLayout, examOneFragment)
     }
@@ -57,7 +54,6 @@ class ExamFragment : BaseFragment() {
                     0 -> smartReplaceFragment(R.id.frameLayout, examOneFragment)
                     1 -> smartReplaceFragment(R.id.frameLayout, examTwoFragment)
                     2 -> smartReplaceFragment(R.id.frameLayout, examThreeFragment)
-                    3 -> smartReplaceFragment(R.id.frameLayout, examFourFragment)
                 }
             }
 

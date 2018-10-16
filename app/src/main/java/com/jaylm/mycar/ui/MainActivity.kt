@@ -9,10 +9,8 @@ class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
 
     private lateinit var mainFragment: MainFragment
     private lateinit var examFragment: ExamFragment
-    private lateinit var peripheryFragment: PeripheryFragment
-    private lateinit var askFragment: AskFragment
     private lateinit var schoolFragment: SchoolFragment
-    private val mHeader: Array<String> = arrayOf("保养", "考试", "驾校")
+    private val mHeader: Array<String> = arrayOf("首页", "考试", "驾校")
 
     override fun bindLayout(): Int {
         return R.layout.activity_main
@@ -29,8 +27,6 @@ class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
 
         mainFragment = MainFragment()
         examFragment = ExamFragment()
-        peripheryFragment = PeripheryFragment()
-        askFragment = AskFragment()
         schoolFragment = SchoolFragment()
 
         smartReplaceFragment(R.id.frameLayout, mainFragment)
@@ -52,8 +48,6 @@ class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
             0 -> smartReplaceFragment(R.id.frameLayout, mainFragment)
             1 -> smartReplaceFragment(R.id.frameLayout, examFragment)
             2 -> smartReplaceFragment(R.id.frameLayout, schoolFragment)
-//            3 -> smartReplaceFragment(R.id.frameLayout, askFragment)
-//            4 -> smartReplaceFragment(R.id.frameLayout, schoolFragment)
         }
         setHeader(mHeader[tab.position])
     }

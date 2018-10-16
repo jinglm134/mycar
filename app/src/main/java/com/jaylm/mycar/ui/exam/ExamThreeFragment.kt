@@ -15,6 +15,7 @@ import com.jaylm.mycar.tool.UShape
 import com.jaylm.mycar.ui.WebViewActivity
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
+import com.lzy.okgo.OkGo
 import com.lzy.okgo.model.Response
 import kotlinx.android.synthetic.main.fragment_exam_three.*
 import org.json.JSONObject
@@ -55,7 +56,7 @@ class ExamThreeFragment : BaseFragment() {
 
         mData2 = ArrayList()
         recyclerView2.isNestedScrollingEnabled = false
-        recyclerView2.setHasFixedSize(false)
+        recyclerView2.setHasFixedSize(true)
         recyclerView2.layoutManager = LinearLayoutManager(activity)
         recyclerView2.addItemDecoration(DecorationLinearDivider(R.color.c10, 1F, true))
         mAdapter2 = AdapterNew()
@@ -167,6 +168,7 @@ class ExamThreeFragment : BaseFragment() {
             }
 
         })
+
     }
 
     private fun loadNewData() {

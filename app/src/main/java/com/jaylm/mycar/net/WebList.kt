@@ -146,4 +146,14 @@ object WebList {
                 .execute(callBack)
     }
 
+    fun news(type: Int, isPullDown: Boolean, id: Long, callBack: BaseCallBack) {
+        val idType = if (isPullDown) {
+            "since_id"
+        } else {
+            "max_id"
+        }
+        val url = API.news + type + "?" + idType + "=" + id
+        OkGo.get<String>(url).execute(callBack)
+    }
+
 }

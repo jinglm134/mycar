@@ -5,20 +5,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <View
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@color/c10" />
+        android:layout_height="40dp"
+        android:background="@color/c10"
+        app:tabIndicatorColor="@color/colorPrimaryDark"
+        app:tabIndicatorHeight="0dp"
+        app:tabSelectedTextColor="@color/colorPrimaryDark"
+        app:tabTextAppearance="@style/TabLayoutTextStyleBold"
+        app:tabTextColor="@color/c20" />
 
-    <com.youth.banner.Banner
-        android:id="@+id/banner"
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginBottom="10dp"
-        app:indicator_drawable_selected="@color/colorPrimary"
-        app:indicator_drawable_unselected="@color/c10" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-    <include layout="@layout/layout_smartrecyclerview" />
+
 </LinearLayout><!-- delay_time	integer	轮播间隔时间，默认2000
     scroll_time	integer	轮播滑动执行时间，默认800
     is_auto_play	boolean	是否自动轮播，默认true

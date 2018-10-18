@@ -194,4 +194,12 @@ object WebList {
     fun trimpicgroup(groupId: Int, callBack: BaseCallBack) {
         OkGo.get<String>(API.trimpicgroup + groupId).execute(callBack)
     }
+
+    fun picgroup(start: Int, callBack: BaseCallBack) {
+        OkGo.get<String>(API.picgroup + start).execute(callBack)
+    }
+
+    fun girlgroup(groupId: Int, callBack: BaseCallBack) {
+        OkGo.get<String>(API.girlgroup + groupId).execute(callBack)
+    }
 }

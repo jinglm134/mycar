@@ -190,4 +190,8 @@ object WebList {
     fun listOrderByUpdateTime(id: Int = -1, callBack: BaseCallBack) {
         OkGo.get<String>(API.listOrderByUpdateTime + id).execute(callBack)
     }
+
+    fun trimpicgroup(groupId: Int, callBack: BaseCallBack) {
+        OkGo.get<String>(API.trimpicgroup + groupId).execute(callBack)
+    }
 }

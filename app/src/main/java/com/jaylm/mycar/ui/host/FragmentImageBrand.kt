@@ -1,9 +1,9 @@
 package com.jaylm.mycar.ui.host
 
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.AdapterImageBrand
-import com.jaylm.mycar.adapter.AdapterNews
 import com.jaylm.mycar.base.BaseFragment
 import com.jaylm.mycar.bean.host.ImageBrandBean
 import com.jaylm.mycar.net.BaseCallBack
@@ -50,6 +50,14 @@ class FragmentImageBrand : BaseFragment() {
             }
             loadData(false)
         }
+
+        mAdapter.setOnItemClickListener { adapter, _, position ->
+            val bundle = Bundle()
+            bundle.putInt("groupId", (adapter.data[position] as ImageBrandBean).id)
+            bundle.putString("name", (adapter.data[position] as ImageBrandBean).name)
+            startActivity(ActivityImageBrandDetail::class.java, bundle)
+        }
+
         smartRefreshLayout.autoRefresh()
     }
 

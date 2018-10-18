@@ -68,6 +68,7 @@
         <activity android:name=".ui.exam.ActivityYK" />
         <activity android:name=".ui.exam.NewListActivity" />
         <activity android:name=".ui.host.ActivityNewsDetail" />
+        <activity android:name=".ui.host.ActivityImageBrandDetail" />
 
     </application>
 

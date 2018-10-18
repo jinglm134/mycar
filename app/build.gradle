@@ -62,15 +62,16 @@ dependencies {
 
     //SmartRefreshLayout and adapter
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'//没有使用特殊Header，可以不加这行
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
 
     implementation 'com.youth.banner:banner:1.4.10'  //banner
     implementation 'cn.jzvd:jiaozivideoplayer:6.3.1'//videoPlayer
     implementation 'de.hdodenhof:circleimageview:2.2.0'//circleimageview
 
-    implementation ('com.zzhoujay.richtext:richtext:2.5.4',{  //富文本
-      exclude module: "markdown"
+    implementation('com.zzhoujay.richtext:richtext:2.5.4', {  //富文本
+        exclude module: "markdown"
     })
+//    implementation 'com.github.chrisbanes:PhotoView:2.2.0'//PhotoView
 
 }

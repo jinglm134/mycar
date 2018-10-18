@@ -44,6 +44,8 @@ object API {
     val news = "https://app.auto.sohu.com/api/feeds/category/"//新闻模块
     val recommend = "https://app.auto.sohu.com/api/feeds/recommended/v2?cursor=eyJhcnRpY2xlX21heCI6MTUzOTg0MTA5OTc1MywiYXJ0aWNsZV9taW4iOjE1Mzk4MzE3NDA5NTcsInZpZGVvX21heCI6bnVsbCwidmlkZW9fbWluIjpudWxsLCJtYmxvZ19tYXgiOjE1Mzk3NDgzNjc0OTIsIm1ibG9nX21pbiI6MTUzOTc0ODM2NzQ5Mn0%3D"//新闻模块
     val original = "https://app.auto.sohu.com/api/feeds/original"//精选
-    val listOrderByUpdateTime = "http://db.auto.sohu.com/api/photo/picgroup/listOrderByUpdateTime.json?lastGroupId="//图片-车型实拍
     val newsDeatil = "https://app.auto.sohu.com/api/news/"//新闻模块详情
+    val listOrderByUpdateTime = "http://db.auto.sohu.com/api/photo/picgroup/listOrderByUpdateTime.json?lastGroupId="//图片-车型实拍
+    val trimpicgroup = "http://db.auto.sohu.com/api/photo/trimpicgroup/list?cityCode=110000&groupId="//图片-车型实拍详情
+
 }

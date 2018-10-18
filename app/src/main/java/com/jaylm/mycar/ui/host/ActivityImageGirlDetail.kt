@@ -18,7 +18,7 @@ import org.json.JSONObject
  */
 class ActivityImageGirlDetail : BaseActivity(), CallBack {
 
-
+    private var categoryId = 0
     private var mGroupId = 0
     private var mName = ""
     private lateinit var mData: ArrayList<ImageBrandDetailBean.ImageListBean>
@@ -34,6 +34,7 @@ class ActivityImageGirlDetail : BaseActivity(), CallBack {
         super.initParams(bundle)
         mGroupId = bundle.getInt("groupId", 0)
         mName = bundle.getString("name", "")
+        categoryId = bundle.getInt("categoryId", 0)
     }
 
     override fun initView() {
@@ -48,7 +49,7 @@ class ActivityImageGirlDetail : BaseActivity(), CallBack {
 
     private fun loadData() {
 
-        WebList.girlgroup(mGroupId, object : BaseCallBack(mActivity, true) {
+        WebList.girlgroup(mGroupId, categoryId, object : BaseCallBack(mActivity, true) {
             override fun onSuccess(jsonString: String) {
             }
 

@@ -47,7 +47,7 @@ object API {
     val newsDeatil = "https://app.auto.sohu.com/api/news/"//新闻模块详情
     val listOrderByUpdateTime = "http://db.auto.sohu.com/api/photo/picgroup/listOrderByUpdateTime.json?lastGroupId="//图片-车型实拍
     val trimpicgroup = "http://db.auto.sohu.com/api/photo/trimpicgroup/list?cityCode=110000&groupId="//图片-车型实拍详情
-    val picgroup = "http://db.auto.sohu.com/api/photo/picgroup/list?categoryId=1011&limit=10&start="//图片-香车美女
-    val girlgroup = "http://db.auto.sohu.com/api/photo/pic/list?categoryId=1011&groupId="//图片-香车美女详情
+    val picgroup = "http://db.auto.sohu.com/api/photo/picgroup/list?limit=10"//图片-香车美女
+    val girlgroup = "http://db.auto.sohu.com/api/photo/pic/list?"//图片-香车美女详情
 
 }

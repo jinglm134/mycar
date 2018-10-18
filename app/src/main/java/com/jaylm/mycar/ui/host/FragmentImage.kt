@@ -12,7 +12,8 @@ import kotlinx.android.synthetic.main.fragment_image.*
 class FragmentImage : BaseFragment() {
 
     private lateinit var fragmentImageBrand: FragmentImageBrand
-    private lateinit var fragmentImageGirl: FragmentImageGirl
+    private lateinit var fragmentImageGirl1: FragmentImageGirl
+    private lateinit var fragmentImageGirl2: FragmentImageGirl
 
     override fun bindLayout(): Int {
         return R.layout.fragment_image
@@ -27,7 +28,9 @@ class FragmentImage : BaseFragment() {
 
 
         fragmentImageBrand = FragmentImageBrand()
-        fragmentImageGirl = FragmentImageGirl()
+        fragmentImageGirl1 = FragmentImageGirl.newInstance(1011)
+        fragmentImageGirl2 = FragmentImageGirl.newInstance(1199)
+
         smartReplaceFragment(R.id.frameLayout, fragmentImageBrand)
 
     }
@@ -37,7 +40,8 @@ class FragmentImage : BaseFragment() {
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rb_1 -> smartReplaceFragment(R.id.frameLayout, fragmentImageBrand)
-                R.id.rb_2 -> smartReplaceFragment(R.id.frameLayout, fragmentImageGirl)
+                R.id.rb_2 -> smartReplaceFragment(R.id.frameLayout, fragmentImageGirl1, fragmentImageGirl1::class.java.simpleName + "1")
+                R.id.rb_3 -> smartReplaceFragment(R.id.frameLayout, fragmentImageGirl2, fragmentImageGirl2::class.java.simpleName + "2")
             }
         }
     }

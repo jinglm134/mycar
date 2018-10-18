@@ -195,11 +195,13 @@ object WebList {
         OkGo.get<String>(API.trimpicgroup + groupId).execute(callBack)
     }
 
-    fun picgroup(start: Int, callBack: BaseCallBack) {
-        OkGo.get<String>(API.picgroup + start).execute(callBack)
+    fun picgroup(start: Int, categoryId: Int, callBack: BaseCallBack) {
+        val url = API.picgroup + "&start=" + start + "&categoryId=" + categoryId
+        OkGo.get<String>(url).execute(callBack)
     }
 
-    fun girlgroup(groupId: Int, callBack: BaseCallBack) {
-        OkGo.get<String>(API.girlgroup + groupId).execute(callBack)
+    fun girlgroup(groupId: Int, categoryId: Int, callBack: BaseCallBack) {
+        val url = API.girlgroup + "&groupId=" + groupId + "&categoryId=" + categoryId
+        OkGo.get<String>(url).execute(callBack)
     }
 }

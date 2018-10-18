@@ -8,6 +8,7 @@ import com.jaylm.mycar.base.BaseFragment
 import com.jaylm.mycar.bean.host.ImageBrandBean
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
+import com.jaylm.mycar.tool.bindArgument
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.view.DecorationLinearDivider
 import com.lzy.okgo.model.Response
@@ -20,11 +21,22 @@ import org.json.JSONObject
  */
 class FragmentImageGirl : BaseFragment() {
     private var start = 0
+    private val categoryId: Int by bindArgument("categoryId")
     private lateinit var mData: ArrayList<ImageBrandBean>
     private lateinit var mAdapter: AdapterImageBrand
 
     override fun bindLayout(): Int {
         return R.layout.layout_smartrecyclerview
+    }
+
+    companion object {
+        fun newInstance(id: Int): FragmentImageGirl {
+            val fragmentImageGirl = FragmentImageGirl()
+            val bundle = Bundle()
+            bundle.putInt("categoryId", id)
+            fragmentImageGirl.arguments = bundle
+            return fragmentImageGirl
+        }
     }
 
     override fun initView() {
@@ -53,6 +65,7 @@ class FragmentImageGirl : BaseFragment() {
             val bundle = Bundle()
             bundle.putInt("groupId", (adapter.data[position] as ImageBrandBean).id)
             bundle.putString("name", (adapter.data[position] as ImageBrandBean).name)
+            bundle.putInt("categoryId", categoryId)
             startActivity(ActivityImageGirlDetail::class.java, bundle)
         }
 
@@ -60,7 +73,7 @@ class FragmentImageGirl : BaseFragment() {
     }
 
     private fun loadData(isPullDown: Boolean) {
-        WebList.picgroup(start, object : BaseCallBack(activity!!, smartRefreshLayout, isPullDown) {
+        WebList.picgroup(start, categoryId, object : BaseCallBack(activity!!, smartRefreshLayout, isPullDown) {
             override fun onSuccess(jsonString: String) {
             }
 

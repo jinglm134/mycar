@@ -1,6 +1,7 @@
 package com.jaylm.mycar.bean
 
 import com.chad.library.adapter.base.entity.SectionEntity
+import com.jaylm.mycar.bean.host.NewsBean
 
 /**
  * Created by jaylm

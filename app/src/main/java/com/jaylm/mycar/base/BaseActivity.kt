@@ -216,7 +216,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     //设置title
     protected fun setHeader(title: CharSequence) {
-        tv_title.text = title
+        rootTitle.text = title
     }
 
     //隐藏title

@@ -3,6 +3,7 @@ package com.jaylm.mycar.ui
 import android.support.design.widget.TabLayout
 import com.jaylm.mycar.R
 import com.jaylm.mycar.base.BaseFragment
+import com.jaylm.mycar.ui.host.FragmentNews
 import kotlinx.android.synthetic.main.fragment_main.*
 
 /**

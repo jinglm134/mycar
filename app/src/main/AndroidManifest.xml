@@ -67,6 +67,7 @@
         <activity android:name=".ui.exam.ActivityDTJQ" />
         <activity android:name=".ui.exam.ActivityYK" />
         <activity android:name=".ui.exam.NewListActivity" />
+        <activity android:name=".ui.host.ActivityNewsDetail" />
 
     </application>
 

@@ -37,7 +37,7 @@ class NewListActivity : BaseActivity() {
         setHeader("驾考头条")
 
         mData = ArrayList()
-        recyclerView.setHasFixedSize(false)
+        recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(mActivity)
         recyclerView.addItemDecoration(DecorationLinearDivider())
         mAdapter = AdapterNew()

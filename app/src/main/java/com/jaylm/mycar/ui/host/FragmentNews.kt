@@ -1,11 +1,11 @@
-package com.jaylm.mycar.ui
+package com.jaylm.mycar.ui.host
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.jaylm.mycar.R
 import com.jaylm.mycar.adapter.AdapterNews
 import com.jaylm.mycar.base.BaseFragment
-import com.jaylm.mycar.bean.NewsBean
+import com.jaylm.mycar.bean.host.NewsBean
 import com.jaylm.mycar.bean.SectionNewsBean
 import com.jaylm.mycar.net.BaseCallBack
 import com.jaylm.mycar.net.WebList
@@ -49,8 +49,6 @@ class FragmentNews : BaseFragment() {
         recyclerView.addItemDecoration(DecorationLinearDivider())
         mAdapter = AdapterNews()
         recyclerView.adapter = mAdapter
-
-        smartRefreshLayout.autoRefresh()
     }
 
 
@@ -68,6 +66,14 @@ class FragmentNews : BaseFragment() {
             }
             loadData(false)
         }
+
+        mAdapter.setOnItemClickListener { adapter, _, position ->
+            val bundle = Bundle()
+            bundle.putInt("id", (adapter.data[position] as SectionNewsBean).t.item_id)
+            startActivity(ActivityNewsDetail::class.java, bundle)
+        }
+
+        smartRefreshLayout.autoRefresh()
     }
 
     private fun loadData(isPullDown: Boolean) {

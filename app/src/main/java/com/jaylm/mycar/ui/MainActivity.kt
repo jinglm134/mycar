@@ -3,6 +3,7 @@ package com.jaylm.mycar.ui
 import android.support.design.widget.TabLayout
 import com.jaylm.mycar.R
 import com.jaylm.mycar.base.BaseActivity
+import com.jaylm.mycar.util.ToastUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
@@ -11,6 +12,8 @@ class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
     private lateinit var examFragment: ExamFragment
     private lateinit var schoolFragment: SchoolFragment
     private val mHeader: Array<String> = arrayOf("首页", "考试", "驾校")
+    private val clickTime = 3000
+    private var currentTime = 0L
 
     override fun bindLayout(): Int {
         return R.layout.activity_main
@@ -18,6 +21,7 @@ class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
 
     override fun initView() {
         super.initView()
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
         setHeader(mHeader[0])
 
         for (i in 0 until mHeader.size) {
@@ -50,5 +54,15 @@ class MainActivity : BaseActivity(), TabLayout.OnTabSelectedListener {
             2 -> smartReplaceFragment(R.id.frameLayout, schoolFragment)
         }
         setHeader(mHeader[tab.position])
+    }
+
+    override fun onBackPressed() {
+        val l = System.currentTimeMillis()
+        if (l - currentTime <= clickTime) {
+            super.onBackPressed()
+        } else {
+            currentTime = l
+            ToastUtils.showShortToast(mActivity, "再按一次退出应用")
+        }
     }
 }

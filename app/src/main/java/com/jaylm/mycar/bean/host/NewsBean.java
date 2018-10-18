@@ -1,4 +1,4 @@
-package com.jaylm.mycar.bean;
+package com.jaylm.mycar.bean.host;
 
 import com.chad.library.adapter.base.entity.SectionEntity;
 

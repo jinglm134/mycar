@@ -69,4 +69,8 @@ dependencies {
     implementation 'cn.jzvd:jiaozivideoplayer:6.3.1'//videoPlayer
     implementation 'de.hdodenhof:circleimageview:2.2.0'//circleimageview
 
+    implementation ('com.zzhoujay.richtext:richtext:2.5.4',{  //富文本
+      exclude module: "markdown"
+    })
+
 }

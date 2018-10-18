@@ -152,8 +152,18 @@ object WebList {
         } else {
             "max_id"
         }
-        val url = API.news + type + "?" + idType + "=" + id
+
+        val url = if (id == 0L) {
+            API.news + type
+        } else {
+            API.news + type + "?" + idType + "=" + id
+        }
         OkGo.get<String>(url).execute(callBack)
     }
 
+
+    fun newsDetail(id: Int, callBack: BaseCallBack) {
+        val url = API.newsDeatil + id + "/detail"
+        OkGo.get<String>(url).execute(callBack)
+    }
 }

@@ -11,7 +11,6 @@ import com.jaylm.mycar.util.TimeUtils
 import com.lzy.okgo.model.Response
 import com.zzhoujay.richtext.RichText
 import kotlinx.android.synthetic.main.activity_news_detail.*
-import kotlinx.android.synthetic.main.activity_vedio_base_detail.*
 import java.util.regex.Pattern
 
 /**
@@ -68,7 +67,8 @@ class ActivityNewsDetail : BaseActivity() {
             }
         }
 
-        RichText.from(htmlText).into(tv_content)
+        RichText.from(htmlText)
+                .into(tv_content)
     }
 
 }

@@ -148,16 +148,36 @@ object WebList {
 
     fun news(type: Int, isPullDown: Boolean, id: Long, callBack: BaseCallBack) {
         val idType = if (isPullDown) {
-            "since_id"
+            "?since_id="
         } else {
-            "max_id"
+            "?max_id="
         }
 
         val url = if (id == 0L) {
             API.news + type
         } else {
-            API.news + type + "?" + idType + "=" + id
+            API.news + type + idType + id
         }
+        OkGo.get<String>(url).execute(callBack)
+    }
+
+    fun recommend(page: Int, isPullDown: Boolean, callBack: BaseCallBack) {
+        val pull_direction = if (isPullDown) {
+            "down"
+        } else {
+            "up"
+        }
+        val url = API.recommend + "&pull_direction=" + pull_direction + "&page=" + page
+        OkGo.get<String>(url).execute(callBack)
+    }
+
+    fun original(isPullDown: Boolean, id: Long, callBack: BaseCallBack) {
+        val idType = if (isPullDown) {
+            "?since_id="
+        } else {
+            "?max_id="
+        }
+        val url = API.original + idType + id
         OkGo.get<String>(url).execute(callBack)
     }
 
@@ -165,5 +185,9 @@ object WebList {
     fun newsDetail(id: Int, callBack: BaseCallBack) {
         val url = API.newsDeatil + id + "/detail"
         OkGo.get<String>(url).execute(callBack)
+    }
+
+    fun listOrderByUpdateTime(id: Int = -1, callBack: BaseCallBack) {
+        OkGo.get<String>(API.listOrderByUpdateTime + id).execute(callBack)
     }
 }

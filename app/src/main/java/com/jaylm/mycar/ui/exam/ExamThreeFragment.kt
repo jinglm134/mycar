@@ -63,7 +63,6 @@ class ExamThreeFragment : BaseFragment() {
         recyclerView2.adapter = mAdapter2
 
         smartRefreshLayout.setEnableLoadMore(false)
-        loadData()
     }
 
     override fun setListener() {
@@ -150,6 +149,8 @@ class ExamThreeFragment : BaseFragment() {
             bundle.putString("model", model)
             startActivity(NewListActivity::class.java, bundle)
         }
+
+        smartRefreshLayout.autoRefresh()
     }
 
     private fun loadData() {

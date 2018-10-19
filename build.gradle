@@ -38,8 +38,6 @@ task clean(type: Delete) {
 ext {
     android = [
             //  applicationId "com.jaylm.dotaguide"
-            APP_NAME:"",
-            applicationId: "com.jaylm.dotaguide",
-            APP_KEY: "72a6b0e33027876131000f1e"
+            APP_KEY: "453cb1d00dc234608531743b"
     ]
 }

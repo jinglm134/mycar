@@ -88,7 +88,6 @@ class ExamTwoFragment : BaseFragment() {
         recyclerView3.adapter = mAdapter3
 
         smartRefreshLayout.setEnableLoadMore(false)
-        smartRefreshLayout.autoRefresh()
     }
 
     override fun setListener() {
@@ -156,9 +155,6 @@ class ExamTwoFragment : BaseFragment() {
             startActivity(VideoPlayActivity::class.java, bundle)
         }
 
-        tv_more3.setOnClickListener {
-
-        }
 
         smartRefreshLayout.setOnRefreshListener {
             loadBannerData()
@@ -179,6 +175,8 @@ class ExamTwoFragment : BaseFragment() {
             bundle.putString("model", model)
             startActivity(NewListActivity::class.java, bundle)
         }
+
+        smartRefreshLayout.autoRefresh()
     }
 
     private fun loadBannerData() {

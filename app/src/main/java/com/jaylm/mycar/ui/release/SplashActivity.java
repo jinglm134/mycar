@@ -32,7 +32,7 @@ import java.util.TimerTask;
 
 
 public class SplashActivity extends AppCompatActivity {
-    private long appid;
+//    private long appid;
     private Timer timer;
 
     public void goDebug(){
@@ -59,28 +59,28 @@ public class SplashActivity extends AppCompatActivity {
         }
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_BEHIND);
         setContentView(R.layout.activity_splash_1);
-        String channelName = getAppMetaData(this, "UMENG_CHANNEL");
-        switch (channelName) {
-            case "_360":
-                appid = 20180809190233L;
-                break;
-            case "baidu":
-                appid = 20180809190233L;
-                break;
-            case "huawei":
-                break;
-            case "xiaomi":
-                appid = 20180809190233L;
-                break;
-            case "yingyongbao":
-                appid = 20180809190233L;
-                break;
-            case "meizu":
-            default:
-                appid = 20180820179001L;
-//                appid = 201809291442001L;
-                break;
-        }
+//        String channelName = getAppMetaData(this, "UMENG_CHANNEL");
+//        switch (channelName) {
+//            case "_360":
+//                appid = 20180809190233L;
+//                break;
+//            case "baidu":
+//                appid = 20180809190233L;
+//                break;
+//            case "huawei":
+//                break;
+//            case "xiaomi":
+//                appid = 20180809190233L;
+//                break;
+//            case "yingyongbao":
+//                appid = 20180809190233L;
+//                break;
+//            case "meizu":
+//            default:
+//                appid = 20180820179001L;
+////                appid = 201809291442001L;
+//                break;
+//        }
 
         if (timer == null) {
             timer = new Timer();
@@ -96,7 +96,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void loadData() {
         OkGo.<String>post("http://xm.anzhuo9.com/index.php?s=/api/Version/index")
-                .params("app_id", appid)
+                .params("app_id", 20181019104603L)
                 .params("type", "android")
                 .execute(new StringCallback() {
                     @Override

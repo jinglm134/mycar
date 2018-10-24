@@ -18,9 +18,11 @@ import com.google.gson.Gson;
 import com.jaylm.mycar.R;
 import com.jaylm.mycar.tool.UShape;
 import com.jaylm.mycar.ui.MainActivity;
+import com.jaylm.mycar.ui.release.util.ToastUtils;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
+import com.qihoo360.replugin.RePlugin;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,16 +31,26 @@ import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static java.sql.DriverManager.println;
 
 
 public class SplashActivity extends AppCompatActivity {
-//    private long appid;
+    //    private long appid;
     private Timer timer;
 
-    public void goDebug(){
+    public void goDebug() {
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void goRelease() {
+        boolean startActivity = RePlugin.startActivity(this, new Intent(),"com.tiangong.android.plugin.demo", "com.tiangong.android.plugin.demo.MainActivity");
+        if (startActivity) {
+            finish();
+        } else {
+            ToastUtils.showShortToast(this, "进入App失败");
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -81,7 +93,7 @@ public class SplashActivity extends AppCompatActivity {
 ////                appid = 201809291442001L;
 //                break;
 //        }
-
+//        goRelease();
         if (timer == null) {
             timer = new Timer();
         }
@@ -114,7 +126,7 @@ public class SplashActivity extends AppCompatActivity {
                                 String version = versionData.getVersion();
                                 if (version != null && version.contains("2.0")) {
                                     //正式版
-                                    NewWebActivity.newInstance(SplashActivity.this, versionData);
+                                    NewWebActivity.newInstance(SplashActivity.this,versionData);
                                     finish();
                                 } else {
                                     //测试版

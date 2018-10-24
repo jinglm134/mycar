@@ -9,8 +9,11 @@ import com.jaylm.mycar.net.WebList
 import com.jaylm.mycar.util.GsonUtils
 import com.jaylm.mycar.util.TimeUtils
 import com.lzy.okgo.model.Response
+import com.zzhoujay.richtext.ImageHolder
 import com.zzhoujay.richtext.RichText
+import com.zzhoujay.richtext.callback.ImageFixCallback
 import kotlinx.android.synthetic.main.activity_news_detail.*
+import java.lang.Exception
 import java.util.regex.Pattern
 
 /**
@@ -58,16 +61,39 @@ class ActivityNewsDetail : BaseActivity() {
 
 
         var htmlText = mData.content
-        for (i in mData.img.indices) {
-            val matcher = Pattern.compile("(<!--IMG#)[0-9]*(-->)").matcher(htmlText)
-            if (matcher.find()) {
-                htmlText = matcher.replaceFirst("<img src=" + mData.img[i].src + " />")
-            } else {
-                break
+        if (mData.img != null) {
+            for (i in mData.img.indices) {
+                val matcher = Pattern.compile("(<!--IMG#)[0-9]*(-->)").matcher(htmlText)
+                if (matcher.find()) {
+                    htmlText = matcher.replaceFirst("<img src=" + mData.img[i].src + " />")
+                } else {
+                    break
+                }
             }
         }
 
         RichText.from(htmlText)
+                .autoFix(false)
+                .fix(object :ImageFixCallback{
+                    override fun onInit(holder: ImageHolder?) {
+                    }
+
+                    override fun onFailure(holder: ImageHolder?, e: Exception?) {
+                    }
+
+                    override fun onLoading(holder: ImageHolder?) {
+                    }
+
+                    override fun onSizeReady(holder: ImageHolder?, imageWidth: Int, imageHeight: Int, sizeHolder: ImageHolder.SizeHolder) {
+                        sizeHolder.setSize(1000,1000)
+                    }
+
+                    override fun onImageReady(holder: ImageHolder?, width: Int, height: Int) {
+                    }
+
+                })
+//                .imageGetter(object :Image)
+//                .size(600,400)
                 .into(tv_content)
     }
 

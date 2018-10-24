@@ -7,11 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.company.ying.study"
+        applicationId "com.company.huang.mycar"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "1.1.0"
 
         ndk {
             //选择要添加的对应cpu类型的.so库。
@@ -42,6 +42,7 @@ android {
     }
 }
 
+apply plugin: 'replugin-host-gradle'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -72,6 +73,23 @@ dependencies {
     implementation('com.zzhoujay.richtext:richtext:2.5.4', {  //富文本
         exclude module: "markdown"
     })
+    implementation 'com.qihoo360.replugin:replugin-host-lib:2.2.4'
 //    implementation 'com.github.chrisbanes:PhotoView:2.2.0'//PhotoView
 
+}
+
+repluginHostConfig {
+    /**
+     * 是否使用 AppCompat 库
+     * 不需要个性化配置时，无需添加
+     */
+    useAppCompat = true
+    /**
+     * 背景不透明的坑的数量
+     * 不需要个性化配置时，无需添加
+     */
+    countNotTranslucentStandard = 6
+    countNotTranslucentSingleTop = 2
+    countNotTranslucentSingleTask = 3
+    countNotTranslucentSingleInstance = 2
 }

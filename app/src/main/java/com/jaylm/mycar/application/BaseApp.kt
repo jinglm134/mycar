@@ -1,6 +1,5 @@
 package com.jaylm.mycar.application
 
-import android.app.Application
 import android.content.Context
 import cn.jpush.android.api.JPushInterface
 import com.jaylm.mycar.R
@@ -10,8 +9,8 @@ import com.lzy.okgo.cache.CacheMode
 import com.lzy.okgo.cookie.CookieJarImpl
 import com.lzy.okgo.cookie.store.DBCookieStore
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor
+import com.qihoo360.replugin.RePluginApplication
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
-import com.scwang.smartrefresh.layout.api.RefreshHeader
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter
 import com.scwang.smartrefresh.layout.header.ClassicsHeader
 import okhttp3.OkHttpClient
@@ -23,7 +22,7 @@ import java.util.logging.Level
  * Created by jaylm
  * on 2018/9/29.
  */
-class BaseApp : Application() {
+class BaseApp : RePluginApplication() {
 
     init {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
